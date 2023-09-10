@@ -7,18 +7,31 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		39B3ADA65263003064340DB4 /* Pods_Spilka.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DA28EF99D5584E15091AE5C /* Pods_Spilka.framework */; };
+		49328AEF2AADDFB70019210F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 49328AEE2AADDFB70019210F /* GoogleService-Info.plist */; };
+		49328AF22AADE4AB0019210F /* CountryCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49328AF12AADE4AB0019210F /* CountryCode.swift */; };
 		49C37A0D2AADD32A00C4B769 /* SpilkaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C37A0C2AADD32A00C4B769 /* SpilkaApp.swift */; };
-		49C37A0F2AADD32A00C4B769 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C37A0E2AADD32A00C4B769 /* ContentView.swift */; };
 		49C37A112AADD32C00C4B769 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49C37A102AADD32C00C4B769 /* Assets.xcassets */; };
 		49C37A142AADD32C00C4B769 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49C37A132AADD32C00C4B769 /* Preview Assets.xcassets */; };
+		49C37A202AADD39D00C4B769 /* SignInScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C37A1C2AADD39D00C4B769 /* SignInScreen.swift */; };
+		49C37A212AADD39D00C4B769 /* WelcomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C37A1D2AADD39D00C4B769 /* WelcomeScreen.swift */; };
+		49C37A222AADD39D00C4B769 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C37A1E2AADD39D00C4B769 /* ContentView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		49328AED2AADDE050019210F /* Spilka.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Spilka.entitlements; sourceTree = "<group>"; };
+		49328AEE2AADDFB70019210F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		49328AF12AADE4AB0019210F /* CountryCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryCode.swift; sourceTree = "<group>"; };
 		49C37A092AADD32A00C4B769 /* Spilka.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Spilka.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49C37A0C2AADD32A00C4B769 /* SpilkaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpilkaApp.swift; sourceTree = "<group>"; };
-		49C37A0E2AADD32A00C4B769 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		49C37A102AADD32C00C4B769 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		49C37A132AADD32C00C4B769 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		49C37A1C2AADD39D00C4B769 /* SignInScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInScreen.swift; sourceTree = "<group>"; };
+		49C37A1D2AADD39D00C4B769 /* WelcomeScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeScreen.swift; sourceTree = "<group>"; };
+		49C37A1E2AADD39D00C4B769 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		7C3D9C68C43BB635AEFC948E /* Pods-Spilka.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Spilka.release.xcconfig"; path = "Target Support Files/Pods-Spilka/Pods-Spilka.release.xcconfig"; sourceTree = "<group>"; };
+		9DA28EF99D5584E15091AE5C /* Pods_Spilka.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Spilka.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F32DABFA99FD49F6CAFFD32E /* Pods-Spilka.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Spilka.debug.xcconfig"; path = "Target Support Files/Pods-Spilka/Pods-Spilka.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -26,17 +39,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				39B3ADA65263003064340DB4 /* Pods_Spilka.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		49328AF02AADE49A0019210F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				49328AF12AADE4AB0019210F /* CountryCode.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		49C37A002AADD32900C4B769 = {
 			isa = PBXGroup;
 			children = (
 				49C37A0B2AADD32A00C4B769 /* Spilka */,
 				49C37A0A2AADD32A00C4B769 /* Products */,
+				7005A4FEC0B9D51375B9FABB /* Pods */,
+				C32CF8AD98A4F111D59D16D9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -51,8 +75,11 @@
 		49C37A0B2AADD32A00C4B769 /* Spilka */ = {
 			isa = PBXGroup;
 			children = (
+				49328AEE2AADDFB70019210F /* GoogleService-Info.plist */,
+				49328AED2AADDE050019210F /* Spilka.entitlements */,
+				49328AF02AADE49A0019210F /* Models */,
+				49C37A1A2AADD39D00C4B769 /* Views */,
 				49C37A0C2AADD32A00C4B769 /* SpilkaApp.swift */,
-				49C37A0E2AADD32A00C4B769 /* ContentView.swift */,
 				49C37A102AADD32C00C4B769 /* Assets.xcassets */,
 				49C37A122AADD32C00C4B769 /* Preview Content */,
 			);
@@ -67,6 +94,33 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		49C37A1A2AADD39D00C4B769 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				49C37A1E2AADD39D00C4B769 /* ContentView.swift */,
+				49C37A1C2AADD39D00C4B769 /* SignInScreen.swift */,
+				49C37A1D2AADD39D00C4B769 /* WelcomeScreen.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		7005A4FEC0B9D51375B9FABB /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F32DABFA99FD49F6CAFFD32E /* Pods-Spilka.debug.xcconfig */,
+				7C3D9C68C43BB635AEFC948E /* Pods-Spilka.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		C32CF8AD98A4F111D59D16D9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9DA28EF99D5584E15091AE5C /* Pods_Spilka.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -74,9 +128,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 49C37A172AADD32C00C4B769 /* Build configuration list for PBXNativeTarget "Spilka" */;
 			buildPhases = (
+				102A3F95F291EE0231D8DBF2 /* [CP] Check Pods Manifest.lock */,
 				49C37A052AADD32900C4B769 /* Sources */,
 				49C37A062AADD32900C4B769 /* Frameworks */,
 				49C37A072AADD32900C4B769 /* Resources */,
+				5D6CA5B57B90771E0FC3CDFB /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -127,17 +183,63 @@
 			files = (
 				49C37A142AADD32C00C4B769 /* Preview Assets.xcassets in Resources */,
 				49C37A112AADD32C00C4B769 /* Assets.xcassets in Resources */,
+				49328AEF2AADDFB70019210F /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		102A3F95F291EE0231D8DBF2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Spilka-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5D6CA5B57B90771E0FC3CDFB /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Spilka/Pods-Spilka-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Spilka/Pods-Spilka-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Spilka/Pods-Spilka-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		49C37A052AADD32900C4B769 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				49C37A0F2AADD32A00C4B769 /* ContentView.swift in Sources */,
+				49C37A202AADD39D00C4B769 /* SignInScreen.swift in Sources */,
+				49C37A222AADD39D00C4B769 /* ContentView.swift in Sources */,
+				49328AF22AADE4AB0019210F /* CountryCode.swift in Sources */,
+				49C37A212AADD39D00C4B769 /* WelcomeScreen.swift in Sources */,
 				49C37A0D2AADD32A00C4B769 /* SpilkaApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -266,15 +368,20 @@
 		};
 		49C37A182AADD32C00C4B769 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F32DABFA99FD49F6CAFFD32E /* Pods-Spilka.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Spilka/Spilka.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Spilka/Preview Content\"";
 				DEVELOPMENT_TEAM = G4PV26QJD2;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Spikla;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.social-networking";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -284,7 +391,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.gruzinov.Spilka;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -295,15 +402,20 @@
 		};
 		49C37A192AADD32C00C4B769 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7C3D9C68C43BB635AEFC948E /* Pods-Spilka.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Spilka/Spilka.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Spilka/Preview Content\"";
 				DEVELOPMENT_TEAM = G4PV26QJD2;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Spikla;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.social-networking";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -313,7 +425,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.gruzinov.Spilka;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
