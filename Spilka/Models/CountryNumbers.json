@@ -6,7 +6,7 @@
         "code":"AF",
         "dial_code":"+93",
         "pattern":"### ### ###",
-        "limit":9
+        "limit":11
     },
     {
         "id":"0003",
@@ -15,7 +15,7 @@
         "code":"AL",
         "dial_code":"+355",
         "pattern":"## ### ####",
-        "limit":9
+        "limit":11
     },
     {
         "id":"0004",
@@ -24,7 +24,7 @@
         "code":"DZ",
         "dial_code":"+213",
         "pattern":"### ## ## ##",
-        "limit":9
+        "limit":12
     },
     {
         "id":"0005",
@@ -33,7 +33,7 @@
         "code":"AS",
         "dial_code":"+1684",
         "pattern":"### ####",
-        "limit":7
+        "limit":8
     },
     {
         "id":"0006",
@@ -42,7 +42,7 @@
         "code":"AD",
         "dial_code":"+376",
         "pattern":"## ## ##",
-        "limit":6
+        "limit":8
     },
     {
         "id":"0007",
@@ -51,7 +51,7 @@
         "code":"AO",
         "dial_code":"+244",
         "pattern":"### ### ###",
-        "limit":9
+        "limit":11
     },
     {
         "id":"0008",
@@ -60,7 +60,7 @@
         "code":"AI",
         "dial_code":"+1264",
         "pattern":"### ####",
-        "limit":7
+        "limit":8
     },
     {
         "id":"0010",
@@ -69,7 +69,7 @@
         "code":"AG",
         "dial_code":"+1268",
         "pattern":"### ####",
-        "limit":7
+        "limit":8
     },
     {
         "id":"0011",
@@ -78,7 +78,7 @@
         "code":"AR",
         "dial_code":"+54",
         "pattern":"## #### ####",
-        "limit":10
+        "limit":12
     },
     {
         "id":"0012",
@@ -87,7 +87,7 @@
         "code":"AM",
         "dial_code":"+374",
         "pattern":"## ### ###",
-        "limit":8
+        "limit":10
     },
     {
         "id":"0013",
@@ -96,7 +96,7 @@
         "code":"AW",
         "dial_code":"+297",
         "pattern":"### ####",
-        "limit":7
+        "limit":8
     },
     {
         "id":"0014",
@@ -105,7 +105,7 @@
         "code":"AU",
         "dial_code":"+61",
         "pattern":"# #### ####",
-        "limit":9
+        "limit":11
     },
     {
         "id":"0015",
@@ -114,7 +114,7 @@
         "code":"AT",
         "dial_code":"+43",
         "pattern":"### ######",
-        "limit":9
+        "limit":10
     },
     {
         "id":"0016",
@@ -123,7 +123,7 @@
         "code":"AZ",
         "dial_code":"+994",
         "pattern":"## ### ####",
-        "limit":9
+        "limit":11
     },
     {
         "id":"0017",
@@ -132,7 +132,7 @@
         "code":"BS",
         "dial_code":"+1242",
         "pattern":"### ####",
-        "limit":7
+        "limit":8
     },
     {
         "id":"0018",
@@ -141,7 +141,7 @@
         "code":"BH",
         "dial_code":"+973",
         "pattern":"#### ####",
-        "limit":8
+        "limit":9
     },
     {
         "id":"0019",
@@ -150,7 +150,7 @@
         "code":"BD",
         "dial_code":"+880",
         "pattern":"## ### ###",
-        "limit":8
+        "limit":10
     },
     {
         "id":"0020",
@@ -159,7 +159,7 @@
         "code":"BB",
         "dial_code":"+1246",
         "pattern":"### ####",
-        "limit":7
+        "limit":8
     },
     {
         "id":"0022",
@@ -168,7 +168,7 @@
         "code":"BE",
         "dial_code":"+32",
         "pattern":"### ## ## ##",
-        "limit":9
+        "limit":12
     },
     {
         "id":"0023",
@@ -186,7 +186,7 @@
         "code":"BJ",
         "dial_code":"+229",
         "pattern":"## ### ###",
-        "limit":8
+        "limit":10
     },
     {
         "id":"0025",
@@ -195,7 +195,7 @@
         "code":"BM",
         "dial_code":"+1441",
         "pattern":"### ####",
-        "limit":7
+        "limit":8
     },
     {
         "id":"0026",
@@ -204,7 +204,7 @@
         "code":"BT",
         "dial_code":"+975",
         "pattern":"## ### ###",
-        "limit":8
+        "limit":10
     },
     {
         "id":"0027",
@@ -213,7 +213,7 @@
         "code":"BO",
         "dial_code":"+591",
         "pattern":"# ### ####",
-        "limit":8
+        "limit":10
     },
     {
         "id":"0028",
@@ -222,7 +222,7 @@
         "code":"BA",
         "dial_code":"+387",
         "pattern":"## ### ###",
-        "limit":8
+        "limit":10
     },
     {
         "id":"0029",
@@ -231,7 +231,7 @@
         "code":"BW",
         "dial_code":"+267",
         "pattern":"## ### ###",
-        "limit":8
+        "limit":10
     },
     {
         "id":"0031",
@@ -240,7 +240,7 @@
         "code":"BR",
         "dial_code":"+55",
         "pattern":"## ##### ####",
-        "limit":11
+        "limit":13
     },
     {
         "id":"0032",
@@ -249,7 +249,7 @@
         "code":"IO",
         "dial_code":"+1284",
         "pattern":"### ####",
-        "limit":7
+        "limit":8
     },
     {
         "id":"0033",
@@ -258,7 +258,7 @@
         "code":"BN",
         "dial_code":"+673",
         "pattern":"### ####",
-        "limit":7
+        "limit":8
     },
     {
         "id":"0034",
@@ -276,7 +276,7 @@
         "code":"BF",
         "dial_code":"+226",
         "pattern":"## ## ## ##",
-        "limit":8
+        "limit":11
     },
     {
         "id":"0036",
@@ -285,7 +285,7 @@
         "code":"BI",
         "dial_code":"+257",
         "pattern":"## ## ####",
-        "limit":8
+        "limit":10
     },
     {
         "id":"0037",
@@ -294,7 +294,7 @@
         "code":"KH",
         "dial_code":"+855",
         "pattern":"## ### ###",
-        "limit":8
+        "limit":10
     },
     {
         "id":"0038",
@@ -303,7 +303,7 @@
         "code":"CM",
         "dial_code":"+237",
         "pattern":"#### ####",
-        "limit":8
+        "limit":9
     },
     {
         "id":"0039",
@@ -312,7 +312,7 @@
         "code":"CA",
         "dial_code":"+1",
         "pattern":"### ### ####",
-        "limit":10
+        "limit":12
     },
     {
         "id":"0040",
@@ -321,7 +321,7 @@
         "code":"CV",
         "dial_code":"+238",
         "pattern":"### ####",
-        "limit":7
+        "limit":8
     },
     {
         "id":"0041",
@@ -330,7 +330,7 @@
         "code":"KY",
         "dial_code":"+1345",
         "pattern":"### ####",
-        "limit":7
+        "limit":8
     },
     {
         "id":"0042",
@@ -339,7 +339,7 @@
         "code":"CF",
         "dial_code":"+236",
         "pattern":"## ## ## ##",
-        "limit":8
+        "limit":11
     },
     {
         "id":"0043",
@@ -348,7 +348,7 @@
         "code":"TD",
         "dial_code":"+235",
         "pattern":"## ## ## ##",
-        "limit":8
+        "limit":11
     },
     {
         "id":"0044",
@@ -357,7 +357,7 @@
         "code":"CL",
         "dial_code":"+56",
         "pattern":"# #### ####",
-        "limit":9
+        "limit":11
     },
     {
         "id":"0048",
@@ -366,7 +366,7 @@
         "code":"CO",
         "dial_code":"+57",
         "pattern":"### ### ####",
-        "limit":10
+        "limit":12
     },
     {
         "id":"0049",
@@ -375,7 +375,7 @@
         "code":"KM",
         "dial_code":"+269",
         "pattern":"### ####",
-        "limit":7
+        "limit":8
     },
     {
         "id":"0050",
@@ -384,7 +384,7 @@
         "code":"CG",
         "dial_code":"+242",
         "pattern":"## ### ####",
-        "limit":9
+        "limit":11
     },
     {
         "id":"0051",
@@ -393,7 +393,7 @@
         "code":"CD",
         "dial_code":"+243",
         "pattern":"## ### ####",
-        "limit":9
+        "limit":11
     },
     {
         "id":"0052",
@@ -411,7 +411,7 @@
         "code":"CR",
         "dial_code":"+506",
         "pattern":"#### ####",
-        "limit":8
+        "limit":9
     },
     {
         "id":"0054",
@@ -420,7 +420,7 @@
         "code":"CI",
         "dial_code":"+225",
         "pattern":"## ## ## ####",
-        "limit":10
+        "limit":13
     },
     {
         "id":"0055",
@@ -429,7 +429,7 @@
         "code":"HR",
         "dial_code":"+385",
         "pattern":"## ### ###",
-        "limit":8
+        "limit":10
     },
     {
         "id":"0056",
@@ -438,7 +438,7 @@
         "code":"CU",
         "dial_code":"+53",
         "pattern":"# ### ####",
-        "limit":8
+        "limit":10
     },
     {
         "id":"0057",
@@ -447,7 +447,7 @@
         "code":"CY",
         "dial_code":"+357",
         "pattern":"#### ####",
-        "limit":8
+        "limit":9
     },
     {
         "id":"0058",
@@ -456,7 +456,7 @@
         "code":"CZ",
         "dial_code":"+420",
         "pattern":"### ### ###",
-        "limit":9
+        "limit":11
     },
     {
         "id":"0059",
@@ -465,7 +465,7 @@
         "code":"DK",
         "dial_code":"+45",
         "pattern":"#### ####",
-        "limit":8
+        "limit":9
     },
     {
         "id":"006011",
@@ -483,7 +483,7 @@
         "code":"DJ",
         "dial_code":"+253",
         "pattern":"## ## ## ##",
-        "limit":8
+        "limit":11
     },
     {
         "id":"0061",
@@ -492,7 +492,7 @@
         "code":"DM",
         "dial_code":"+1767",
         "pattern":"### ####",
-        "limit":7
+        "limit":8
     },
     {
         "id":"0062",
@@ -501,7 +501,7 @@
         "code":"DO",
         "dial_code":"+1809",
         "pattern":"### ####",
-        "limit":7
+        "limit":8
     },
     {
         "id":"0063",
@@ -510,7 +510,7 @@
         "code":"EC",
         "dial_code":"+593",
         "pattern":"## ### ####",
-        "limit":9
+        "limit":11
     },
     {
         "id":"0064",
@@ -519,7 +519,7 @@
         "code":"EG",
         "dial_code":"+20",
         "pattern":"## #### ####",
-        "limit":10
+        "limit":12
     },
     {
         "id":"0065",
@@ -528,7 +528,7 @@
         "code":"SV",
         "dial_code":"+503",
         "pattern":"#### ####",
-        "limit":8
+        "limit":9
     },
     {
         "id":"0066",
@@ -537,7 +537,7 @@
         "code":"GQ",
         "dial_code":"+240",
         "pattern":"### ### ###",
-        "limit":9
+        "limit":11
     },
     {
         "id":"0067",
@@ -546,7 +546,7 @@
         "code":"ER",
         "dial_code":"+291",
         "pattern":"# ### ###",
-        "limit":7
+        "limit":9
     },
     {
         "id":"0068",
@@ -555,7 +555,7 @@
         "code":"EE",
         "dial_code":"+372",
         "pattern":"#### ###",
-        "limit":7
+        "limit":8
     },
     {
         "id":"006811",
@@ -564,7 +564,7 @@
         "code":"SZ",
         "dial_code":"+268",
         "pattern":"#### ####",
-        "limit":8
+        "limit":9
     },
     {
         "id":"0069",
@@ -573,7 +573,7 @@
         "code":"ET",
         "dial_code":"+251",
         "pattern":"## ### ###",
-        "limit":8
+        "limit":10
     },
     {
         "id":"0070",
@@ -591,7 +591,7 @@
         "code":"FO",
         "dial_code":"+298",
         "pattern":"### ###",
-        "limit":6
+        "limit":7
     },
     {
         "id":"0072",
@@ -600,7 +600,7 @@
         "code":"FJ",
         "dial_code":"+679",
         "pattern":"### ####",
-        "limit":7
+        "limit":8
     },
     {
         "id":"0073",
@@ -618,7 +618,7 @@
         "code":"FR",
         "dial_code":"+33",
         "pattern":"# ## ## ## ##",
-        "limit":9
+        "limit":13
     },
     {
         "id":"0075",
@@ -645,7 +645,7 @@
         "code":"GA",
         "dial_code":"+241",
         "pattern":"# ## ## ##",
-        "limit":7
+        "limit":10
     },
     {
         "id":"0079",
@@ -654,7 +654,7 @@
         "code":"GM",
         "dial_code":"+220",
         "pattern":"### ####",
-        "limit":7
+        "limit":8
     },
     {
         "id":"0080",
@@ -663,7 +663,7 @@
         "code":"GE",
         "dial_code":"+995",
         "pattern":"### ### ###",
-        "limit":9
+        "limit":11
     },
     {
         "id":"0081",
@@ -681,7 +681,7 @@
         "code":"GH",
         "dial_code":"+233",
         "pattern":"## ### ####",
-        "limit":9
+        "limit":11
     },
     {
         "id":"0083",
@@ -690,7 +690,7 @@
         "code":"GI",
         "dial_code":"+350",
         "pattern":"#### ####",
-        "limit":8
+        "limit":9
     },
     {
         "id":"0084",
@@ -699,7 +699,7 @@
         "code":"GR",
         "dial_code":"+30",
         "pattern":"### ### ####",
-        "limit":10
+        "limit":12
     },
     {
         "id":"0085",
@@ -708,7 +708,7 @@
         "code":"GL",
         "dial_code":"+299",
         "pattern":"### ###",
-        "limit":6
+        "limit":7
     },
     {
         "id":"0086",
@@ -717,7 +717,7 @@
         "code":"GD",
         "dial_code":"+1473",
         "pattern":"### ####",
-        "limit":7
+        "limit":8
     },
     {
         "id":"0087",
@@ -726,7 +726,7 @@
         "code":"GP",
         "dial_code":"+590",
         "pattern":"### ## ## ##",
-        "limit":9
+        "limit":12
     },
     {
         "id":"0088",
@@ -735,7 +735,7 @@
         "code":"GU",
         "dial_code":"+1671",
         "pattern":"### ####",
-        "limit":7
+        "limit":8
     },
     {
         "id":"0089",
@@ -744,7 +744,7 @@
         "code":"GT",
         "dial_code":"+502",
         "pattern":"# ### ####",
-        "limit":8
+        "limit":10
     },
     {
         "id":"0091",
@@ -753,7 +753,7 @@
         "code":"GN",
         "dial_code":"+224",
         "pattern":"### ### ###",
-        "limit":9
+        "limit":11
     },
     {
         "id":"0092",
@@ -762,7 +762,7 @@
         "code":"GW",
         "dial_code":"+245",
         "pattern":"### ## ## ##",
-        "limit":9
+        "limit":12
     },
     {
         "id":"0093",
@@ -780,7 +780,7 @@
         "code":"HT",
         "dial_code":"+509",
         "pattern":"#### ####",
-        "limit":8
+        "limit":9
     },
     {
         "id":"0097",
@@ -789,7 +789,7 @@
         "code":"HN",
         "dial_code":"+504",
         "pattern":"#### ####",
-        "limit":8
+        "limit":9
     },
     {
         "id":"0098",
@@ -798,7 +798,7 @@
         "code":"HK",
         "dial_code":"+852",
         "pattern":"# ### ####",
-        "limit":8
+        "limit":10
     },
     {
         "id":"0099",
@@ -807,7 +807,7 @@
         "code":"HU",
         "dial_code":"+36",
         "pattern":"### ### ###",
-        "limit":9
+        "limit":11
     },
     {
         "id":"0100",
@@ -816,7 +816,7 @@
         "code":"IS",
         "dial_code":"+354",
         "pattern":"### ####",
-        "limit":7
+        "limit":8
     },
     {
         "id":"0101",
@@ -825,7 +825,7 @@
         "code":"IN",
         "dial_code":"+91",
         "pattern":"##### #####",
-        "limit":10
+        "limit":11
     },
     {
         "id":"0102",
@@ -834,7 +834,7 @@
         "code":"ID",
         "dial_code":"+62",
         "pattern":"### ######",
-        "limit":9
+        "limit":10
     },
     {
         "id":"0104",
@@ -843,7 +843,7 @@
         "code":"IQ",
         "dial_code":"+964",
         "pattern":"### ### ####",
-        "limit":10
+        "limit":12
     },
     {
         "id":"0105",
@@ -852,7 +852,7 @@
         "code":"IE",
         "dial_code":"+353",
         "pattern":"## ### ####",
-        "limit":9
+        "limit":11
     },
     {
         "id":"0107",
@@ -861,7 +861,7 @@
         "code":"IL",
         "dial_code":"+972",
         "pattern":"## ### ####",
-        "limit":9
+        "limit":11
     },
     {
         "id":"0108",
@@ -870,7 +870,7 @@
         "code":"IT",
         "dial_code":"+39",
         "pattern":"### ### ####",
-        "limit":10
+        "limit":12
     },
     {
         "id":"0109",
@@ -879,7 +879,7 @@
         "code":"JM",
         "dial_code":"+1876",
         "pattern":"### ####",
-        "limit":7
+        "limit":8
     },
     {
         "id":"0110",
@@ -888,7 +888,7 @@
         "code":"JP",
         "dial_code":"+81",
         "pattern":"## #### ####",
-        "limit":10
+        "limit":12
     },
     {
         "id":"0112",
@@ -897,7 +897,7 @@
         "code":"JO",
         "dial_code":"+962",
         "pattern":"# #### ####",
-        "limit":9
+        "limit":11
     },
     {
         "id":"0113",
@@ -906,7 +906,7 @@
         "code":"KZ",
         "dial_code":"+7",
         "pattern":"### ### ## ##",
-        "limit":10
+        "limit":13
     },
     {
         "id":"0114",
@@ -915,7 +915,7 @@
         "code":"KE",
         "dial_code":"+254",
         "pattern":"### ### ###",
-        "limit":9
+        "limit":11
     },
     {
         "id":"0115",
@@ -924,7 +924,7 @@
         "code":"KI",
         "dial_code":"+686",
         "pattern":"#### ####",
-        "limit":8
+        "limit":9
     },
     {
         "id":"0116",
@@ -942,7 +942,7 @@
         "code":"KR",
         "dial_code":"+82",
         "pattern":"## #### ###",
-        "limit":9
+        "limit":11
     },
     {
         "id":"0118",
@@ -951,7 +951,7 @@
         "code":"XK",
         "dial_code":"+383",
         "pattern":"#### ####",
-        "limit":8
+        "limit":9
     },
     {
         "id":"0119",
@@ -960,7 +960,7 @@
         "code":"KW",
         "dial_code":"+965",
         "pattern":"#### ####",
-        "limit":8
+        "limit":9
     },
     {
         "id":"0120",
@@ -969,7 +969,7 @@
         "code":"KG",
         "dial_code":"+996",
         "pattern":"### ######",
-        "limit":9
+        "limit":10
     },
     {
         "id":"0121",
@@ -978,7 +978,7 @@
         "code":"LA",
         "dial_code":"+856",
         "pattern":"## ## ### ###",
-        "limit":10
+        "limit":13
     },
     {
         "id":"0122",
@@ -987,7 +987,7 @@
         "code":"LV",
         "dial_code":"+371",
         "pattern":"### #####",
-        "limit":8
+        "limit":9
     },
     {
         "id":"0123",
@@ -1005,7 +1005,7 @@
         "code":"LS",
         "dial_code":"+266",
         "pattern":"## ### ###",
-        "limit":8
+        "limit":10
     },
     {
         "id":"0125",
@@ -1014,7 +1014,7 @@
         "code":"LR",
         "dial_code":"+231",
         "pattern":"## ### ####",
-        "limit":9
+        "limit":11
     },
     {
         "id":"0126",
@@ -1023,7 +1023,7 @@
         "code":"LY",
         "dial_code":"+218",
         "pattern":"## ### ####",
-        "limit":9
+        "limit":11
     },
     {
         "id":"0127",
@@ -1032,7 +1032,7 @@
         "code":"LI",
         "dial_code":"+423",
         "pattern":"### ####",
-        "limit":7
+        "limit":8
     },
     {
         "id":"0128",
@@ -1041,7 +1041,7 @@
         "code":"LT",
         "dial_code":"+370",
         "pattern":"### #####",
-        "limit":8
+        "limit":9
     },
     {
         "id":"0129",
@@ -1050,7 +1050,7 @@
         "code":"LU",
         "dial_code":"+352",
         "pattern":"### ### ###",
-        "limit":9
+        "limit":11
     },
     {
         "id":"0130",
@@ -1059,7 +1059,7 @@
         "code":"MO",
         "dial_code":"+853",
         "pattern":"#### ####",
-        "limit":8
+        "limit":9
     },
     {
         "id":"0131",
@@ -1068,7 +1068,7 @@
         "code":"MK",
         "dial_code":"+389",
         "pattern":"## ######",
-        "limit":8
+        "limit":9
     },
     {
         "id":"0132",
@@ -1077,7 +1077,7 @@
         "code":"MG",
         "dial_code":"+261",
         "pattern":"## ######",
-        "limit":8
+        "limit":9
     },
     {
         "id":"0133",
@@ -1086,7 +1086,7 @@
         "code":"MW",
         "dial_code":"+265",
         "pattern":"## ## ### ##",
-        "limit":9
+        "limit":12
     },
     {
         "id":"0134",
@@ -1104,7 +1104,7 @@
         "code":"MV",
         "dial_code":"+960",
         "pattern":"### ####",
-        "limit":7
+        "limit":8
     },
     {
         "id":"0136",
@@ -1113,7 +1113,7 @@
         "code":"ML",
         "dial_code":"+223",
         "pattern":"#### ####",
-        "limit":8
+        "limit":9
     },
     {
         "id":"0137",
@@ -1122,7 +1122,7 @@
         "code":"MT",
         "dial_code":"+356",
         "pattern":"## ## ## ##",
-        "limit":8
+        "limit":11
     },
     {
         "id":"0138",
@@ -1149,7 +1149,7 @@
         "code":"MR",
         "dial_code":"+222",
         "pattern":"#### ####",
-        "limit":8
+        "limit":9
     },
     {
         "id":"0141",
@@ -1158,7 +1158,7 @@
         "code":"MU",
         "dial_code":"+230",
         "pattern":"#### ####",
-        "limit":8
+        "limit":9
     },
     {
         "id":"0143",
@@ -1185,7 +1185,7 @@
         "code":"MD",
         "dial_code":"+373",
         "pattern":"## ### ###",
-        "limit":8
+        "limit":10
     },
     {
         "id":"0146",
@@ -1194,7 +1194,7 @@
         "code":"MC",
         "dial_code":"+377",
         "pattern":"#### ####",
-        "limit":8
+        "limit":9
     },
     {
         "id":"0147",
@@ -1203,7 +1203,7 @@
         "code":"MN",
         "dial_code":"+976",
         "pattern":"## ## ####",
-        "limit":8
+        "limit":10
     },
     {
         "id":"0148",
@@ -1221,7 +1221,7 @@
         "code":"MS",
         "dial_code":"+1664",
         "pattern":"### ####",
-        "limit":7
+        "limit":8
     },
     {
         "id":"0150",
@@ -1230,7 +1230,7 @@
         "code":"MA",
         "dial_code":"+212",
         "pattern":"## ### ####",
-        "limit":9
+        "limit":11
     },
     {
         "id":"0151",
@@ -1239,7 +1239,7 @@
         "code":"MZ",
         "dial_code":"+258",
         "pattern":"## ### ####",
-        "limit":9
+        "limit":11
     },
     {
         "id":"0152",
@@ -1257,7 +1257,7 @@
         "code":"NA",
         "dial_code":"+264",
         "pattern":"## ### ####",
-        "limit":9
+        "limit":11
     },
     {
         "id":"0154",
@@ -1275,7 +1275,7 @@
         "code":"NP",
         "dial_code":"+977",
         "pattern":"## #### ####",
-        "limit":10
+        "limit":12
     },
     {
         "id":"0156",
@@ -1284,7 +1284,7 @@
         "code":"NL",
         "dial_code":"+31",
         "pattern":"# ## ## ## ##",
-        "limit":9
+        "limit":13
     },
     {
         "id":"0158",
@@ -1302,7 +1302,7 @@
         "code":"NZ",
         "dial_code":"+64",
         "pattern":"#### ####",
-        "limit":8
+        "limit":9
     },
     {
         "id":"0160",
@@ -1311,7 +1311,7 @@
         "code":"NI",
         "dial_code":"+505",
         "pattern":"#### ####",
-        "limit":8
+        "limit":9
     },
     {
         "id":"0161",
@@ -1320,7 +1320,7 @@
         "code":"NE",
         "dial_code":"+227",
         "pattern":"## ## ## ##",
-        "limit":8
+        "limit":11
     },
     {
         "id":"0162",
@@ -1329,7 +1329,7 @@
         "code":"NG",
         "dial_code":"+234",
         "pattern":"## #### ####",
-        "limit":10
+        "limit":12
     },
     {
         "id":"0163",
@@ -1356,7 +1356,7 @@
         "code":"MP",
         "dial_code":"+1670",
         "pattern":"### ####",
-        "limit":7
+        "limit":8
     },
     {
         "id":"0166",
@@ -1365,7 +1365,7 @@
         "code":"NO",
         "dial_code":"+47",
         "pattern":"### ## ###",
-        "limit":8
+        "limit":10
     },
     {
         "id":"0167",
@@ -1374,7 +1374,7 @@
         "code":"OM",
         "dial_code":"+968",
         "pattern":"#### ####",
-        "limit":8
+        "limit":9
     },
     {
         "id":"0168",
@@ -1383,7 +1383,7 @@
         "code":"PK",
         "dial_code":"+92",
         "pattern":"### ### ####",
-        "limit":10
+        "limit":12
     },
     {
         "id":"0169",
@@ -1401,7 +1401,7 @@
         "code":"PS",
         "dial_code":"+970",
         "pattern":"### ## ####",
-        "limit":9
+        "limit":11
     },
     {
         "id":"0171",
@@ -1410,7 +1410,7 @@
         "code":"PA",
         "dial_code":"+507",
         "pattern":"#### ####",
-        "limit":8
+        "limit":9
     },
     {
         "id":"0172",
@@ -1428,7 +1428,7 @@
         "code":"PY",
         "dial_code":"+595",
         "pattern":"### ### ###",
-        "limit":9
+        "limit":11
     },
     {
         "id":"0174",
@@ -1437,7 +1437,7 @@
         "code":"PE",
         "dial_code":"+51",
         "pattern":"### ### ###",
-        "limit":9
+        "limit":11
     },
     {
         "id":"0175",
@@ -1446,7 +1446,7 @@
         "code":"PH",
         "dial_code":"+63",
         "pattern":"### ### ####",
-        "limit":10
+        "limit":12
     },
     {
         "id":"0177",
@@ -1455,7 +1455,7 @@
         "code":"PL",
         "dial_code":"+48",
         "pattern":"### ### ###",
-        "limit":9
+        "limit":11
     },
     {
         "id":"0178",
@@ -1464,7 +1464,7 @@
         "code":"PT",
         "dial_code":"+351",
         "pattern":"### ### ###",
-        "limit":9
+        "limit":11
     },
     {
         "id":"0179",
@@ -1473,7 +1473,7 @@
         "code":"PR",
         "dial_code":"+1939",
         "pattern":"### ####",
-        "limit":7
+        "limit":8
     },
     {
         "id":"0180",
@@ -1482,7 +1482,7 @@
         "code":"QA",
         "dial_code":"+974",
         "pattern":"## ### ###",
-        "limit":8
+        "limit":10
     },
     {
         "id":"0181",
@@ -1491,7 +1491,7 @@
         "code":"RO",
         "dial_code":"+40",
         "pattern":"### ### ###",
-        "limit":9
+        "limit":11
     },
     {
         "id":"0183",
@@ -1500,7 +1500,7 @@
         "code":"RW",
         "dial_code":"+250",
         "pattern":"### ### ###",
-        "limit":9
+        "limit":11
     },
     {
         "id":"0184",
@@ -1509,7 +1509,7 @@
         "code":"RE",
         "dial_code":"+262",
         "pattern":"### ### ###",
-        "limit":9
+        "limit":11
     },
     {
         "id":"0186",
@@ -1527,7 +1527,7 @@
         "code":"KN",
         "dial_code":"+1869",
         "pattern":"### ####",
-        "limit":7
+        "limit":8
     },
     {
         "id":"0188",
@@ -1536,7 +1536,7 @@
         "code":"LC",
         "dial_code":"+1758",
         "pattern":"### ####",
-        "limit":7
+        "limit":8
     },
     {
         "id":"0190",
@@ -1554,7 +1554,7 @@
         "code":"VC",
         "dial_code":"+1784",
         "pattern":"### ####",
-        "limit":7
+        "limit":8
     },
     {
         "id":"0192",
@@ -1562,8 +1562,8 @@
         "flag":"🇼🇸",
         "code":"WS",
         "dial_code":"+685",
-        "pattern":"#",
-        "limit":1
+        "pattern":"## #####",
+        "limit":8
     },
     {
         "id":"0193",
@@ -1571,8 +1571,8 @@
         "flag":"🇸🇲",
         "code":"SM",
         "dial_code":"+378",
-        "pattern":"#",
-        "limit":1
+        "pattern":"## ####",
+        "limit":8
     },
     {
         "id":"0194",
@@ -1581,7 +1581,7 @@
         "code":"ST",
         "dial_code":"+239",
         "pattern":"## #####",
-        "limit":7
+        "limit":8
     },
     {
         "id":"0195",
@@ -1590,7 +1590,7 @@
         "code":"SA",
         "dial_code":"+966",
         "pattern":"## ### ####",
-        "limit":9
+        "limit":11
     },
     {
         "id":"0196",
@@ -1599,7 +1599,7 @@
         "code":"SN",
         "dial_code":"+221",
         "pattern":"## ### ####",
-        "limit":9
+        "limit":11
     },
     {
         "id":"0197",
@@ -1608,7 +1608,7 @@
         "code":"RS",
         "dial_code":"+381",
         "pattern":"## ### ###",
-        "limit":8
+        "limit":10
     },
     {
         "id":"0198",
@@ -1617,7 +1617,7 @@
         "code":"SC",
         "dial_code":"+248",
         "pattern":"# ## ## ##",
-        "limit":7
+        "limit":10
     },
     {
         "id":"0199",
@@ -1626,7 +1626,7 @@
         "code":"SL",
         "dial_code":"+232",
         "pattern":"## ### ###",
-        "limit":8
+        "limit":10
     },
     {
         "id":"0200",
@@ -1635,7 +1635,7 @@
         "code":"SG",
         "dial_code":"+65",
         "pattern":"#### ####",
-        "limit":8
+        "limit":9
     },
     {
         "id":"0201",
@@ -1644,7 +1644,7 @@
         "code":"SK",
         "dial_code":"+421",
         "pattern":"### ### ###",
-        "limit":9
+        "limit":11
     },
     {
         "id":"0202",
@@ -1653,7 +1653,7 @@
         "code":"SI",
         "dial_code":"+386",
         "pattern":"## ### ###",
-        "limit":8
+        "limit":10
     },
     {
         "id":"0203",
@@ -1661,8 +1661,8 @@
         "flag":"🇸🇧",
         "code":"SB",
         "dial_code":"+677",
-        "pattern":"#",
-        "limit":1
+        "pattern":"### ####",
+        "limit":8
     },
     {
         "id":"0204",
@@ -1671,7 +1671,7 @@
         "code":"SO",
         "dial_code":"+252",
         "pattern":"## ### ###",
-        "limit":8
+        "limit":10
     },
     {
         "id":"0205",
@@ -1680,7 +1680,7 @@
         "code":"ZA",
         "dial_code":"+27",
         "pattern":"## ### ####",
-        "limit":9
+        "limit":11
     },
     {
         "id":"0206",
@@ -1689,7 +1689,7 @@
         "code":"SS",
         "dial_code":"+211",
         "pattern":"## ### ####",
-        "limit":9
+        "limit":11
     },
     {
         "id":"0208",
@@ -1698,7 +1698,7 @@
         "code":"ES",
         "dial_code":"+34",
         "pattern":"### ### ###",
-        "limit":9
+        "limit":11
     },
     {
         "id":"0209",
@@ -1707,7 +1707,7 @@
         "code":"LK",
         "dial_code":"+94",
         "pattern":"## ### ####",
-        "limit":9
+        "limit":11
     },
     {
         "id":"0210",
@@ -1716,7 +1716,7 @@
         "code":"SD",
         "dial_code":"+249",
         "pattern":"## ### ####",
-        "limit":9
+        "limit":11
     },
     {
         "id":"0211",
@@ -1725,7 +1725,7 @@
         "code":"SR",
         "dial_code":"+597",
         "pattern":"### ####",
-        "limit":7
+        "limit":8
     },
     {
         "id":"0214",
@@ -1734,7 +1734,7 @@
         "code":"SE",
         "dial_code":"+46",
         "pattern":"## ### ####",
-        "limit":9
+        "limit":11
     },
     {
         "id":"0215",
@@ -1743,7 +1743,7 @@
         "code":"CH",
         "dial_code":"+41",
         "pattern":"## ### ####",
-        "limit":9
+        "limit":11
     },
     {
         "id":"0217",
@@ -1752,7 +1752,7 @@
         "code":"TW",
         "dial_code":"+886",
         "pattern":"### ### ###",
-        "limit":9
+        "limit":11
     },
     {
         "id":"0218",
@@ -1761,7 +1761,7 @@
         "code":"TJ",
         "dial_code":"+992",
         "pattern":"## ### ####",
-        "limit":9
+        "limit":11
     },
     {
         "id":"0219",
@@ -1770,7 +1770,7 @@
         "code":"TZ",
         "dial_code":"+255",
         "pattern":"## ### ####",
-        "limit":9
+        "limit":11
     },
     {
         "id":"0220",
@@ -1779,7 +1779,7 @@
         "code":"TH",
         "dial_code":"+66",
         "pattern":"# #### ####",
-        "limit":9
+        "limit":11
     },
     {
         "id":"0221",
@@ -1787,8 +1787,8 @@
         "flag":"🇹🇱",
         "code":"TL",
         "dial_code":"+670",
-        "pattern":"#",
-        "limit":1
+        "pattern":"#### ####",
+        "limit":9
     },
     {
         "id":"0222",
@@ -1797,7 +1797,7 @@
         "code":"TG",
         "dial_code":"+228",
         "pattern":"## ### ###",
-        "limit":8
+        "limit":10
     },
     {
         "id":"0223",
@@ -1805,8 +1805,8 @@
         "flag":"🇹🇰",
         "code":"TK",
         "dial_code":"+690",
-        "pattern":"#",
-        "limit":1
+        "pattern":"# ####",
+        "limit":6
     },
     {
         "id":"0224",
@@ -1814,8 +1814,8 @@
         "flag":"🇹🇴",
         "code":"TO",
         "dial_code":"+676",
-        "pattern":"#",
-        "limit":1
+        "pattern":"#### ####",
+        "limit":9
     },
     {
         "id":"0225",
@@ -1824,7 +1824,7 @@
         "code":"TT",
         "dial_code":"+1868",
         "pattern":"### ####",
-        "limit":7
+        "limit":8
     },
     {
         "id":"0226",
@@ -1833,7 +1833,7 @@
         "code":"TN",
         "dial_code":"+216",
         "pattern":"## ### ###",
-        "limit":8
+        "limit":10
     },
     {
         "id":"0227",
@@ -1842,7 +1842,7 @@
         "code":"TR",
         "dial_code":"+90",
         "pattern":"### ### ####",
-        "limit":10
+        "limit":12
     },
     {
         "id":"0228",
@@ -1851,7 +1851,7 @@
         "code":"TM",
         "dial_code":"+993",
         "pattern":"## ######",
-        "limit":8
+        "limit":9
     },
     {
         "id":"0229",
@@ -1860,7 +1860,7 @@
         "code":"TC",
         "dial_code":"+1649",
         "pattern":"### ####",
-        "limit":7
+        "limit":8
     },
     {
         "id":"0230",
@@ -1868,8 +1868,8 @@
         "flag":"🇹🇻",
         "code":"TV",
         "dial_code":"+688",
-        "pattern":"#",
-        "limit":1
+        "pattern":"## #####",
+        "limit":8
     },
     {
         "id":"0231",
@@ -1878,7 +1878,7 @@
         "code":"UG",
         "dial_code":"+256",
         "pattern":"## ### ####",
-        "limit":9
+        "limit":11
     },
     {
         "id":"0232",
@@ -1887,7 +1887,7 @@
         "code":"UA",
         "dial_code":"+380",
         "pattern":"## ### ## ##",
-        "limit":9
+        "limit":12
     },
     {
         "id":"0233",
@@ -1896,7 +1896,7 @@
         "code":"AE",
         "dial_code":"+971",
         "pattern":"## ### ####",
-        "limit":9
+        "limit":11
     },
     {
         "id":"0234",
@@ -1905,7 +1905,7 @@
         "code":"GB",
         "dial_code":"+44",
         "pattern":"#### ######",
-        "limit":10
+        "limit":11
     },
     {
         "id":"0235",
@@ -1914,7 +1914,7 @@
         "code":"US",
         "dial_code":"+1",
         "pattern":"### ### ####",
-        "limit":10
+        "limit":12
     },
     {
         "id":"0236",
@@ -1923,7 +1923,7 @@
         "code":"UY",
         "dial_code":"+598",
         "pattern":"# ### ####",
-        "limit":8
+        "limit":10
     },
     {
         "id":"0237",
@@ -1932,7 +1932,7 @@
         "code":"UZ",
         "dial_code":"+998",
         "pattern":"## ### ## ##",
-        "limit":9
+        "limit":12
     },
     {
         "id":"0238",
@@ -1940,8 +1940,8 @@
         "flag":"🇻🇺",
         "code":"VU",
         "dial_code":"+678",
-        "pattern":"#",
-        "limit":1
+        "pattern":"## ###",
+        "limit":6
     },
     {
         "id":"0239",
@@ -1950,7 +1950,7 @@
         "code":"VE",
         "dial_code":"+58",
         "pattern":"### ### ####",
-        "limit":10
+        "limit":12
     },
     {
         "id":"0240",
@@ -1958,8 +1958,8 @@
         "flag":"🇻🇳",
         "code":"VN",
         "dial_code":"+84",
-        "pattern":"#",
-        "limit":1
+        "pattern":"## #### ####",
+        "limit":12
     },
     {
         "id":"0241",
@@ -1968,7 +1968,7 @@
         "code":"VG",
         "dial_code":"+1284",
         "pattern":"### ####",
-        "limit":7
+        "limit":8
     },
     {
         "id":"0242",
@@ -1977,7 +1977,7 @@
         "code":"VI",
         "dial_code":"+1340",
         "pattern":"### ####",
-        "limit":7
+        "limit":8
     },
     {
         "id":"0243",
@@ -1985,8 +1985,8 @@
         "flag":"🇼🇫",
         "code":"WF",
         "dial_code":"+681",
-        "pattern":"#",
-        "limit":1
+        "pattern":"## ####",
+        "limit":7
     },
     {
         "id":"0244",
@@ -1995,7 +1995,7 @@
         "code":"YE",
         "dial_code":"+967",
         "pattern":"### ### ###",
-        "limit":9
+        "limit":11
     },
     {
         "id":"0245",
@@ -2004,7 +2004,7 @@
         "code":"ZM",
         "dial_code":"+260",
         "pattern":"## ### ####",
-        "limit":9
+        "limit":11
     },
     {
         "id":"0246",
@@ -2013,6 +2013,6 @@
         "code":"ZW",
         "dial_code":"+263",
         "pattern":"## ### ####",
-        "limit":9
+        "limit":11
     }
 ]

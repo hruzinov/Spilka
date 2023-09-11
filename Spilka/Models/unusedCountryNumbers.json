@@ -6,7 +6,7 @@
         "code":"BY",
         "dial_code":"+375",
         "pattern":"## ### ####",
-        "limit":9
+        "limit":11
     },
     {
         "id":"0045",
@@ -15,7 +15,7 @@
         "code":"CN",
         "dial_code":"+86",
         "pattern":"### #### ####",
-        "limit":11
+        "limit":13
     },
     {
         "id":"0103",
@@ -24,7 +24,7 @@
         "code":"IR",
         "dial_code":"+98",
         "pattern":"### ### ####",
-        "limit":10
+        "limit":12
     },
     {
         "id":"0216",
@@ -33,7 +33,7 @@
         "code":"SY",
         "dial_code":"+963",
         "pattern":"### ### ###",
-        "limit":9
+        "limit":11
     },
     {
         "id":"0182",
@@ -42,6 +42,6 @@
         "code":"RU",
         "dial_code":"+7",
         "pattern":"### ### ####",
-        "limit":10
+        "limit":12
     }
 ]

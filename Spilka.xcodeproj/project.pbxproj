@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		39B3ADA65263003064340DB4 /* Pods_Spilka.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DA28EF99D5584E15091AE5C /* Pods_Spilka.framework */; };
-		49328AEF2AADDFB70019210F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 49328AEE2AADDFB70019210F /* GoogleService-Info.plist */; };
 		49328AF22AADE4AB0019210F /* CountryCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49328AF12AADE4AB0019210F /* CountryCode.swift */; };
+		495334592AAF6D6700135E6C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 495334582AAF6D6700135E6C /* GoogleService-Info.plist */; };
 		499EE09D2AAEFBCB00103033 /* CountryNumbers.json in Resources */ = {isa = PBXBuildFile; fileRef = 499EE09B2AAEFBCB00103033 /* CountryNumbers.json */; };
 		499EE09E2AAEFBCB00103033 /* unusedCountryNumbers.json in Resources */ = {isa = PBXBuildFile; fileRef = 499EE09C2AAEFBCB00103033 /* unusedCountryNumbers.json */; };
 		499EE0A12AAEFC0300103033 /* Bundle+Decoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499EE0A02AAEFC0300103033 /* Bundle+Decoder.swift */; };
@@ -23,8 +23,8 @@
 
 /* Begin PBXFileReference section */
 		49328AED2AADDE050019210F /* Spilka.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Spilka.entitlements; sourceTree = "<group>"; };
-		49328AEE2AADDFB70019210F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		49328AF12AADE4AB0019210F /* CountryCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryCode.swift; sourceTree = "<group>"; };
+		495334582AAF6D6700135E6C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		499EE09B2AAEFBCB00103033 /* CountryNumbers.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = CountryNumbers.json; sourceTree = "<group>"; };
 		499EE09C2AAEFBCB00103033 /* unusedCountryNumbers.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = unusedCountryNumbers.json; sourceTree = "<group>"; };
 		499EE0A02AAEFC0300103033 /* Bundle+Decoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Bundle+Decoder.swift"; sourceTree = "<group>"; };
@@ -74,7 +74,6 @@
 			isa = PBXGroup;
 			children = (
 				49C37A0B2AADD32A00C4B769 /* Spilka */,
-				49328AEE2AADDFB70019210F /* GoogleService-Info.plist */,
 				49C37A0A2AADD32A00C4B769 /* Products */,
 				7005A4FEC0B9D51375B9FABB /* Pods */,
 				C32CF8AD98A4F111D59D16D9 /* Frameworks */,
@@ -92,6 +91,7 @@
 		49C37A0B2AADD32A00C4B769 /* Spilka */ = {
 			isa = PBXGroup;
 			children = (
+				495334582AAF6D6700135E6C /* GoogleService-Info.plist */,
 				499EE09F2AAEFBF300103033 /* Extentions */,
 				49328AF02AADE49A0019210F /* Models */,
 				49C37A1A2AADD39D00C4B769 /* Views */,
@@ -200,9 +200,9 @@
 			files = (
 				49C37A142AADD32C00C4B769 /* Preview Assets.xcassets in Resources */,
 				49C37A112AADD32C00C4B769 /* Assets.xcassets in Resources */,
-				49328AEF2AADDFB70019210F /* GoogleService-Info.plist in Resources */,
 				499EE09D2AAEFBCB00103033 /* CountryNumbers.json in Resources */,
 				499EE09E2AAEFBCB00103033 /* unusedCountryNumbers.json in Resources */,
+				495334592AAF6D6700135E6C /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

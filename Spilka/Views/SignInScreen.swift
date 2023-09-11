@@ -49,8 +49,9 @@ struct SignInScreen: View {
                         .background(.thinMaterial,
                                     in: RoundedRectangle(cornerRadius: 10))
                         .onChange(of: phoneNumber) {
-                            applyPatternOnNumbers(&phoneNumber, pattern: countryCode.pattern, replacementCharacter: "#")
-                            if phoneNumber.count == countryCode.limit {
+                            applyPatternOnNumbers(&phoneNumber, countryCode: countryCode,
+                                                  pattern: countryCode.pattern, replacementCharacter: "#")
+                            if phoneNumber.count >= countryCode.limit && phoneNumber.count <= 18 {
                                 isContinueButtonDisabled = false
                             } else {
                                 isContinueButtonDisabled = true
@@ -161,8 +162,12 @@ struct SignInScreen: View {
         
     }
 
-    func applyPatternOnNumbers(_ stringvar: inout String, pattern: String, replacementCharacter: Character) {
-        var pureNumber = stringvar.replacingOccurrences( of: "[^0-9]", with: "", options: .regularExpression)
+    func applyPatternOnNumbers(_ stringvar: inout String, countryCode: CountryCode, pattern: String, replacementCharacter: Character) {
+        var pureNumber = stringvar
+        if pureNumber.hasPrefix(countryCode.dialCode) {
+            pureNumber = String(pureNumber.dropFirst(countryCode.dialCode.count))
+        }
+        pureNumber = pureNumber.replacingOccurrences( of: "[^0-9]", with: "", options: .regularExpression)
         for index in 0 ..< pattern.count {
             guard index < pureNumber.count else {
                 stringvar = pureNumber

@@ -44,6 +44,7 @@ struct WelcomeScreen: View {
                                 .font(.title3)
                         }
                 }
+                Spacer()
 //                NavigationLink {
 //                    SignInScreen()
 //                } label: {
