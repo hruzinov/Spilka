@@ -1,0 +1,47 @@
+[
+    {
+        "id":"0021",
+        "name":"Belarus",
+        "flag":"🇧🇾",
+        "code":"BY",
+        "dial_code":"+375",
+        "pattern":"## ### ####",
+        "limit":9
+    },
+    {
+        "id":"0045",
+        "name":"China",
+        "flag":"🇨🇳",
+        "code":"CN",
+        "dial_code":"+86",
+        "pattern":"### #### ####",
+        "limit":11
+    },
+    {
+        "id":"0103",
+        "name":"Iran",
+        "flag":"🇮🇷",
+        "code":"IR",
+        "dial_code":"+98",
+        "pattern":"### ### ####",
+        "limit":10
+    },
+    {
+        "id":"0216",
+        "name":"Syria",
+        "flag":"🇸🇾",
+        "code":"SY",
+        "dial_code":"+963",
+        "pattern":"### ### ###",
+        "limit":9
+    },
+    {
+        "id":"0182",
+        "name":"Russia",
+        "flag":"🇷🇺",
+        "code":"RU",
+        "dial_code":"+7",
+        "pattern":"### ### ####",
+        "limit":10
+    }
+]

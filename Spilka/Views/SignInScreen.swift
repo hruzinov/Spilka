@@ -152,7 +152,7 @@ struct SignInScreen: View {
         if searchCountry.isEmpty {
             return CountryCode.allCases
         } else {
-            return CountryCode.allCases.filter { $0.title.contains(searchCountry) }
+            return CountryCode.allCases.filter { $0.title.lowercased().contains(searchCountry.lowercased()) }
         }
     }
 
