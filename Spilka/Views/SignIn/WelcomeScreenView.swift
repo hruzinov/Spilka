@@ -23,9 +23,10 @@ struct WelcomeScreenView: View {
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(width: screenSize.width)
-                    .background {
-                        Circle().fill(.white)
-                    }
+                    .mask({
+                        Circle()
+                            .padding(5)
+                    })
 
                 Spacer()
 
@@ -39,7 +40,7 @@ struct WelcomeScreenView: View {
                 NavigationLink {
                     SignInScreenView()
                 } label: {
-                    RoundedRectangle(cornerRadius: 5)
+                    RoundedRectangle(cornerRadius: 10)
                         .fill(colorScheme == .light ? .black : .white)
                         .frame(width: screenSize.width * 0.80, height: 45)
                         .overlay {

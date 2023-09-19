@@ -8,6 +8,7 @@ struct EnterVerificationCodeView: View {
     @Environment(\.colorScheme) var colorScheme
     var screenSize = UIScreen.main.bounds.size
     @ObservedObject var signInViewModel: SignInScreenView.ViewModel
+    @FocusState private var textFieldFocused: Bool
 
     var body: some View {
         NavigationStack {
@@ -32,8 +33,13 @@ struct EnterVerificationCodeView: View {
                     .onChange(of: signInViewModel.verificationCode) {
                         signInViewModel.verificationCodeChanged()
                     }
+                    .focused($textFieldFocused)
+                    .onAppear {
+                        textFieldFocused = true
+                    }
 
                 Button {
+                    textFieldFocused = false
                     signInViewModel.handleCodeContinueButton()
                 } label: {
                     RoundedRectangle(cornerRadius: 10)

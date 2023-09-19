@@ -10,6 +10,7 @@ struct SignInScreenView: View {
     @StateObject var viewModel = ViewModel()
 
     @State var isPresentedSelectorSheet = false
+    @FocusState private var textFieldFocused: Bool
 
     var body: some View {
         NavigationStack {
@@ -46,11 +47,24 @@ struct SignInScreenView: View {
                         .onChange(of: viewModel.phoneNumber) {
                             viewModel.phoneNumberChanged()
                         }
+                        .focused($textFieldFocused)
+                        .onAppear {
+                            textFieldFocused = true
+                        }
+                        .submitLabel(.next)
+                        .onSubmit {
+                            guard !viewModel.isPhoneContinueButtonDisabled &&
+                                    !viewModel.isWaitingServer else { return }
+
+                            textFieldFocused = false
+                            viewModel.handlePhoneContinueButton()
+                        }
                 }
                 .frame(width: screenSize.width * 0.9)
                 .padding(.bottom, 10)
 
                 Button {
+                    textFieldFocused = false
                     viewModel.handlePhoneContinueButton()
                 } label: {
                     RoundedRectangle(cornerRadius: 10)
