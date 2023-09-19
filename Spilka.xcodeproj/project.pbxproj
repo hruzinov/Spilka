@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		39B3ADA65263003064340DB4 /* Pods_Spilka.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DA28EF99D5584E15091AE5C /* Pods_Spilka.framework */; };
 		49328AF22AADE4AB0019210F /* CountryCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49328AF12AADE4AB0019210F /* CountryCode.swift */; };
 		495334592AAF6D6700135E6C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 495334582AAF6D6700135E6C /* GoogleService-Info.plist */; };
 		499EE09D2AAEFBCB00103033 /* CountryNumbers.json in Resources */ = {isa = PBXBuildFile; fileRef = 499EE09B2AAEFBCB00103033 /* CountryNumbers.json */; };
@@ -20,6 +19,7 @@
 		49C37A212AADD39D00C4B769 /* WelcomeScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C37A1D2AADD39D00C4B769 /* WelcomeScreenView.swift */; };
 		49C37A222AADD39D00C4B769 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C37A1E2AADD39D00C4B769 /* ContentView.swift */; };
 		49CD124B2AB8CCF700215EC6 /* SignInVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CD124A2AB8CCF700215EC6 /* SignInVM.swift */; };
+		49D767032ABA575E00EB5AAE /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 49D767022ABA575E00EB5AAE /* FirebaseAuth */; };
 		49F1CF752AB9F87300C02569 /* EnterVerificationCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F1CF742AB9F87300C02569 /* EnterVerificationCodeView.swift */; };
 		49F1CF792ABA2FBF00C02569 /* ProfileCreationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F1CF782ABA2FBF00C02569 /* ProfileCreationView.swift */; };
 /* End PBXBuildFile section */
@@ -42,9 +42,6 @@
 		49CD124C2AB8D64400215EC6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		49F1CF742AB9F87300C02569 /* EnterVerificationCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterVerificationCodeView.swift; sourceTree = "<group>"; };
 		49F1CF782ABA2FBF00C02569 /* ProfileCreationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCreationView.swift; sourceTree = "<group>"; };
-		7C3D9C68C43BB635AEFC948E /* Pods-Spilka.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Spilka.release.xcconfig"; path = "Target Support Files/Pods-Spilka/Pods-Spilka.release.xcconfig"; sourceTree = "<group>"; };
-		9DA28EF99D5584E15091AE5C /* Pods_Spilka.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Spilka.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F32DABFA99FD49F6CAFFD32E /* Pods-Spilka.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Spilka.debug.xcconfig"; path = "Target Support Files/Pods-Spilka/Pods-Spilka.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,7 +49,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				39B3ADA65263003064340DB4 /* Pods_Spilka.framework in Frameworks */,
+				49D767032ABA575E00EB5AAE /* FirebaseAuth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,8 +79,6 @@
 			children = (
 				49C37A0B2AADD32A00C4B769 /* Spilka */,
 				49C37A0A2AADD32A00C4B769 /* Products */,
-				7005A4FEC0B9D51375B9FABB /* Pods */,
-				C32CF8AD98A4F111D59D16D9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -156,23 +151,6 @@
 			path = SignIn;
 			sourceTree = "<group>";
 		};
-		7005A4FEC0B9D51375B9FABB /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				F32DABFA99FD49F6CAFFD32E /* Pods-Spilka.debug.xcconfig */,
-				7C3D9C68C43BB635AEFC948E /* Pods-Spilka.release.xcconfig */,
-			);
-			path = Pods;
-			sourceTree = "<group>";
-		};
-		C32CF8AD98A4F111D59D16D9 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				9DA28EF99D5584E15091AE5C /* Pods_Spilka.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -180,17 +158,18 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 49C37A172AADD32C00C4B769 /* Build configuration list for PBXNativeTarget "Spilka" */;
 			buildPhases = (
-				102A3F95F291EE0231D8DBF2 /* [CP] Check Pods Manifest.lock */,
 				49C37A052AADD32900C4B769 /* Sources */,
 				49C37A062AADD32900C4B769 /* Frameworks */,
 				49C37A072AADD32900C4B769 /* Resources */,
-				5D6CA5B57B90771E0FC3CDFB /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = Spilka;
+			packageProductDependencies = (
+				49D767022ABA575E00EB5AAE /* FirebaseAuth */,
+			);
 			productName = Spilka;
 			productReference = 49C37A092AADD32A00C4B769 /* Spilka.app */;
 			productType = "com.apple.product-type.application";
@@ -219,6 +198,9 @@
 				Base,
 			);
 			mainGroup = 49C37A002AADD32900C4B769;
+			packageReferences = (
+				49D766F52ABA575E00EB5AAE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = 49C37A0A2AADD32A00C4B769 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -242,48 +224,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		102A3F95F291EE0231D8DBF2 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Spilka-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		5D6CA5B57B90771E0FC3CDFB /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Spilka/Pods-Spilka-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Spilka/Pods-Spilka-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Spilka/Pods-Spilka-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		49C37A052AADD32900C4B769 /* Sources */ = {
@@ -426,7 +366,6 @@
 		};
 		49C37A182AADD32C00C4B769 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F32DABFA99FD49F6CAFFD32E /* Pods-Spilka.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -461,7 +400,6 @@
 		};
 		49C37A192AADD32C00C4B769 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7C3D9C68C43BB635AEFC948E /* Pods-Spilka.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -516,6 +454,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		49D766F52ABA575E00EB5AAE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.15.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		49D767022ABA575E00EB5AAE /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 49D766F52ABA575E00EB5AAE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 49C37A012AADD32900C4B769 /* Project object */;
 }
