@@ -18,15 +18,6 @@ struct CountryCode: Identifiable, Hashable, Codable {
 
     static var allCases: [CountryCode] = Bundle.main.decode("CountryNumbers.json")
     static func get(_ code: String) -> CountryCode {
-        return CountryCode.allCases.filter {$0.code == code}.first!
+        CountryCode.allCases.filter {$0.code == code}.first!
     }
-
-
-
-//    static var allCases: [CountryCode] = [
-//        CountryCode(id: 235, title: "USA", flag: "🇺🇸", code: "US", dialCode: "+1", pattern: "### ### ####", limit: 10),
-//        CountryCode(id: 232, title: "Ukraine", flag: "🇺🇦", code: "UA", dialCode: "+380", pattern: "## ### ## ##", limit: 8),
-//        CountryCode(id: 177, title: "Poland", flag: "🇵🇱", code: "PL", dialCode: "+48", pattern: "### ### ###", limit: 9)
-//    ]
 }
-

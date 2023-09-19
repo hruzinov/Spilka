@@ -3,18 +3,12 @@
 //
 
 import SwiftUI
-//import FirebaseCore
-//import FirebaseAuth
-//import GoogleSignIn
-//import GoogleSignInSwift
 
-struct SignInScreen: View {
+struct SignInScreenView: View {
     var screenSize = UIScreen.main.bounds.size
+    @Environment(\.colorScheme) var colorScheme
+    @StateObject var viewModel = ViewModel()
 
-    @State var countryCode: CountryCode = CountryCode.get("UA")
-    @State var phoneNumber: String = ""
-    @State var searchCountry: String = ""
-    @State var isContinueButtonDisabled = true
     @State var isPresentedSelectorSheet = false
 
     var body: some View {
@@ -31,8 +25,9 @@ struct SignInScreen: View {
                     Button {
                         isPresentedSelectorSheet.toggle()
                     } label: {
-                        Text("\(countryCode.flag) \(countryCode.dialCode)")
+                        Text("\(viewModel.countryCode.flag) \(viewModel.countryCode.dialCode)")
                             .bold()
+                            .foregroundStyle(colorScheme == .dark ? .white : .black)
                             .padding(10)
                             .frame(width: screenSize.width * 0.25, height: 50)
                             .background(.thinMaterial,
@@ -40,7 +35,7 @@ struct SignInScreen: View {
                     }
 
                     Spacer()
-                    TextField("", text: $phoneNumber)
+                    TextField("", text: $viewModel.phoneNumber)
                         .bold()
                         .font(.title3)
                         .keyboardType(.numbersAndPunctuation)
@@ -48,33 +43,35 @@ struct SignInScreen: View {
                         .frame(width: screenSize.width * 0.625, height: 50)
                         .background(.thinMaterial,
                                     in: RoundedRectangle(cornerRadius: 10))
-                        .onChange(of: phoneNumber) {
-                            applyPatternOnNumbers(&phoneNumber, countryCode: countryCode,
-                                                  pattern: countryCode.pattern, replacementCharacter: "#")
-                            if phoneNumber.count >= countryCode.limit && phoneNumber.count <= 18 {
-                                isContinueButtonDisabled = false
-                            } else {
-                                isContinueButtonDisabled = true
-                            }
+                        .onChange(of: viewModel.phoneNumber) {
+                            viewModel.phoneNumberChanged()
                         }
                 }
                 .frame(width: screenSize.width * 0.9)
+                .padding(.bottom, 10)
 
                 Button {
-                    if phoneNumber.count == countryCode.limit {
-                        handleContinueButton(number: phoneNumber, country: countryCode)
-                    }
+                    viewModel.handlePhoneContinueButton()
                 } label: {
                     RoundedRectangle(cornerRadius: 10)
-                        .fill(isContinueButtonDisabled ? .gray : .black)
-                        .frame(width: screenSize.width * 0.90, height: 45)
+                        .fill(viewModel.isPhoneContinueButtonDisabled ? .gray :
+                                (colorScheme == .dark ? .white  : .black))
+                        .frame(width: viewModel.isWaitingServer
+                               ? 45 : screenSize.width * 0.90, height: 45)
                         .overlay {
-                            Text("Continue")
-                                .foregroundStyle(.white)
-                                .font(.title3)
+                            if viewModel.isWaitingServer {
+                                ProgressView()
+                                    .tint(colorScheme == .light ? .white  : .black)
+                            } else {
+                                Text("Continue")
+                                    .foregroundStyle(colorScheme == .light ? .white  : .black)
+                                    .font(.title3)
+                            }
                         }
                 }
-                .disabled(isContinueButtonDisabled)
+                .disabled(
+                    viewModel.isPhoneContinueButtonDisabled || viewModel.isWaitingServer
+                )
 
                 Divider()
                     .background(.gray)
@@ -84,7 +81,9 @@ struct SignInScreen: View {
                         Text("OR")
                             .foregroundStyle(.gray)
                             .padding(.horizontal, 15)
-                            .background( Rectangle().fill(.white) )
+                            .background( Rectangle().fill(
+                                colorScheme == .light ? .white  : .black)
+                            )
                     }
 
 //                GoogleSignInButton(action: handleSignInButton)
@@ -96,7 +95,7 @@ struct SignInScreen: View {
                     //                    SignUpScreen()
                 } label: {
                     RoundedRectangle(cornerRadius: 10)
-                        .fill(.black)
+                        .fill(colorScheme == .dark ? .white : .black)
                         .frame(width: screenSize.width * 0.90, height: 45)
                         .overlay {
                             HStack {
@@ -105,7 +104,7 @@ struct SignInScreen: View {
                                 Text("Continue with Apple")
                                     .font(.title3)
                             }
-                            .foregroundStyle(.white)
+                            .foregroundStyle(colorScheme == .light ? .white : .black)
                         }
                 }
             }
@@ -123,9 +122,9 @@ struct SignInScreen: View {
                     //                    }
                     //                }
                     List {
-                        ForEach(filteredRecords, id: \.id) { country in
+                        ForEach(viewModel.filteredRecords, id: \.id) { country in
                             Button {
-                                countryCode = country
+                                viewModel.countryCode = country
                                 isPresentedSelectorSheet.toggle()
                             } label: {
                                 HStack {
@@ -140,48 +139,19 @@ struct SignInScreen: View {
                         }
                     }
                     .listStyle(.plain)
-                    .searchable(text: $searchCountry, prompt: "Your country")
+                    .searchable(text: $viewModel.searchCountry, prompt: "Your country")
                 }
                 .presentationDetents([.medium, .large])
             }
             .presentationDetents([.medium, .large])
-        }
-        .foregroundStyle(.black)
-    }
-
-    var filteredRecords: [CountryCode] {
-        if searchCountry.isEmpty {
-            return CountryCode.allCases
-        } else {
-            return CountryCode.allCases.filter { $0.title.lowercased().contains(searchCountry.lowercased()) }
-        }
-    }
-
-
-    func handleContinueButton(number: String, country: CountryCode) {
-        
-    }
-
-    func applyPatternOnNumbers(_ stringvar: inout String, countryCode: CountryCode, pattern: String, replacementCharacter: Character) {
-        var pureNumber = stringvar
-        if pureNumber.hasPrefix(countryCode.dialCode) {
-            pureNumber = String(pureNumber.dropFirst(countryCode.dialCode.count))
-        }
-        pureNumber = pureNumber.replacingOccurrences( of: "[^0-9]", with: "", options: .regularExpression)
-        for index in 0 ..< pattern.count {
-            guard index < pureNumber.count else {
-                stringvar = pureNumber
-                return
+            .navigationDestination(isPresented: $viewModel.isGoToVerification) {
+                EnterVerificationCodeView(signInViewModel: viewModel)
             }
-            let stringIndex = String.Index(utf16Offset: index, in: pattern)
-            let patternCharacter = pattern[stringIndex]
-            guard patternCharacter != replacementCharacter else { continue }
-            pureNumber.insert(patternCharacter, at: stringIndex)
         }
-        stringvar = pureNumber
+        .navigationBarBackButtonHidden(true)
     }
 }
 
 #Preview {
-    SignInScreen()
+    SignInScreenView()
 }

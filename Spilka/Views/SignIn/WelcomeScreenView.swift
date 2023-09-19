@@ -4,8 +4,9 @@
 
 import SwiftUI
 
-struct WelcomeScreen: View {
+struct WelcomeScreenView: View {
     var screenSize = UIScreen.main.bounds.size
+    @Environment(\.colorScheme) var colorScheme
 
     var body: some View {
         NavigationStack {
@@ -22,6 +23,9 @@ struct WelcomeScreen: View {
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(width: screenSize.width)
+                    .background {
+                        Circle().fill(.white)
+                    }
 
                 Spacer()
 
@@ -33,14 +37,14 @@ struct WelcomeScreen: View {
                 Spacer()
 
                 NavigationLink {
-                    SignInScreen()
+                    SignInScreenView()
                 } label: {
                     RoundedRectangle(cornerRadius: 5)
-                        .fill(.black)
+                        .fill(colorScheme == .light ? .black : .white)
                         .frame(width: screenSize.width * 0.80, height: 45)
                         .overlay {
                             Text("Continue")
-                                .foregroundStyle(.white)
+                                .foregroundStyle(colorScheme == .dark ? .black : .white)
                                 .font(.title3)
                         }
                 }
@@ -61,5 +65,5 @@ struct WelcomeScreen: View {
 }
 
 #Preview {
-    WelcomeScreen()
+    WelcomeScreenView()
 }
