@@ -43,7 +43,8 @@ struct SpilkaApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MainView()
+//            TestingView()
         }
     }
 }

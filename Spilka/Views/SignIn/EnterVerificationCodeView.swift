@@ -33,6 +33,12 @@ struct EnterVerificationCodeView: View {
                     .onChange(of: signInViewModel.verificationCode) {
                         signInViewModel.verificationCodeChanged()
                     }
+                    .onSubmit {
+                        guard !signInViewModel.isCodeContinueButtonDisabled &&
+                                !signInViewModel.isWaitingServer else { return }
+                        textFieldFocused = false
+                        signInViewModel.handleCodeContinueButton()
+                    }
                     .focused($textFieldFocused)
                     .onAppear {
                         textFieldFocused = true
@@ -64,7 +70,7 @@ struct EnterVerificationCodeView: View {
                     signInViewModel.isWaitingServer
                 )
                 .navigationDestination(isPresented: $signInViewModel.isGoToCreateProfile) {
-                    ProfileCreationView()
+                    ProfileCreationView(signInViewModel: signInViewModel)
                 }
             }
             .navigationBarBackButtonHidden(true)

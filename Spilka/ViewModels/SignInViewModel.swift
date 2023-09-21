@@ -5,6 +5,7 @@
 import SwiftUI
 import FirebaseCore
 import FirebaseAuth
+import FirebaseFirestore
 // import GoogleSignIn
 // import GoogleSignInSwift
 
@@ -21,7 +22,6 @@ extension SignInScreenView {
         @Published var isGoToVerification = false
         @Published var isGoToCreateProfile = false
         @Published var isWaitingServer = false
-
         var filteredRecords: [CountryCode] {
             if searchCountry.isEmpty {
                 return CountryCode.allCases
@@ -51,7 +51,7 @@ extension SignInScreenView {
             guard phoneNumber.count >= countryCode.limit else { return }
             isWaitingServer = true
 
-            Auth.auth().languageCode = "en"
+            Auth.auth().languageCode = "en" // TODO: Get language code from settings
 
             let phone = countryCode.dialCode + phoneNumber
             PhoneAuthProvider.provider()
@@ -87,8 +87,20 @@ extension SignInScreenView {
                     return
                 }
                 if let userUID = authResult?.user.uid {
-                    print(userUID)
-                    self.isGoToCreateProfile.toggle()
+                    let db = Firestore.firestore()
+                    let accountRef = db.collection("accounts").document(userUID)
+
+                    accountRef.getDocument { user, error in
+                        if let error {
+//                            self.showMessagePrompt(error.localizedDescription)
+                            print(error)
+                        } else if let user, user.exists {
+                            print("User Exist") // TODO: Sign in when user exist
+                        } else {
+                            UserDefaults.standard.set(userUID, forKey: "accountUID")
+                            self.isGoToCreateProfile.toggle()
+                        }
+                    }
                 }
                 self.isWaitingServer = false
             }

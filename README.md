@@ -4,9 +4,17 @@ A messenger that combines convenience for everyday usage with strict security
 
 
 ## Tech Stack
-**Client:** Swift, SwiftUI, CocoaPods
+**Client:** Swift
+
+- **UI:** SwiftUI
+- **DM:** SPM
+- **Additional:**
+  - [SwiftyRSA](https://github.com/TakeScoop/SwiftyRSA) (encryption)
 
 **Server:** Firebase
+
+- Auth
+- Firestore Database
 
 
 
