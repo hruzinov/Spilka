@@ -7,18 +7,74 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		49328AF22AADE4AB0019210F /* CountryCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49328AF12AADE4AB0019210F /* CountryCode.swift */; };
+		495334592AAF6D6700135E6C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 495334582AAF6D6700135E6C /* GoogleService-Info.plist */; };
+		495530B72AC193B200A20FF0 /* RemafoX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495530B62AC193B200A20FF0 /* RemafoX.swift */; };
+		495530BA2AC1940C00A20FF0 /* Spilka.remafox in Resources */ = {isa = PBXBuildFile; fileRef = 495530B92AC1940C00A20FF0 /* Spilka.remafox */; };
+		495530BE2AC197F600A20FF0 /* Inject in Frameworks */ = {isa = PBXBuildFile; productRef = 495530BD2AC197F600A20FF0 /* Inject */; };
+		499EE09D2AAEFBCB00103033 /* CountryNumbers.json in Resources */ = {isa = PBXBuildFile; fileRef = 499EE09B2AAEFBCB00103033 /* CountryNumbers.json */; };
+		499EE09E2AAEFBCB00103033 /* unusedCountryNumbers.json in Resources */ = {isa = PBXBuildFile; fileRef = 499EE09C2AAEFBCB00103033 /* unusedCountryNumbers.json */; };
+		499EE0A12AAEFC0300103033 /* Bundle+Decoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499EE0A02AAEFC0300103033 /* Bundle+Decoder.swift */; };
+		49A89D1F2ABCB5F000E56B15 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 49A89D1E2ABCB5F000E56B15 /* FirebaseFirestore */; };
+		49A89D232ABCB6AA00E56B15 /* TestingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A89D222ABCB6AA00E56B15 /* TestingView.swift */; };
+		49A89D252ABCBF7800E56B15 /* MainViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A89D242ABCBF7800E56B15 /* MainViewViewModel.swift */; };
+		49A89D2B2ABCD83600E56B15 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 49A89D2A2ABCD83600E56B15 /* FirebaseFirestoreSwift */; };
+		49AFDD362ABB83D200E742BA /* SwiftyRSA in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 49B452812ABB65E200AA2A13 /* SwiftyRSA */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		49B4527D2ABB5FC100AA2A13 /* ProfileCreationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B4527C2ABB5FC100AA2A13 /* ProfileCreationViewModel.swift */; };
+		49B4527F2ABB60EC00AA2A13 /* CryptoKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B4527E2ABB60EC00AA2A13 /* CryptoKeys.swift */; };
+		49B452822ABB65E200AA2A13 /* SwiftyRSA in Frameworks */ = {isa = PBXBuildFile; productRef = 49B452812ABB65E200AA2A13 /* SwiftyRSA */; };
 		49C37A0D2AADD32A00C4B769 /* SpilkaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C37A0C2AADD32A00C4B769 /* SpilkaApp.swift */; };
-		49C37A0F2AADD32A00C4B769 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C37A0E2AADD32A00C4B769 /* ContentView.swift */; };
 		49C37A112AADD32C00C4B769 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49C37A102AADD32C00C4B769 /* Assets.xcassets */; };
 		49C37A142AADD32C00C4B769 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49C37A132AADD32C00C4B769 /* Preview Assets.xcassets */; };
+		49C37A202AADD39D00C4B769 /* SignInScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C37A1C2AADD39D00C4B769 /* SignInScreenView.swift */; };
+		49C37A212AADD39D00C4B769 /* WelcomeScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C37A1D2AADD39D00C4B769 /* WelcomeScreenView.swift */; };
+		49C37A222AADD39D00C4B769 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C37A1E2AADD39D00C4B769 /* MainView.swift */; };
+		49CD124B2AB8CCF700215EC6 /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CD124A2AB8CCF700215EC6 /* SignInViewModel.swift */; };
+		49D767032ABA575E00EB5AAE /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 49D767022ABA575E00EB5AAE /* FirebaseAuth */; };
+		49F1CF752AB9F87300C02569 /* EnterVerificationCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F1CF742AB9F87300C02569 /* EnterVerificationCodeView.swift */; };
+		49F1CF792ABA2FBF00C02569 /* ProfileCreationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F1CF782ABA2FBF00C02569 /* ProfileCreationView.swift */; };
+		49FE57212ABB9228005B79EF /* UserAccout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49FE57202ABB9228005B79EF /* UserAccout.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		49AFDD372ABB83D200E742BA /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				49AFDD362ABB83D200E742BA /* SwiftyRSA in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		49328AED2AADDE050019210F /* Spilka.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Spilka.entitlements; sourceTree = "<group>"; };
+		49328AF12AADE4AB0019210F /* CountryCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryCode.swift; sourceTree = "<group>"; };
+		495334582AAF6D6700135E6C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		495530B62AC193B200A20FF0 /* RemafoX.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemafoX.swift; sourceTree = SOURCE_ROOT; };
+		495530B92AC1940C00A20FF0 /* Spilka.remafox */ = {isa = PBXFileReference; lastKnownFileType = text; path = Spilka.remafox; sourceTree = SOURCE_ROOT; };
+		499EE09B2AAEFBCB00103033 /* CountryNumbers.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = CountryNumbers.json; sourceTree = "<group>"; };
+		499EE09C2AAEFBCB00103033 /* unusedCountryNumbers.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = unusedCountryNumbers.json; sourceTree = "<group>"; };
+		499EE0A02AAEFC0300103033 /* Bundle+Decoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Bundle+Decoder.swift"; sourceTree = "<group>"; };
+		49A89D222ABCB6AA00E56B15 /* TestingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingView.swift; sourceTree = "<group>"; };
+		49A89D242ABCBF7800E56B15 /* MainViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewViewModel.swift; sourceTree = "<group>"; };
+		49B4527C2ABB5FC100AA2A13 /* ProfileCreationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCreationViewModel.swift; sourceTree = "<group>"; };
+		49B4527E2ABB60EC00AA2A13 /* CryptoKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoKeys.swift; sourceTree = "<group>"; };
 		49C37A092AADD32A00C4B769 /* Spilka.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Spilka.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49C37A0C2AADD32A00C4B769 /* SpilkaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpilkaApp.swift; sourceTree = "<group>"; };
-		49C37A0E2AADD32A00C4B769 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		49C37A102AADD32C00C4B769 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		49C37A132AADD32C00C4B769 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		49C37A1C2AADD39D00C4B769 /* SignInScreenView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInScreenView.swift; sourceTree = "<group>"; };
+		49C37A1D2AADD39D00C4B769 /* WelcomeScreenView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeScreenView.swift; sourceTree = "<group>"; };
+		49C37A1E2AADD39D00C4B769 /* MainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		49CD124A2AB8CCF700215EC6 /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
+		49CD124C2AB8D64400215EC6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		49F1CF742AB9F87300C02569 /* EnterVerificationCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterVerificationCodeView.swift; sourceTree = "<group>"; };
+		49F1CF782ABA2FBF00C02569 /* ProfileCreationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCreationView.swift; sourceTree = "<group>"; };
+		49FE57202ABB9228005B79EF /* UserAccout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAccout.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -26,17 +82,67 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				495530BE2AC197F600A20FF0 /* Inject in Frameworks */,
+				49D767032ABA575E00EB5AAE /* FirebaseAuth in Frameworks */,
+				49B452822ABB65E200AA2A13 /* SwiftyRSA in Frameworks */,
+				49A89D1F2ABCB5F000E56B15 /* FirebaseFirestore in Frameworks */,
+				49A89D2B2ABCD83600E56B15 /* FirebaseFirestoreSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		49328AF02AADE49A0019210F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				49B4527B2ABB5CA500AA2A13 /* PhoneNumbers */,
+				49328AF12AADE4AB0019210F /* CountryCode.swift */,
+				49B4527E2ABB60EC00AA2A13 /* CryptoKeys.swift */,
+				49FE57202ABB9228005B79EF /* UserAccout.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		495530B82AC193C500A20FF0 /* Localization */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Localization;
+			sourceTree = "<group>";
+		};
+		499EE09F2AAEFBF300103033 /* Extentions */ = {
+			isa = PBXGroup;
+			children = (
+				499EE0A02AAEFC0300103033 /* Bundle+Decoder.swift */,
+			);
+			path = Extentions;
+			sourceTree = "<group>";
+		};
+		49A89D1D2ABCB5F000E56B15 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		49B4527B2ABB5CA500AA2A13 /* PhoneNumbers */ = {
+			isa = PBXGroup;
+			children = (
+				499EE09B2AAEFBCB00103033 /* CountryNumbers.json */,
+				499EE09C2AAEFBCB00103033 /* unusedCountryNumbers.json */,
+			);
+			path = PhoneNumbers;
+			sourceTree = "<group>";
+		};
 		49C37A002AADD32900C4B769 = {
 			isa = PBXGroup;
 			children = (
+				495530B62AC193B200A20FF0 /* RemafoX.swift */,
+				495530B92AC1940C00A20FF0 /* Spilka.remafox */,
 				49C37A0B2AADD32A00C4B769 /* Spilka */,
 				49C37A0A2AADD32A00C4B769 /* Products */,
+				49A89D1D2ABCB5F000E56B15 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -51,10 +157,14 @@
 		49C37A0B2AADD32A00C4B769 /* Spilka */ = {
 			isa = PBXGroup;
 			children = (
+				49CD124C2AB8D64400215EC6 /* Info.plist */,
+				495334582AAF6D6700135E6C /* GoogleService-Info.plist */,
+				499EE09F2AAEFBF300103033 /* Extentions */,
+				49328AF02AADE49A0019210F /* Models */,
+				49CD12492AB8CCDC00215EC6 /* ViewModels */,
+				49C37A1A2AADD39D00C4B769 /* Views */,
+				49CD12482AB8C91C00215EC6 /* Other */,
 				49C37A0C2AADD32A00C4B769 /* SpilkaApp.swift */,
-				49C37A0E2AADD32A00C4B769 /* ContentView.swift */,
-				49C37A102AADD32C00C4B769 /* Assets.xcassets */,
-				49C37A122AADD32C00C4B769 /* Preview Content */,
 			);
 			path = Spilka;
 			sourceTree = "<group>";
@@ -67,6 +177,48 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		49C37A1A2AADD39D00C4B769 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				49F1CF732AB9F84A00C02569 /* SignIn */,
+				49C37A1E2AADD39D00C4B769 /* MainView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		49CD12482AB8C91C00215EC6 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				495530B82AC193C500A20FF0 /* Localization */,
+				49C37A102AADD32C00C4B769 /* Assets.xcassets */,
+				49328AED2AADDE050019210F /* Spilka.entitlements */,
+				49A89D222ABCB6AA00E56B15 /* TestingView.swift */,
+				49C37A122AADD32C00C4B769 /* Preview Content */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
+		49CD12492AB8CCDC00215EC6 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				49A89D242ABCBF7800E56B15 /* MainViewViewModel.swift */,
+				49CD124A2AB8CCF700215EC6 /* SignInViewModel.swift */,
+				49B4527C2ABB5FC100AA2A13 /* ProfileCreationViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		49F1CF732AB9F84A00C02569 /* SignIn */ = {
+			isa = PBXGroup;
+			children = (
+				49C37A1D2AADD39D00C4B769 /* WelcomeScreenView.swift */,
+				49C37A1C2AADD39D00C4B769 /* SignInScreenView.swift */,
+				49F1CF742AB9F87300C02569 /* EnterVerificationCodeView.swift */,
+				49F1CF782ABA2FBF00C02569 /* ProfileCreationView.swift */,
+			);
+			path = SignIn;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -77,12 +229,21 @@
 				49C37A052AADD32900C4B769 /* Sources */,
 				49C37A062AADD32900C4B769 /* Frameworks */,
 				49C37A072AADD32900C4B769 /* Resources */,
+				49AFDD372ABB83D200E742BA /* Embed Frameworks */,
+				495530BB2AC1974800A20FF0 /* ShellScript */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = Spilka;
+			packageProductDependencies = (
+				49D767022ABA575E00EB5AAE /* FirebaseAuth */,
+				49B452812ABB65E200AA2A13 /* SwiftyRSA */,
+				49A89D1E2ABCB5F000E56B15 /* FirebaseFirestore */,
+				49A89D2A2ABCD83600E56B15 /* FirebaseFirestoreSwift */,
+				495530BD2AC197F600A20FF0 /* Inject */,
+			);
 			productName = Spilka;
 			productReference = 49C37A092AADD32A00C4B769 /* Spilka.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +272,11 @@
 				Base,
 			);
 			mainGroup = 49C37A002AADD32900C4B769;
+			packageReferences = (
+				49D766F52ABA575E00EB5AAE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				49B452802ABB65E100AA2A13 /* XCRemoteSwiftPackageReference "SwiftyRSA" */,
+				495530BC2AC197F500A20FF0 /* XCRemoteSwiftPackageReference "Inject" */,
+			);
 			productRefGroup = 49C37A0A2AADD32A00C4B769 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -127,18 +293,56 @@
 			files = (
 				49C37A142AADD32C00C4B769 /* Preview Assets.xcassets in Resources */,
 				49C37A112AADD32C00C4B769 /* Assets.xcassets in Resources */,
+				499EE09D2AAEFBCB00103033 /* CountryNumbers.json in Resources */,
+				499EE09E2AAEFBCB00103033 /* unusedCountryNumbers.json in Resources */,
+				495530BA2AC1940C00A20FF0 /* Spilka.remafox in Resources */,
+				495334592AAF6D6700135E6C /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		495530BB2AC1974800A20FF0 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif [[ \"$(uname -m)\" == arm64 ]]; then\n    export PATH=\"/opt/homebrew/bin:$PATH\"\nfi\n\nif which swiftlint > /dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		49C37A052AADD32900C4B769 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				49C37A0F2AADD32A00C4B769 /* ContentView.swift in Sources */,
+				49C37A202AADD39D00C4B769 /* SignInScreenView.swift in Sources */,
+				49F1CF752AB9F87300C02569 /* EnterVerificationCodeView.swift in Sources */,
+				49A89D252ABCBF7800E56B15 /* MainViewViewModel.swift in Sources */,
+				49C37A222AADD39D00C4B769 /* MainView.swift in Sources */,
+				49B4527F2ABB60EC00AA2A13 /* CryptoKeys.swift in Sources */,
+				49F1CF792ABA2FBF00C02569 /* ProfileCreationView.swift in Sources */,
+				49328AF22AADE4AB0019210F /* CountryCode.swift in Sources */,
+				49B4527D2ABB5FC100AA2A13 /* ProfileCreationViewModel.swift in Sources */,
+				49CD124B2AB8CCF700215EC6 /* SignInViewModel.swift in Sources */,
+				49C37A212AADD39D00C4B769 /* WelcomeScreenView.swift in Sources */,
+				49FE57212ABB9228005B79EF /* UserAccout.swift in Sources */,
+				499EE0A12AAEFC0300103033 /* Bundle+Decoder.swift in Sources */,
+				49A89D232ABCB6AA00E56B15 /* TestingView.swift in Sources */,
 				49C37A0D2AADD32A00C4B769 /* SpilkaApp.swift in Sources */,
+				495530B72AC193B200A20FF0 /* RemafoX.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -269,12 +473,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Spilka/Other/Spilka.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Spilka/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Spilka/Other/Preview Content\"";
 				DEVELOPMENT_TEAM = G4PV26QJD2;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Spilka/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Spilka;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.social-networking";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -284,7 +493,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.gruzinov.Spilka;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -298,12 +507,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Spilka/Other/Spilka.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Spilka/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Spilka/Other/Preview Content\"";
 				DEVELOPMENT_TEAM = G4PV26QJD2;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Spilka/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Spilka;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.social-networking";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -313,7 +527,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.gruzinov.Spilka;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -344,6 +558,61 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		495530BC2AC197F500A20FF0 /* XCRemoteSwiftPackageReference "Inject" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/krzysztofzablocki/Inject.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.2.4;
+			};
+		};
+		49B452802ABB65E100AA2A13 /* XCRemoteSwiftPackageReference "SwiftyRSA" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/TakeScoop/SwiftyRSA.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.8.0;
+			};
+		};
+		49D766F52ABA575E00EB5AAE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.15.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		495530BD2AC197F600A20FF0 /* Inject */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 495530BC2AC197F500A20FF0 /* XCRemoteSwiftPackageReference "Inject" */;
+			productName = Inject;
+		};
+		49A89D1E2ABCB5F000E56B15 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 49D766F52ABA575E00EB5AAE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		49A89D2A2ABCD83600E56B15 /* FirebaseFirestoreSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 49D766F52ABA575E00EB5AAE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestoreSwift;
+		};
+		49B452812ABB65E200AA2A13 /* SwiftyRSA */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 49B452802ABB65E100AA2A13 /* XCRemoteSwiftPackageReference "SwiftyRSA" */;
+			productName = SwiftyRSA;
+		};
+		49D767022ABA575E00EB5AAE /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 49D766F52ABA575E00EB5AAE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 49C37A012AADD32900C4B769 /* Project object */;
 }
