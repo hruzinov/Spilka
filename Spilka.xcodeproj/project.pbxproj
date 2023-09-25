@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		49328AF22AADE4AB0019210F /* CountryCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49328AF12AADE4AB0019210F /* CountryCode.swift */; };
 		495334592AAF6D6700135E6C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 495334582AAF6D6700135E6C /* GoogleService-Info.plist */; };
+		495530B72AC193B200A20FF0 /* RemafoX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495530B62AC193B200A20FF0 /* RemafoX.swift */; };
+		495530BA2AC1940C00A20FF0 /* Spilka.remafox in Resources */ = {isa = PBXBuildFile; fileRef = 495530B92AC1940C00A20FF0 /* Spilka.remafox */; };
+		495530BE2AC197F600A20FF0 /* Inject in Frameworks */ = {isa = PBXBuildFile; productRef = 495530BD2AC197F600A20FF0 /* Inject */; };
 		499EE09D2AAEFBCB00103033 /* CountryNumbers.json in Resources */ = {isa = PBXBuildFile; fileRef = 499EE09B2AAEFBCB00103033 /* CountryNumbers.json */; };
 		499EE09E2AAEFBCB00103033 /* unusedCountryNumbers.json in Resources */ = {isa = PBXBuildFile; fileRef = 499EE09C2AAEFBCB00103033 /* unusedCountryNumbers.json */; };
 		499EE0A12AAEFC0300103033 /* Bundle+Decoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499EE0A02AAEFC0300103033 /* Bundle+Decoder.swift */; };
@@ -51,6 +54,8 @@
 		49328AED2AADDE050019210F /* Spilka.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Spilka.entitlements; sourceTree = "<group>"; };
 		49328AF12AADE4AB0019210F /* CountryCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryCode.swift; sourceTree = "<group>"; };
 		495334582AAF6D6700135E6C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		495530B62AC193B200A20FF0 /* RemafoX.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemafoX.swift; sourceTree = SOURCE_ROOT; };
+		495530B92AC1940C00A20FF0 /* Spilka.remafox */ = {isa = PBXFileReference; lastKnownFileType = text; path = Spilka.remafox; sourceTree = SOURCE_ROOT; };
 		499EE09B2AAEFBCB00103033 /* CountryNumbers.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = CountryNumbers.json; sourceTree = "<group>"; };
 		499EE09C2AAEFBCB00103033 /* unusedCountryNumbers.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = unusedCountryNumbers.json; sourceTree = "<group>"; };
 		499EE0A02AAEFC0300103033 /* Bundle+Decoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Bundle+Decoder.swift"; sourceTree = "<group>"; };
@@ -77,6 +82,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				495530BE2AC197F600A20FF0 /* Inject in Frameworks */,
 				49D767032ABA575E00EB5AAE /* FirebaseAuth in Frameworks */,
 				49B452822ABB65E200AA2A13 /* SwiftyRSA in Frameworks */,
 				49A89D1F2ABCB5F000E56B15 /* FirebaseFirestore in Frameworks */,
@@ -96,6 +102,13 @@
 				49FE57202ABB9228005B79EF /* UserAccout.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		495530B82AC193C500A20FF0 /* Localization */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Localization;
 			sourceTree = "<group>";
 		};
 		499EE09F2AAEFBF300103033 /* Extentions */ = {
@@ -125,6 +138,8 @@
 		49C37A002AADD32900C4B769 = {
 			isa = PBXGroup;
 			children = (
+				495530B62AC193B200A20FF0 /* RemafoX.swift */,
+				495530B92AC1940C00A20FF0 /* Spilka.remafox */,
 				49C37A0B2AADD32A00C4B769 /* Spilka */,
 				49C37A0A2AADD32A00C4B769 /* Products */,
 				49A89D1D2ABCB5F000E56B15 /* Frameworks */,
@@ -174,6 +189,7 @@
 		49CD12482AB8C91C00215EC6 /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				495530B82AC193C500A20FF0 /* Localization */,
 				49C37A102AADD32C00C4B769 /* Assets.xcassets */,
 				49328AED2AADDE050019210F /* Spilka.entitlements */,
 				49A89D222ABCB6AA00E56B15 /* TestingView.swift */,
@@ -214,6 +230,7 @@
 				49C37A062AADD32900C4B769 /* Frameworks */,
 				49C37A072AADD32900C4B769 /* Resources */,
 				49AFDD372ABB83D200E742BA /* Embed Frameworks */,
+				495530BB2AC1974800A20FF0 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -225,6 +242,7 @@
 				49B452812ABB65E200AA2A13 /* SwiftyRSA */,
 				49A89D1E2ABCB5F000E56B15 /* FirebaseFirestore */,
 				49A89D2A2ABCD83600E56B15 /* FirebaseFirestoreSwift */,
+				495530BD2AC197F600A20FF0 /* Inject */,
 			);
 			productName = Spilka;
 			productReference = 49C37A092AADD32A00C4B769 /* Spilka.app */;
@@ -257,6 +275,7 @@
 			packageReferences = (
 				49D766F52ABA575E00EB5AAE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				49B452802ABB65E100AA2A13 /* XCRemoteSwiftPackageReference "SwiftyRSA" */,
+				495530BC2AC197F500A20FF0 /* XCRemoteSwiftPackageReference "Inject" */,
 			);
 			productRefGroup = 49C37A0A2AADD32A00C4B769 /* Products */;
 			projectDirPath = "";
@@ -276,11 +295,33 @@
 				49C37A112AADD32C00C4B769 /* Assets.xcassets in Resources */,
 				499EE09D2AAEFBCB00103033 /* CountryNumbers.json in Resources */,
 				499EE09E2AAEFBCB00103033 /* unusedCountryNumbers.json in Resources */,
+				495530BA2AC1940C00A20FF0 /* Spilka.remafox in Resources */,
 				495334592AAF6D6700135E6C /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		495530BB2AC1974800A20FF0 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif [[ \"$(uname -m)\" == arm64 ]]; then\n    export PATH=\"/opt/homebrew/bin:$PATH\"\nfi\n\nif which swiftlint > /dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		49C37A052AADD32900C4B769 /* Sources */ = {
@@ -301,6 +342,7 @@
 				499EE0A12AAEFC0300103033 /* Bundle+Decoder.swift in Sources */,
 				49A89D232ABCB6AA00E56B15 /* TestingView.swift in Sources */,
 				49C37A0D2AADD32A00C4B769 /* SpilkaApp.swift in Sources */,
+				495530B72AC193B200A20FF0 /* RemafoX.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -518,6 +560,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		495530BC2AC197F500A20FF0 /* XCRemoteSwiftPackageReference "Inject" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/krzysztofzablocki/Inject.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.2.4;
+			};
+		};
 		49B452802ABB65E100AA2A13 /* XCRemoteSwiftPackageReference "SwiftyRSA" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/TakeScoop/SwiftyRSA.git";
@@ -537,6 +587,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		495530BD2AC197F600A20FF0 /* Inject */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 495530BC2AC197F500A20FF0 /* XCRemoteSwiftPackageReference "Inject" */;
+			productName = Inject;
+		};
 		49A89D1E2ABCB5F000E56B15 /* FirebaseFirestore */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 49D766F52ABA575E00EB5AAE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;

@@ -10,6 +10,9 @@ A messenger that combines convenience for everyday usage with strict security
 - **DM:** SPM
 - **Additional:**
   - [SwiftyRSA](https://github.com/TakeScoop/SwiftyRSA) (encryption)
+  - [SwiftLint](https://github.com/realm/SwiftLint)
+  - [Inject](https://github.com/krzysztofzablocki/Inject) (hot reloading workflow helper)
+  - RemafoX (localization helper)
 
 **Server:** Firebase
 
@@ -19,7 +22,6 @@ A messenger that combines convenience for everyday usage with strict security
 
 
 ## Roadmap
-- Add encryption
 - Profiles and contacts
 - Regular chats
 - Group chats
