@@ -13,8 +13,8 @@ extension MainView {
         func startingUp(needCheck: Bool) {
             let accountUID = UserDefaults().string(forKey: "accountUID")
             if let accountUID, needCheck {
-                let db = Firestore.firestore()
-                let accountRef = db.collection("accounts").document(accountUID)
+                let dbase = Firestore.firestore()
+                let accountRef = dbase.collection("accounts").document(accountUID)
 
                 accountRef.getDocument { user, error in
                     if let error {

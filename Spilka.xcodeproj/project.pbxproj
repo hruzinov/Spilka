@@ -20,6 +20,7 @@
 		49A89D252ABCBF7800E56B15 /* MainViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A89D242ABCBF7800E56B15 /* MainViewViewModel.swift */; };
 		49A89D2B2ABCD83600E56B15 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 49A89D2A2ABCD83600E56B15 /* FirebaseFirestoreSwift */; };
 		49AFDD362ABB83D200E742BA /* SwiftyRSA in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 49B452812ABB65E200AA2A13 /* SwiftyRSA */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		49B40E462AC1C062007F6992 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 49B40E452AC1C062007F6992 /* Localizable.xcstrings */; };
 		49B4527D2ABB5FC100AA2A13 /* ProfileCreationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B4527C2ABB5FC100AA2A13 /* ProfileCreationViewModel.swift */; };
 		49B4527F2ABB60EC00AA2A13 /* CryptoKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B4527E2ABB60EC00AA2A13 /* CryptoKeys.swift */; };
 		49B452822ABB65E200AA2A13 /* SwiftyRSA in Frameworks */ = {isa = PBXBuildFile; productRef = 49B452812ABB65E200AA2A13 /* SwiftyRSA */; };
@@ -54,13 +55,14 @@
 		49328AED2AADDE050019210F /* Spilka.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Spilka.entitlements; sourceTree = "<group>"; };
 		49328AF12AADE4AB0019210F /* CountryCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryCode.swift; sourceTree = "<group>"; };
 		495334582AAF6D6700135E6C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		495530B62AC193B200A20FF0 /* RemafoX.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemafoX.swift; sourceTree = SOURCE_ROOT; };
-		495530B92AC1940C00A20FF0 /* Spilka.remafox */ = {isa = PBXFileReference; lastKnownFileType = text; path = Spilka.remafox; sourceTree = SOURCE_ROOT; };
+		495530B62AC193B200A20FF0 /* RemafoX.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RemafoX.swift; path = Spilka/Other/Localization/RemafoX.swift; sourceTree = SOURCE_ROOT; };
+		495530B92AC1940C00A20FF0 /* Spilka.remafox */ = {isa = PBXFileReference; lastKnownFileType = text; name = Spilka.remafox; path = Spilka/Other/Localization/Spilka.remafox; sourceTree = SOURCE_ROOT; };
 		499EE09B2AAEFBCB00103033 /* CountryNumbers.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = CountryNumbers.json; sourceTree = "<group>"; };
 		499EE09C2AAEFBCB00103033 /* unusedCountryNumbers.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = unusedCountryNumbers.json; sourceTree = "<group>"; };
 		499EE0A02AAEFC0300103033 /* Bundle+Decoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Bundle+Decoder.swift"; sourceTree = "<group>"; };
 		49A89D222ABCB6AA00E56B15 /* TestingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingView.swift; sourceTree = "<group>"; };
 		49A89D242ABCBF7800E56B15 /* MainViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewViewModel.swift; sourceTree = "<group>"; };
+		49B40E452AC1C062007F6992 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		49B4527C2ABB5FC100AA2A13 /* ProfileCreationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCreationViewModel.swift; sourceTree = "<group>"; };
 		49B4527E2ABB60EC00AA2A13 /* CryptoKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoKeys.swift; sourceTree = "<group>"; };
 		49C37A092AADD32A00C4B769 /* Spilka.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Spilka.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -107,6 +109,9 @@
 		495530B82AC193C500A20FF0 /* Localization */ = {
 			isa = PBXGroup;
 			children = (
+				495530B62AC193B200A20FF0 /* RemafoX.swift */,
+				495530B92AC1940C00A20FF0 /* Spilka.remafox */,
+				49B40E452AC1C062007F6992 /* Localizable.xcstrings */,
 			);
 			path = Localization;
 			sourceTree = "<group>";
@@ -138,8 +143,6 @@
 		49C37A002AADD32900C4B769 = {
 			isa = PBXGroup;
 			children = (
-				495530B62AC193B200A20FF0 /* RemafoX.swift */,
-				495530B92AC1940C00A20FF0 /* Spilka.remafox */,
 				49C37A0B2AADD32A00C4B769 /* Spilka */,
 				49C37A0A2AADD32A00C4B769 /* Products */,
 				49A89D1D2ABCB5F000E56B15 /* Frameworks */,
@@ -270,6 +273,8 @@
 			knownRegions = (
 				en,
 				Base,
+				uk,
+				pl,
 			);
 			mainGroup = 49C37A002AADD32900C4B769;
 			packageReferences = (
@@ -296,6 +301,7 @@
 				499EE09D2AAEFBCB00103033 /* CountryNumbers.json in Resources */,
 				499EE09E2AAEFBCB00103033 /* unusedCountryNumbers.json in Resources */,
 				495530BA2AC1940C00A20FF0 /* Spilka.remafox in Resources */,
+				49B40E462AC1C062007F6992 /* Localizable.xcstrings in Resources */,
 				495334592AAF6D6700135E6C /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

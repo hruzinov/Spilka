@@ -5,6 +5,7 @@
 import SwiftUI
 import FirebaseCore
 import FirebaseAuth
+import Inject
 
 class AppDelegate: NSObject, UIApplicationDelegate {
   func application(_ application: UIApplication,
@@ -44,6 +45,7 @@ struct SpilkaApp: App {
     var body: some Scene {
         WindowGroup {
             MainView()
+                .enableInjection()
 //            TestingView()
         }
     }

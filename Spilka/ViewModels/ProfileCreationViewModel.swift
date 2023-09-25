@@ -9,7 +9,7 @@ import FirebaseFirestoreSwift
 
 extension ProfileCreationView {
     @MainActor class ViewModel: ObservableObject {
-        @Published var cryptoKeys = CryptoKeys()
+        @Published var cryptoKeys: CryptoKeys = CryptoKeys()
         @Published var userAccount: UserAccount?
 
         @Published var countryCode: String?
@@ -26,8 +26,12 @@ extension ProfileCreationView {
             uid = UserDefaults().string(forKey: "accountUID")
             guard let uid = uid else { return }
             if let checkPhoneNumber = phoneNumber {
-                phoneNumber = checkPhoneNumber.replacingOccurrences( of: "[^0-9]", with: "", options: .regularExpression)
+                phoneNumber = checkPhoneNumber.replacingOccurrences(of: "[^0-9]", with: "", options: .regularExpression)
             }
+
+            guard let publicKey = cryptoKeys.publicKey, let privateKey = cryptoKeys.privateKey,
+                    let publicBase64String = try? publicKey.base64String() else { return }
+
             userAccount = UserAccount(
                 uid: uid,
                 name: profileName,
@@ -36,19 +40,20 @@ extension ProfileCreationView {
                 profileImageID: nil, // TODO: Change when implement avatars
                 username: profileUsername,
                 description: profileDescription,
-                publicKey: try! cryptoKeys.publicKey.base64String()
+                publicKey: publicBase64String
             )
 
-            guard let userPrivateKeyBase64String = try? cryptoKeys.privateKey.base64String() else {
+            guard let privateBase64String = try? privateKey.base64String() else {
                 return
             }
 
-            UserDefaults.standard.set(userPrivateKeyBase64String, forKey: "userPrivateKey") // TODO: A temporary option for storing a private key. Transfer to Keychain in the future
+            UserDefaults.standard.set(privateBase64String, forKey: "userPrivateKey")
+            // TODO: A temporary option for storing a private key. Transfer to Keychain in the future
 
-            let db = Firestore.firestore()
+            let dbase = Firestore.firestore()
             do {
-                try db.collection("accounts").document(uid).setData(from: userAccount)
-                let accountRef = db.collection("accounts").document(uid)
+                try dbase.collection("accounts").document(uid).setData(from: userAccount)
+                let accountRef = dbase.collection("accounts").document(uid)
 
                 accountRef.getDocument { user, error in
                     if let error {

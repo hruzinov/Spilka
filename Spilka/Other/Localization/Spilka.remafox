@@ -55,11 +55,6 @@
     "harmonizeWithSourceLanguage",
     "sortByKeys"
   ],
-  "openSourceRepo" : {
-    "orgaOrUserName" : "hruzinov",
-    "projectName" : "Spilka",
-    "provider" : "github.com"
-  },
   "projectName" : "Spilka",
   "resourcesEnum" : {
     "accessLevel" : "internal",

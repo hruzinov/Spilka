@@ -16,8 +16,8 @@ struct TestingView: View {
     }
 
     func getAccountFromFB() {
-        let db = Firestore.firestore()
-        let accountRef = db.collection("accounts").document("testUserAccount")
+        let dbase = Firestore.firestore()
+        let accountRef = dbase.collection("accounts").document("testUserAccount")
 
         accountRef.getDocument { user, error in
             if let error {

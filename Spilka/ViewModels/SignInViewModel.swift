@@ -87,15 +87,15 @@ extension SignInScreenView {
                     return
                 }
                 if let userUID = authResult?.user.uid {
-                    let db = Firestore.firestore()
-                    let accountRef = db.collection("accounts").document(userUID)
+                    let dbase = Firestore.firestore()
+                    let accountRef = dbase.collection("accounts").document(userUID)
 
                     accountRef.getDocument { user, error in
                         if let error {
 //                            self.showMessagePrompt(error.localizedDescription)
                             print(error)
-                        } else if let user, user.exists {
-                            print("User Exist") // TODO: Sign in when user exist
+//                        } else if let user, user.exists {
+//                            print("User Exist") // TODO: Sign in when user exist
                         } else {
                             UserDefaults.standard.set(userUID, forKey: "accountUID")
                             self.isGoToCreateProfile.toggle()

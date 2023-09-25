@@ -6,10 +6,14 @@ import Foundation
 import SwiftyRSA
 
 struct CryptoKeys {
-    let privateKey: PrivateKey
-    var publicKey: PublicKey
+    var privateKey: PrivateKey?
+    var publicKey: PublicKey?
 
     init() {
-        (privateKey,publicKey) = try! SwiftyRSA.generateRSAKeyPair(sizeInBits: 2048)
+        do {
+            (privateKey, publicKey) = try SwiftyRSA.generateRSAKeyPair(sizeInBits: 2048)
+        } catch {
+            print(error)
+        }
     }
 }
