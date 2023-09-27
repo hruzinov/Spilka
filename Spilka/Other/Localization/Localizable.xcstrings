@@ -197,6 +197,23 @@
         }
       }
     },
+    "Invalid phone number, check and try again" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Невірний номер телефону, перевірте та повторіть спробу"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nieprawidłowy numer telefonu, sprawdź i spróbuj ponownie"
+          }
+        }
+      }
+    },
     "Loading..." : {
       "localizations" : {
         "pl" : {
@@ -241,6 +258,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Регістрація"
+          }
+        }
+      }
+    },
+    "The verification code is incorrect or expired. Please check and try again" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Код підтвердження невірний або застарів. Будь ласка, перевірте та спробуйте ще раз"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kod weryfikacyjny jest nieprawidłowy lub wygasł. Sprawdź i spróbuj ponownie"
           }
         }
       }

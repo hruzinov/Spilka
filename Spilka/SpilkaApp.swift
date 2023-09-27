@@ -45,8 +45,6 @@ struct SpilkaApp: App {
     var body: some Scene {
         WindowGroup {
             MainView()
-                .enableInjection()
-//            TestingView()
         }
     }
 }

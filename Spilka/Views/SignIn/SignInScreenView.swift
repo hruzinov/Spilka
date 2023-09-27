@@ -87,6 +87,17 @@ struct SignInScreenView: View {
                     viewModel.isPhoneContinueButtonDisabled || viewModel.isWaitingServer
                 )
 
+                Text(viewModel.phoneMessagePrompt)
+                    .foregroundStyle(.white)
+                    .multilineTextAlignment(.center)
+                    .padding(5)
+                    .frame(maxWidth: screenSize.width * 0.9)
+                    .background {
+                        RoundedRectangle(cornerRadius: 5)
+                            .fill(Color(red: 217/255, green: 4/255, blue: 41/255))
+                    }
+                    .opacity(viewModel.phoneMessagePrompt.count > 0 ? 1 : 0)
+
                 Divider()
                     .background(.gray)
                     .padding(.vertical, 30)

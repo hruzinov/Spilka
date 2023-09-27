@@ -229,11 +229,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 49C37A172AADD32C00C4B769 /* Build configuration list for PBXNativeTarget "Spilka" */;
 			buildPhases = (
+				499069642AC478EE00038B05 /* RemafoX */,
 				49C37A052AADD32900C4B769 /* Sources */,
 				49C37A062AADD32900C4B769 /* Frameworks */,
 				49C37A072AADD32900C4B769 /* Resources */,
 				49AFDD372ABB83D200E742BA /* Embed Frameworks */,
-				495530BB2AC1974800A20FF0 /* ShellScript */,
+				495530BB2AC1974800A20FF0 /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -309,7 +310,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		495530BB2AC1974800A20FF0 /* ShellScript */ = {
+		495530BB2AC1974800A20FF0 /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
 			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
@@ -319,13 +320,33 @@
 			);
 			inputPaths = (
 			);
+			name = SwiftLint;
 			outputFileListPaths = (
 			);
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif [[ \"$(uname -m)\" == arm64 ]]; then\n    export PATH=\"/opt/homebrew/bin:$PATH\"\nfi\n\nif which swiftlint > /dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+			shellScript = "if [[ \"$(uname -m)\" == arm64 ]]; then\n    export PATH=\"/opt/homebrew/bin:$PATH\"\nfi\n\nif which swiftlint > /dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+		499069642AC478EE00038B05 /* RemafoX */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = RemafoX;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "xattr -d com.apple.quarantine $HOME/Library/Containers/dev.fline.Remafox/Data/bin/remafox\nexport PATH=\"$PATH:$HOME/Library/Containers/dev.fline.Remafox/Data/bin\"\n\nif which remafox > /dev/null; then\n  remafox ibsync -c Spilka/Other/Localization/Spilka.remafox\n  remafox normalize -c Spilka/Other/Localization/Spilka.remafox\n  remafox translate -c Spilka/Other/Localization/Spilka.remafox\n  remafox lint -c Spilka/Other/Localization/Spilka.remafox\n  remafox generate -c Spilka/Other/Localization/Spilka.remafox\nelse\n  echo \"warning: RemafoX command line tool not installed, download & set up app from https://remafox.app\"\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -360,6 +381,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -423,6 +445,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";

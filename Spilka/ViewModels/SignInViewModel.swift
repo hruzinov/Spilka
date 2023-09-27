@@ -17,6 +17,8 @@ extension SignInScreenView {
         @Published var verificationID: String = ""
 
         @Published var searchCountry: String = ""
+        @Published var phoneMessagePrompt: String = ""
+        @Published var codeMessagePrompt: String = ""
         @Published var isPhoneContinueButtonDisabled = true
         @Published var isCodeContinueButtonDisabled = true
         @Published var isGoToVerification = false
@@ -51,13 +53,13 @@ extension SignInScreenView {
             guard phoneNumber.count >= countryCode.limit else { return }
             isWaitingServer = true
 
-            Auth.auth().languageCode = "en" // TODO: Get language code from settings
+            Auth.auth().languageCode = Locale.current.language.languageCode?.identifier ?? "en"
 
             let phone = countryCode.dialCode + phoneNumber
             PhoneAuthProvider.provider()
                 .verifyPhoneNumber(phone, uiDelegate: nil) { [self] id, error in
                     if let error {
-//                        self.showMessagePrompt(error.localizedDescription)
+                        self.showPhoneMessagePrompt(error)
                         print(error)
                         isWaitingServer = false
                         return
@@ -81,7 +83,7 @@ extension SignInScreenView {
 
             Auth.auth().signIn(with: credential) { authResult, error in
                 if let error {
-//                    self.showMessagePrompt(error.localizedDescription)
+                    self.showCodeMessagePrompt(error)
                     print(error)
                     self.isWaitingServer = false
                     return
@@ -92,10 +94,10 @@ extension SignInScreenView {
 
                     accountRef.getDocument { user, error in
                         if let error {
-//                            self.showMessagePrompt(error.localizedDescription)
+                            self.showCodeMessagePrompt(error)
                             print(error)
-//                        } else if let user, user.exists {
-//                            print("User Exist") // TODO: Sign in when user exist
+                        } else if let user, user.exists {
+                            print("User Exist") // TODO: Sign in when user exist
                         } else {
                             UserDefaults.standard.set(userUID, forKey: "accountUID")
                             self.isGoToCreateProfile.toggle()
@@ -103,6 +105,33 @@ extension SignInScreenView {
                     }
                 }
                 self.isWaitingServer = false
+            }
+        }
+
+        func showPhoneMessagePrompt(_ error: Error) {
+            withAnimation {
+                let errorKey = (error as NSError).userInfo["FIRAuthErrorUserInfoNameKey"] as? String
+                switch errorKey {
+                case "ERROR_INVALID_PHONE_NUMBER":
+                    self.phoneMessagePrompt = "Invalid phone number, check and try again"
+
+                default:
+                    self.phoneMessagePrompt = error.localizedDescription
+                }
+            }
+        }
+
+        func showCodeMessagePrompt(_ error: Error) {
+            withAnimation {
+                let errorKey = (error as NSError).userInfo["FIRAuthErrorUserInfoNameKey"] as? String
+                switch errorKey {
+                case "ERROR_INVALID_VERIFICATION_CODE":
+                    self.codeMessagePrompt =
+                    "The verification code is incorrect or expired. Please check and try again"
+
+                default:
+                    self.codeMessagePrompt = error.localizedDescription
+                }
             }
         }
 

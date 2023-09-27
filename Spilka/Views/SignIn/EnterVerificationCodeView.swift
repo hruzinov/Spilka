@@ -69,9 +69,22 @@ struct EnterVerificationCodeView: View {
                     signInViewModel.isCodeContinueButtonDisabled ||
                     signInViewModel.isWaitingServer
                 )
-                .navigationDestination(isPresented: $signInViewModel.isGoToCreateProfile) {
-                    ProfileCreationView(signInViewModel: signInViewModel)
-                }
+
+//                Text("signInViewModel.codeMessagePrompt ")
+                Text(signInViewModel.codeMessagePrompt)
+                    .foregroundStyle(.white)
+                    .multilineTextAlignment(.center)
+                    .padding(5)
+                    .frame(maxWidth: screenSize.width * 0.9)
+                    .background {
+                        RoundedRectangle(cornerRadius: 5)
+                            .fill(Color(red: 217/255, green: 4/255, blue: 41/255))
+                            .padding(-5)
+                    }
+                    .opacity(signInViewModel.codeMessagePrompt.count > 0 ? 1 : 0)
+            }
+            .navigationDestination(isPresented: $signInViewModel.isGoToCreateProfile) {
+                ProfileCreationView(signInViewModel: signInViewModel)
             }
             .navigationBarBackButtonHidden(true)
         }
