@@ -2,7 +2,8 @@
 //  Created by Evhen Gruzinov on 20.09.2023.
 //
 
-import Foundation
+import SwiftUI
+import UniformTypeIdentifiers
 import SwiftyRSA
 
 struct CryptoKeys {
@@ -16,4 +17,29 @@ struct CryptoKeys {
             print(error)
         }
     }
+}
+
+struct CryptoKeyFile: FileDocument, Transferable {
+    static var transferRepresentation: some TransferRepresentation {
+        ProxyRepresentation(exporting: \.data)
+            .suggestedFileName("Spilka_PrivateKey")
+    }
+
+    static var readableContentTypes: [UTType] = [UTType.data]
+    var data: Data = Data()
+
+    init(data: Data) {
+        self.data = data
+    }
+
+    init(configuration: ReadConfiguration) throws {
+        guard configuration.file.regularFileContents != nil else {
+            throw CocoaError(.fileReadCorruptFile)
+        }
+    }
+
+    func fileWrapper(configuration: WriteConfiguration) throws -> FileWrapper {
+        return FileWrapper(regularFileWithContents: data)
+    }
+
 }

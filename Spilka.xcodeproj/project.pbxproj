@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		49328AF22AADE4AB0019210F /* CountryCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49328AF12AADE4AB0019210F /* CountryCode.swift */; };
 		495334592AAF6D6700135E6C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 495334582AAF6D6700135E6C /* GoogleService-Info.plist */; };
-		495530B72AC193B200A20FF0 /* RemafoX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495530B62AC193B200A20FF0 /* RemafoX.swift */; };
-		495530BA2AC1940C00A20FF0 /* Spilka.remafox in Resources */ = {isa = PBXBuildFile; fileRef = 495530B92AC1940C00A20FF0 /* Spilka.remafox */; };
 		495530BE2AC197F600A20FF0 /* Inject in Frameworks */ = {isa = PBXBuildFile; productRef = 495530BD2AC197F600A20FF0 /* Inject */; };
 		499EE09D2AAEFBCB00103033 /* CountryNumbers.json in Resources */ = {isa = PBXBuildFile; fileRef = 499EE09B2AAEFBCB00103033 /* CountryNumbers.json */; };
 		499EE09E2AAEFBCB00103033 /* unusedCountryNumbers.json in Resources */ = {isa = PBXBuildFile; fileRef = 499EE09C2AAEFBCB00103033 /* unusedCountryNumbers.json */; };
@@ -20,6 +18,8 @@
 		49A89D252ABCBF7800E56B15 /* MainViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A89D242ABCBF7800E56B15 /* MainViewViewModel.swift */; };
 		49A89D2B2ABCD83600E56B15 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 49A89D2A2ABCD83600E56B15 /* FirebaseFirestoreSwift */; };
 		49AFDD362ABB83D200E742BA /* SwiftyRSA in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 49B452812ABB65E200AA2A13 /* SwiftyRSA */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		49B2ED172ACAD1DB00B04180 /* SaveKeyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B2ED162ACAD1DB00B04180 /* SaveKeyView.swift */; };
+		49B2ED192ACAF39A00B04180 /* KeychainSwiftDistrib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B2ED182ACAF39A00B04180 /* KeychainSwiftDistrib.swift */; };
 		49B40E462AC1C062007F6992 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 49B40E452AC1C062007F6992 /* Localizable.xcstrings */; };
 		49B4527D2ABB5FC100AA2A13 /* ProfileCreationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B4527C2ABB5FC100AA2A13 /* ProfileCreationViewModel.swift */; };
 		49B4527F2ABB60EC00AA2A13 /* CryptoKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B4527E2ABB60EC00AA2A13 /* CryptoKeys.swift */; };
@@ -55,13 +55,13 @@
 		49328AED2AADDE050019210F /* Spilka.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Spilka.entitlements; sourceTree = "<group>"; };
 		49328AF12AADE4AB0019210F /* CountryCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryCode.swift; sourceTree = "<group>"; };
 		495334582AAF6D6700135E6C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		495530B62AC193B200A20FF0 /* RemafoX.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RemafoX.swift; path = Spilka/Other/Localization/RemafoX.swift; sourceTree = SOURCE_ROOT; };
-		495530B92AC1940C00A20FF0 /* Spilka.remafox */ = {isa = PBXFileReference; lastKnownFileType = text; name = Spilka.remafox; path = Spilka/Other/Localization/Spilka.remafox; sourceTree = SOURCE_ROOT; };
 		499EE09B2AAEFBCB00103033 /* CountryNumbers.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = CountryNumbers.json; sourceTree = "<group>"; };
 		499EE09C2AAEFBCB00103033 /* unusedCountryNumbers.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = unusedCountryNumbers.json; sourceTree = "<group>"; };
 		499EE0A02AAEFC0300103033 /* Bundle+Decoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Bundle+Decoder.swift"; sourceTree = "<group>"; };
 		49A89D222ABCB6AA00E56B15 /* TestingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingView.swift; sourceTree = "<group>"; };
 		49A89D242ABCBF7800E56B15 /* MainViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewViewModel.swift; sourceTree = "<group>"; };
+		49B2ED162ACAD1DB00B04180 /* SaveKeyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveKeyView.swift; sourceTree = "<group>"; };
+		49B2ED182ACAF39A00B04180 /* KeychainSwiftDistrib.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainSwiftDistrib.swift; sourceTree = "<group>"; };
 		49B40E452AC1C062007F6992 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		49B4527C2ABB5FC100AA2A13 /* ProfileCreationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCreationViewModel.swift; sourceTree = "<group>"; };
 		49B4527E2ABB60EC00AA2A13 /* CryptoKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoKeys.swift; sourceTree = "<group>"; };
@@ -109,8 +109,6 @@
 		495530B82AC193C500A20FF0 /* Localization */ = {
 			isa = PBXGroup;
 			children = (
-				495530B62AC193B200A20FF0 /* RemafoX.swift */,
-				495530B92AC1940C00A20FF0 /* Spilka.remafox */,
 				49B40E452AC1C062007F6992 /* Localizable.xcstrings */,
 			);
 			path = Localization;
@@ -120,6 +118,7 @@
 			isa = PBXGroup;
 			children = (
 				499EE0A02AAEFC0300103033 /* Bundle+Decoder.swift */,
+				49B2ED182ACAF39A00B04180 /* KeychainSwiftDistrib.swift */,
 			);
 			path = Extentions;
 			sourceTree = "<group>";
@@ -218,6 +217,7 @@
 				49C37A1C2AADD39D00C4B769 /* SignInScreenView.swift */,
 				49F1CF742AB9F87300C02569 /* EnterVerificationCodeView.swift */,
 				49F1CF782ABA2FBF00C02569 /* ProfileCreationView.swift */,
+				49B2ED162ACAD1DB00B04180 /* SaveKeyView.swift */,
 			);
 			path = SignIn;
 			sourceTree = "<group>";
@@ -229,7 +229,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 49C37A172AADD32C00C4B769 /* Build configuration list for PBXNativeTarget "Spilka" */;
 			buildPhases = (
-				499069642AC478EE00038B05 /* RemafoX */,
 				49C37A052AADD32900C4B769 /* Sources */,
 				49C37A062AADD32900C4B769 /* Frameworks */,
 				49C37A072AADD32900C4B769 /* Resources */,
@@ -301,7 +300,6 @@
 				49C37A112AADD32C00C4B769 /* Assets.xcassets in Resources */,
 				499EE09D2AAEFBCB00103033 /* CountryNumbers.json in Resources */,
 				499EE09E2AAEFBCB00103033 /* unusedCountryNumbers.json in Resources */,
-				495530BA2AC1940C00A20FF0 /* Spilka.remafox in Resources */,
 				49B40E462AC1C062007F6992 /* Localizable.xcstrings in Resources */,
 				495334592AAF6D6700135E6C /* GoogleService-Info.plist in Resources */,
 			);
@@ -329,25 +327,6 @@
 			shellPath = /bin/sh;
 			shellScript = "if [[ \"$(uname -m)\" == arm64 ]]; then\n    export PATH=\"/opt/homebrew/bin:$PATH\"\nfi\n\nif which swiftlint > /dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
-		499069642AC478EE00038B05 /* RemafoX */ = {
-			isa = PBXShellScriptBuildPhase;
-			alwaysOutOfDate = 1;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = RemafoX;
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "xattr -d com.apple.quarantine $HOME/Library/Containers/dev.fline.Remafox/Data/bin/remafox\nexport PATH=\"$PATH:$HOME/Library/Containers/dev.fline.Remafox/Data/bin\"\n\nif which remafox > /dev/null; then\n  remafox ibsync -c Spilka/Other/Localization/Spilka.remafox\n  remafox normalize -c Spilka/Other/Localization/Spilka.remafox\n  remafox translate -c Spilka/Other/Localization/Spilka.remafox\n  remafox lint -c Spilka/Other/Localization/Spilka.remafox\n  remafox generate -c Spilka/Other/Localization/Spilka.remafox\nelse\n  echo \"warning: RemafoX command line tool not installed, download & set up app from https://remafox.app\"\nfi\n";
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -364,12 +343,13 @@
 				49328AF22AADE4AB0019210F /* CountryCode.swift in Sources */,
 				49B4527D2ABB5FC100AA2A13 /* ProfileCreationViewModel.swift in Sources */,
 				49CD124B2AB8CCF700215EC6 /* SignInViewModel.swift in Sources */,
+				49B2ED192ACAF39A00B04180 /* KeychainSwiftDistrib.swift in Sources */,
 				49C37A212AADD39D00C4B769 /* WelcomeScreenView.swift in Sources */,
 				49FE57212ABB9228005B79EF /* UserAccout.swift in Sources */,
 				499EE0A12AAEFC0300103033 /* Bundle+Decoder.swift in Sources */,
 				49A89D232ABCB6AA00E56B15 /* TestingView.swift in Sources */,
 				49C37A0D2AADD32A00C4B769 /* SpilkaApp.swift in Sources */,
-				495530B72AC193B200A20FF0 /* RemafoX.swift in Sources */,
+				49B2ED172ACAD1DB00B04180 /* SaveKeyView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

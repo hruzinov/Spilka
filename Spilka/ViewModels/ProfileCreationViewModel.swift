@@ -2,7 +2,7 @@
 //  Created by Evhen Gruzinov on 20.09.2023.
 //
 
-import Foundation
+import SwiftUI
 import SwiftyRSA
 import FirebaseFirestore
 import FirebaseFirestoreSwift
@@ -18,19 +18,32 @@ extension ProfileCreationView {
         @Published var profileName: String = ""
         @Published var profileDescription: String?
         @Published var profileUsername: String = ""
+        @Published var isGoToSaveKeyView: Bool = false
         @Published var isGoToMainView: Bool = false
         @Published var isRegisterButtonDisabled: Bool = true
         @Published var isWaitingServer: Bool = false
 
+        func handleGoToSaveKeys() {
+            guard let privateKey = cryptoKeys.privateKey else { return }
+
+            guard let privateBase64String = try? privateKey.base64String() else {
+                return
+            }
+
+            let keychain = KeychainSwift()
+            keychain.synchronizable = true
+            keychain.set(privateBase64String, forKey: "userPrivateKey")
+
+            isGoToSaveKeyView.toggle()
+        }
+
         func handleRegisterButton() {
             uid = UserDefaults().string(forKey: "accountUID")
-            guard let uid = uid else { return }
+            guard let uid = uid, let publicKey = cryptoKeys.publicKey,
+                let publicBase64String = try? publicKey.base64String() else { return }
             if let checkPhoneNumber = phoneNumber {
                 phoneNumber = checkPhoneNumber.replacingOccurrences(of: "[^0-9]", with: "", options: .regularExpression)
             }
-
-            guard let publicKey = cryptoKeys.publicKey, let privateKey = cryptoKeys.privateKey,
-                    let publicBase64String = try? publicKey.base64String() else { return }
 
             userAccount = UserAccount(
                 uid: uid,
@@ -43,13 +56,6 @@ extension ProfileCreationView {
                 publicKey: publicBase64String
             )
 
-            guard let privateBase64String = try? privateKey.base64String() else {
-                return
-            }
-
-            UserDefaults.standard.set(privateBase64String, forKey: "userPrivateKey")
-            // TODO: A temporary option for storing a private key. Transfer to Keychain in the future
-
             let dbase = Firestore.firestore()
             do {
                 try dbase.collection("accounts").document(uid).setData(from: userAccount)
@@ -58,15 +64,18 @@ extension ProfileCreationView {
                 accountRef.getDocument { user, error in
                     if let error {
                         print(error)
-//                        self.showMessagePrompt(error.localizedDescription)
                     } else if let user, user.exists {
                         self.isGoToMainView.toggle()
                     }
                 }
             } catch let error {
                 print("ERROR with creating: \(error)")
-//                self.showMessagePrompt(error.localizedDescription)
             }
+        }
+
+        var privateKeyFile: CryptoKeyFile? {
+            guard let data = try? self.cryptoKeys.privateKey!.data() else { return nil }
+            return CryptoKeyFile(data: data)
         }
     }
 }

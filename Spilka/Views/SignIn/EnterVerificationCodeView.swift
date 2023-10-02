@@ -70,7 +70,6 @@ struct EnterVerificationCodeView: View {
                     signInViewModel.isWaitingServer
                 )
 
-//                Text("signInViewModel.codeMessagePrompt ")
                 Text(signInViewModel.codeMessagePrompt)
                     .foregroundStyle(.white)
                     .multilineTextAlignment(.center)
@@ -81,7 +80,7 @@ struct EnterVerificationCodeView: View {
                             .fill(Color(red: 217/255, green: 4/255, blue: 41/255))
                             .padding(-5)
                     }
-                    .opacity(signInViewModel.codeMessagePrompt.count > 0 ? 1 : 0)
+                    .opacity(signInViewModel.isShowingCodeMessagePrompt ? 1 : 0)
             }
             .navigationDestination(isPresented: $signInViewModel.isGoToCreateProfile) {
                 ProfileCreationView(signInViewModel: signInViewModel)

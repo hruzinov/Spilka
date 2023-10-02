@@ -96,7 +96,7 @@ struct SignInScreenView: View {
                         RoundedRectangle(cornerRadius: 5)
                             .fill(Color(red: 217/255, green: 4/255, blue: 41/255))
                     }
-                    .opacity(viewModel.phoneMessagePrompt.count > 0 ? 1 : 0)
+                    .opacity(viewModel.isShowingPhoneMessagePrompt ? 1 : 0)
 
                 Divider()
                     .background(.gray)

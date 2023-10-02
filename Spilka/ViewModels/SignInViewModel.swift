@@ -24,6 +24,13 @@ extension SignInScreenView {
         @Published var isGoToVerification = false
         @Published var isGoToCreateProfile = false
         @Published var isWaitingServer = false
+        var isShowingPhoneMessagePrompt: Bool {
+            phoneMessagePrompt.count > 0
+        }
+        var isShowingCodeMessagePrompt: Bool {
+            codeMessagePrompt.count > 0
+        }
+
         var filteredRecords: [CountryCode] {
             if searchCountry.isEmpty {
                 return CountryCode.allCases
@@ -52,6 +59,8 @@ extension SignInScreenView {
         func handlePhoneContinueButton() {
             guard phoneNumber.count >= countryCode.limit else { return }
             isWaitingServer = true
+            phoneMessagePrompt = ""
+            codeMessagePrompt = ""
 
             Auth.auth().languageCode = Locale.current.language.languageCode?.identifier ?? "en"
 
@@ -75,6 +84,8 @@ extension SignInScreenView {
         func handleCodeContinueButton() {
             guard verificationCode.count == 6 else { return }
             isWaitingServer = true
+            phoneMessagePrompt = ""
+            codeMessagePrompt = ""
 
             let credential = PhoneAuthProvider.provider().credential(
                 withVerificationID: verificationID,
