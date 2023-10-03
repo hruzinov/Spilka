@@ -17,6 +17,7 @@ struct WelcomeScreenView: View {
                     .font(.title)
                     .fontWeight(.black)
                     .multilineTextAlignment(.center)
+                    .frame(width: screenSize.width * 0.80)
 
                 Spacer()
 

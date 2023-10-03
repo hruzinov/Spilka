@@ -70,6 +70,23 @@ struct EnterVerificationCodeView: View {
                     signInViewModel.isWaitingServer
                 )
 
+                Button {
+                    signInViewModel.sendSMSCode { _, _ in
+                    }
+                } label: {
+                    Text(signInViewModel.smsCodeTimeOut > 0 ?
+                         "You can request new verification code after \(signInViewModel.smsCodeTimeOut) seconds" :
+                            "Resend verification code")
+                    .foregroundStyle(signInViewModel.smsCodeTimeOut > 0 ? .gray : .accentColor)
+                    .padding(.vertical, 10)
+                }
+                .disabled(signInViewModel.smsCodeTimeOut > 0)
+                .onReceive(signInViewModel.timer) { _ in
+                    if signInViewModel.smsCodeTimeOut > 0 {
+                        signInViewModel.smsCodeTimeOut -= 1
+                    }
+                }
+
                 Text(signInViewModel.codeMessagePrompt)
                     .foregroundStyle(.white)
                     .multilineTextAlignment(.center)
@@ -82,10 +99,35 @@ struct EnterVerificationCodeView: View {
                     }
                     .opacity(signInViewModel.isShowingCodeMessagePrompt ? 1 : 0)
             }
+            .navigationBarBackButtonHidden(true)
+            .toolbar {
+                ToolbarItem(placement: .topBarLeading) {
+                    Button {
+                        signInViewModel.isGoToSigninSelector.toggle()
+                    } label: {
+                        HStack {
+                            Image(systemName: "chevron.backward")
+                            Text("Back")
+                        }
+                    }
+                }
+            }
+            .navigationTitle(signInViewModel.countryCode.flag + " " +
+                             signInViewModel.countryCode.dialCode + " " +
+                             signInViewModel.phoneNumber)
+            .navigationBarTitleDisplayMode(.inline)
             .navigationDestination(isPresented: $signInViewModel.isGoToCreateProfile) {
                 ProfileCreationView(signInViewModel: signInViewModel)
             }
-            .navigationBarBackButtonHidden(true)
+            .navigationDestination(isPresented: $signInViewModel.isGoToSigninSelector) {
+                SignInScreenView(viewModel: signInViewModel)
+            }
+            .navigationDestination(isPresented: $signInViewModel.isGoToImportPrivateKey) {
+                ImportKeyView(signInViewModel: signInViewModel)
+            }
+            .navigationDestination(isPresented: $signInViewModel.isGoToMainView) {
+                MainView(skipCheck: true)
+            }
         }
     }
 }

@@ -11,7 +11,13 @@ extension MainView {
         @Published var isLoggedIn: Bool?
 
         func startingUp(skipCheck: Bool) {
-            let accountUID = UserDefaults().string(forKey: "accountUID")
+//            let keychain = KeychainSwift()
+//            keychain.synchronizable = true
+//            let accountUID = keychain.get("accountUID")
+
+            let accountUID:String? = nil
+            #warning("Changed on time of testing")
+
             if skipCheck {
                 print("Check skipped")
                 isLoggedIn = true

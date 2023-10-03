@@ -2,6 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>CLIENT_ID</key>
+	<string>916015563094-6a6uoa1pbrardan90ffhbnf1jh5dl98g.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.916015563094-6a6uoa1pbrardan90ffhbnf1jh5dl98g</string>
 	<key>API_KEY</key>
 	<string>AIzaSyD3GSZKhqNjzXBt0b0mbdj0Fz95LhRXQbk</string>
 	<key>GCM_SENDER_ID</key>
@@ -9,7 +13,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.gruzinov.Spilka</string>
+	<string>com.hruzinov.Spilka</string>
 	<key>PROJECT_ID</key>
 	<string>spikla</string>
 	<key>STORAGE_BUCKET</key>
@@ -25,6 +29,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:916015563094:ios:37a3c5042788252dc956f7</string>
+	<string>1:916015563094:ios:d561c5d28a052641c956f7</string>
 </dict>
 </plist>

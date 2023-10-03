@@ -19,6 +19,7 @@ extension ProfileCreationView {
         @Published var profileDescription: String?
         @Published var profileUsername: String = ""
         @Published var isGoToSaveKeyView: Bool = false
+        @Published var isGoToSigninSelector = false
         @Published var isGoToMainView: Bool = false
         @Published var isRegisterButtonDisabled: Bool = true
         @Published var isWaitingServer: Bool = false
@@ -38,7 +39,9 @@ extension ProfileCreationView {
         }
 
         func handleRegisterButton() {
-            uid = UserDefaults().string(forKey: "accountUID")
+            let keychain = KeychainSwift()
+            keychain.synchronizable = true
+            uid = keychain.get("accountUID")
             guard let uid = uid, let publicKey = cryptoKeys.publicKey,
                 let publicBase64String = try? publicKey.base64String() else { return }
             if let checkPhoneNumber = phoneNumber {

@@ -17,6 +17,17 @@ struct CryptoKeys {
             print(error)
         }
     }
+
+    static func checkValidity(privateKey: PrivateKey, publicKey: PublicKey) -> Bool {
+        let inputString = "test"
+        guard let clear = try? ClearMessage(string: inputString, using: .utf8),
+              let encrypted = try? clear.encrypted(with: publicKey, padding: .PKCS1),
+              let clear = try? encrypted.decrypted(with: privateKey, padding: .PKCS1),
+              let outputString = try? clear.string(encoding: .utf8) else {
+            return false
+        }
+        return inputString == outputString
+    }
 }
 
 struct CryptoKeyFile: FileDocument, Transferable {

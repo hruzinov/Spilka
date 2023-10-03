@@ -9,7 +9,7 @@ struct SaveKeyView: View {
     @Environment(\.colorScheme) var colorScheme
 
     @ObservedObject var profileCreationViewModel: ProfileCreationView.ViewModel
-    @State private var isShowingExporter = false
+//    @State private var isShowingExporter = false
 
     var body: some View {
         VStack(spacing: 20) {

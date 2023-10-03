@@ -5,29 +5,10 @@
 //
 
 import SwiftUI
-import FirebaseFirestore
 
 struct TestingView: View {
     var body: some View {
         Text("This is TestingView")
-            .onAppear {
-                getAccountFromFB()
-            }
-    }
-
-    func getAccountFromFB() {
-        let dbase = Firestore.firestore()
-        let accountRef = dbase.collection("accounts").document("testUserAccount")
-
-        accountRef.getDocument { user, error in
-            if let error {
-                print(error)
-            } else if let user, user.exists {
-                print("User Exist")
-            } else {
-                print("User Not Exist")
-            }
-        }
     }
 }
 
