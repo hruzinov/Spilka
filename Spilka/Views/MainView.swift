@@ -6,7 +6,7 @@ import SwiftUI
 
 struct MainView: View {
     @StateObject var viewModel = ViewModel()
-    @State var needCheck = true
+    @State var skipCheck = false
 
     var body: some View {
         NavigationStack {
@@ -19,7 +19,7 @@ struct MainView: View {
             } else {
                 ProgressView("Loading...")
                     .task {
-                        viewModel.startingUp(needCheck: needCheck)
+                        viewModel.startingUp(skipCheck: skipCheck)
                     }
             }
         }

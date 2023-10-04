@@ -3,6 +3,9 @@
 //
 
 import SwiftUI
+import AuthenticationServices
+import GoogleSignIn
+import GoogleSignInSwift
 
 struct SignInScreenView: View {
     var screenSize = UIScreen.main.bounds.size
@@ -21,6 +24,7 @@ struct SignInScreenView: View {
                 Text("Confirm country code and enter phone number. Or use one of existing account")
                     .frame(maxWidth: screenSize.width * 0.8)
                     .padding(.bottom, 15)
+                    .multilineTextAlignment(.center)
 
                 HStack {
                     Button {
@@ -39,7 +43,7 @@ struct SignInScreenView: View {
                     TextField("", text: $viewModel.phoneNumber)
                         .bold()
                         .font(.title3)
-                        .keyboardType(.numbersAndPunctuation)
+                        .keyboardType(.numberPad)
                         .padding(10)
                         .frame(width: screenSize.width * 0.625, height: 50)
                         .background(.thinMaterial,
@@ -48,9 +52,9 @@ struct SignInScreenView: View {
                             viewModel.phoneNumberChanged()
                         }
                         .focused($textFieldFocused)
-                        .onAppear {
-                            textFieldFocused = true
-                        }
+//                        .onAppear {
+//                            textFieldFocused = true
+//                        }
                         .submitLabel(.next)
                         .onSubmit {
                             guard !viewModel.isPhoneContinueButtonDisabled &&
@@ -87,6 +91,17 @@ struct SignInScreenView: View {
                     viewModel.isPhoneContinueButtonDisabled || viewModel.isWaitingServer
                 )
 
+                Text(viewModel.phoneMessagePrompt)
+                    .foregroundStyle(.white)
+                    .multilineTextAlignment(.center)
+                    .padding(5)
+                    .frame(maxWidth: screenSize.width * 0.9)
+                    .background {
+                        RoundedRectangle(cornerRadius: 5)
+                            .fill(Color(red: 217/255, green: 4/255, blue: 41/255))
+                    }
+                    .opacity(viewModel.isShowingPhoneMessagePrompt ? 1 : 0)
+
                 Divider()
                     .background(.gray)
                     .padding(.vertical, 30)
@@ -100,41 +115,38 @@ struct SignInScreenView: View {
                             )
                     }
 
-//                GoogleSignInButton(action: handleSignInButton)
-//
-//                    .font(.title2)
-//                GoogleSignInButton(scheme: .dark, style: .wide, state: .normal, action: handleSignInButton)
-//                    .frame(width: screenSize.width * 0.80, height: 45)
-                Button {
-                    //                    SignUpScreen()
-                } label: {
-                    RoundedRectangle(cornerRadius: 10)
-                        .fill(colorScheme == .dark ? .white : .black)
-                        .frame(width: screenSize.width * 0.90, height: 45)
-                        .overlay {
-                            HStack {
-                                Image(systemName: "apple.logo")
-                                    .font(.title)
-                                Text("Continue with Apple")
-                                    .font(.title3)
+                SignInWithAppleToFirebase(isWaitingServer: $viewModel.isWaitingServer, { response in
+                    viewModel.handleSignInWithApple(response)
+                })
+                .frame(width: screenSize.width * 0.90, height: 45)
+                .overlay {
+                    if viewModel.isWaitingServer {
+                        RoundedRectangle(cornerRadius: 10)
+                            .fill(.ultraThinMaterial)
+                            .overlay {
+                                ProgressView()
+                                    .progressViewStyle(.circular)
                             }
-                            .foregroundStyle(colorScheme == .light ? .white : .black)
-                        }
+                    }
+                }
+
+                GoogleSignInButton(scheme: .dark, style: .wide, state: .normal) {
+                    viewModel.handleSignInWithGoogle()
+                }
+                .frame(width: screenSize.width * 0.90, height: 45)
+                .overlay {
+                    if viewModel.isWaitingServer {
+                        RoundedRectangle(cornerRadius: 10)
+                            .fill(.ultraThinMaterial)
+                            .overlay {
+                                ProgressView()
+                                    .progressViewStyle(.circular)
+                            }
+                    }
                 }
             }
             .sheet(isPresented: $isPresentedSelectorSheet) {
                 NavigationStack {
-//                    Button(action: { isPresentedSelectorSheet.toggle() }, label: {
-//                        Text("Cancel")
-//                            .font(.title3)
-//                            .padding(.vertical, 10)
-//                    })
-                    //                List(filteredRecords.wrap) { country in
-                    //                    HStack {
-                    //                        Text(country.flag)
-                    //                        /
-                    //                    }
-                    //                }
                     List {
                         ForEach(viewModel.filteredRecords, id: \.id) { country in
                             Button {
@@ -160,6 +172,15 @@ struct SignInScreenView: View {
             .presentationDetents([.medium, .large])
             .navigationDestination(isPresented: $viewModel.isGoToVerification) {
                 EnterVerificationCodeView(signInViewModel: viewModel)
+            }
+            .navigationDestination(isPresented: $viewModel.isGoToCreateProfile) {
+                ProfileCreationView(signInViewModel: viewModel)
+            }
+            .navigationDestination(isPresented: $viewModel.isGoToImportPrivateKey) {
+                ImportKeyView(signInViewModel: viewModel)
+            }
+            .navigationDestination(isPresented: $viewModel.isGoToMainView) {
+                MainView(skipCheck: true)
             }
         }
         .navigationBarBackButtonHidden(true)

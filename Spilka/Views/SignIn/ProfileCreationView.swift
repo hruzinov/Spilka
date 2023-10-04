@@ -12,6 +12,7 @@ struct ProfileCreationView: View {
     @ObservedObject var signInViewModel: SignInScreenView.ViewModel
     @FocusState private var fullNameTextFieldFocused
     @FocusState private var usernameTextFieldFocused
+    @State private var isPresentedBackConfirmation = false
 
     var body: some View {
         NavigationStack {
@@ -48,13 +49,15 @@ struct ProfileCreationView: View {
                     .frame(width: screenSize.width * 0.65)
                     .focused($fullNameTextFieldFocused)
                     .submitLabel(.next)
+                    .autocorrectionDisabled()
+                    .textInputAutocapitalization(.words)
                     .onSubmit {
                         fullNameTextFieldFocused.toggle()
                         usernameTextFieldFocused.toggle()
                     }
 
                 VStack(alignment: .leading, spacing: 5) {
-                    Text("Username ")
+                    Text("Username")
                         .bold()
                         .foregroundStyle(.gray)
                         .padding(.horizontal, 10)
@@ -78,7 +81,8 @@ struct ProfileCreationView: View {
                 Button {
                     fullNameTextFieldFocused = false
                     usernameTextFieldFocused = false
-                    viewModel.handleRegisterButton()
+//                    viewModel.handleRegisterButton()
+                    viewModel.handleGoToSaveKeys()
                 } label: {
                     RoundedRectangle(cornerRadius: 10)
                         .fill(viewModel.profileName.count == 0 ? .gray :
@@ -90,7 +94,7 @@ struct ProfileCreationView: View {
                                 ProgressView()
                                     .tint(colorScheme == .light ? .white  : .black)
                             } else {
-                                Text("Register")
+                                Text("Continue")
                                     .foregroundStyle(colorScheme == .light ? .white  : .black)
                                     .font(.title3)
                             }
@@ -107,9 +111,33 @@ struct ProfileCreationView: View {
                 viewModel.phoneNumber = signInViewModel.phoneNumber
             }
         }
-        .navigationDestination(isPresented: $viewModel.isGoToMainView) {
-            MainView(needCheck: false)
+        .navigationDestination(isPresented: $viewModel.isGoToSaveKeyView) {
+            SaveKeyView(profileCreationViewModel: viewModel)
         }
+        .navigationDestination(isPresented: $viewModel.isGoToSigninSelector) {
+            SignInScreenView()
+        }
+        .navigationBarBackButtonHidden(true)
+        .toolbar {
+            ToolbarItem(placement: .topBarLeading) {
+                Button {
+                    isPresentedBackConfirmation.toggle()
+                } label: {
+                    HStack {
+                        Image(systemName: "chevron.backward")
+                        Text("Back")
+                    }
+                }
+            }
+        }
+        .confirmationDialog("Are you sure?",
+                            isPresented: $isPresentedBackConfirmation, actions: {
+            Button("Go back", role: .destructive) {
+                viewModel.isGoToSigninSelector.toggle()
+            }
+        }, message: {
+            Text("You will lose all filled information")
+        })
     }
 }
 

@@ -10,25 +10,36 @@ extension MainView {
         @Published var isLoaded: Bool = false
         @Published var isLoggedIn: Bool?
 
-        func startingUp(needCheck: Bool) {
-            let accountUID = UserDefaults().string(forKey: "accountUID")
-            if let accountUID, needCheck {
-                let db = Firestore.firestore()
-                let accountRef = db.collection("accounts").document(accountUID)
+        func startingUp(skipCheck: Bool) {
+//            let keychain = KeychainSwift()
+//            keychain.synchronizable = true
+//            let accountUID = keychain.get("accountUID")
+
+            let accountUID:String? = nil
+            #warning("Changed on time of testing")
+
+            if skipCheck {
+                print("Check skipped")
+                isLoggedIn = true
+            } else if let accountUID {
+                let dbase = Firestore.firestore()
+                let accountRef = dbase.collection("accounts").document(accountUID)
 
                 accountRef.getDocument { user, error in
                     if let error {
                         print(error)
                     } else if let user, user.exists {
+                        print("User exist")
                         self.isLoggedIn = true
                     } else {
+                        print("User not exist")
                         self.isLoggedIn = false
                     }
                 }
             } else {
                 isLoggedIn = false
             }
-            isLoaded.toggle()
+            isLoaded = true
         }
     }
 }

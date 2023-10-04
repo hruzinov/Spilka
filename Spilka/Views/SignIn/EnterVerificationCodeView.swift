@@ -69,11 +69,65 @@ struct EnterVerificationCodeView: View {
                     signInViewModel.isCodeContinueButtonDisabled ||
                     signInViewModel.isWaitingServer
                 )
-                .navigationDestination(isPresented: $signInViewModel.isGoToCreateProfile) {
-                    ProfileCreationView(signInViewModel: signInViewModel)
+
+                Button {
+                    signInViewModel.sendSMSCode { _, _ in
+                    }
+                } label: {
+                    Text(signInViewModel.smsCodeTimeOut > 0 ?
+                         "You can request new verification code after \(signInViewModel.smsCodeTimeOut) seconds" :
+                            "Resend verification code")
+                    .foregroundStyle(signInViewModel.smsCodeTimeOut > 0 ? .gray : .accentColor)
+                    .padding(.vertical, 10)
                 }
+                .disabled(signInViewModel.smsCodeTimeOut > 0)
+                .onReceive(signInViewModel.timer) { _ in
+                    if signInViewModel.smsCodeTimeOut > 0 {
+                        signInViewModel.smsCodeTimeOut -= 1
+                    }
+                }
+
+                Text(signInViewModel.codeMessagePrompt)
+                    .foregroundStyle(.white)
+                    .multilineTextAlignment(.center)
+                    .padding(5)
+                    .frame(maxWidth: screenSize.width * 0.9)
+                    .background {
+                        RoundedRectangle(cornerRadius: 5)
+                            .fill(Color(red: 217/255, green: 4/255, blue: 41/255))
+                            .padding(-5)
+                    }
+                    .opacity(signInViewModel.isShowingCodeMessagePrompt ? 1 : 0)
             }
             .navigationBarBackButtonHidden(true)
+            .toolbar {
+                ToolbarItem(placement: .topBarLeading) {
+                    Button {
+                        signInViewModel.isGoToSigninSelector.toggle()
+                    } label: {
+                        HStack {
+                            Image(systemName: "chevron.backward")
+                            Text("Back")
+                        }
+                    }
+                }
+            }
+            .navigationTitle(signInViewModel.countryCode.flag + " " +
+                             signInViewModel.countryCode.dialCode + " " +
+                             signInViewModel.phoneNumber)
+            .navigationBarTitleDisplayMode(.inline)
+            .navigationDestination(isPresented: $signInViewModel.isGoToCreateProfile) {
+                ProfileCreationView(signInViewModel: signInViewModel)
+            }
+            .navigationDestination(isPresented: $signInViewModel.isGoToSigninSelector) {
+                SignInScreenView(viewModel: signInViewModel)
+            }
+            .navigationDestination(isPresented: $signInViewModel.isGoToImportPrivateKey) {
+                ImportKeyView(signInViewModel: signInViewModel)
+            }
+            .navigationDestination(isPresented: $signInViewModel.isGoToMainView) {
+                MainView(skipCheck: true)
+            }
         }
     }
 }

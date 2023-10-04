@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		490A32F02ACCB464001BA401 /* SignInWithApple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490A32EF2ACCB464001BA401 /* SignInWithApple.swift */; };
 		49328AF22AADE4AB0019210F /* CountryCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49328AF12AADE4AB0019210F /* CountryCode.swift */; };
 		495334592AAF6D6700135E6C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 495334582AAF6D6700135E6C /* GoogleService-Info.plist */; };
-		495530B72AC193B200A20FF0 /* RemafoX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495530B62AC193B200A20FF0 /* RemafoX.swift */; };
-		495530BA2AC1940C00A20FF0 /* Spilka.remafox in Resources */ = {isa = PBXBuildFile; fileRef = 495530B92AC1940C00A20FF0 /* Spilka.remafox */; };
 		495530BE2AC197F600A20FF0 /* Inject in Frameworks */ = {isa = PBXBuildFile; productRef = 495530BD2AC197F600A20FF0 /* Inject */; };
+		498393DC2ACC2B7700DA9407 /* ImportKeyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498393DB2ACC2B7700DA9407 /* ImportKeyView.swift */; };
 		499EE09D2AAEFBCB00103033 /* CountryNumbers.json in Resources */ = {isa = PBXBuildFile; fileRef = 499EE09B2AAEFBCB00103033 /* CountryNumbers.json */; };
 		499EE09E2AAEFBCB00103033 /* unusedCountryNumbers.json in Resources */ = {isa = PBXBuildFile; fileRef = 499EE09C2AAEFBCB00103033 /* unusedCountryNumbers.json */; };
 		499EE0A12AAEFC0300103033 /* Bundle+Decoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499EE0A02AAEFC0300103033 /* Bundle+Decoder.swift */; };
@@ -20,6 +20,9 @@
 		49A89D252ABCBF7800E56B15 /* MainViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A89D242ABCBF7800E56B15 /* MainViewViewModel.swift */; };
 		49A89D2B2ABCD83600E56B15 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 49A89D2A2ABCD83600E56B15 /* FirebaseFirestoreSwift */; };
 		49AFDD362ABB83D200E742BA /* SwiftyRSA in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 49B452812ABB65E200AA2A13 /* SwiftyRSA */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		49B2ED172ACAD1DB00B04180 /* SaveKeyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B2ED162ACAD1DB00B04180 /* SaveKeyView.swift */; };
+		49B2ED192ACAF39A00B04180 /* KeychainSwiftDistrib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B2ED182ACAF39A00B04180 /* KeychainSwiftDistrib.swift */; };
+		49B40E462AC1C062007F6992 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 49B40E452AC1C062007F6992 /* Localizable.xcstrings */; };
 		49B4527D2ABB5FC100AA2A13 /* ProfileCreationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B4527C2ABB5FC100AA2A13 /* ProfileCreationViewModel.swift */; };
 		49B4527F2ABB60EC00AA2A13 /* CryptoKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B4527E2ABB60EC00AA2A13 /* CryptoKeys.swift */; };
 		49B452822ABB65E200AA2A13 /* SwiftyRSA in Frameworks */ = {isa = PBXBuildFile; productRef = 49B452812ABB65E200AA2A13 /* SwiftyRSA */; };
@@ -31,6 +34,8 @@
 		49C37A222AADD39D00C4B769 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C37A1E2AADD39D00C4B769 /* MainView.swift */; };
 		49CD124B2AB8CCF700215EC6 /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CD124A2AB8CCF700215EC6 /* SignInViewModel.swift */; };
 		49D767032ABA575E00EB5AAE /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 49D767022ABA575E00EB5AAE /* FirebaseAuth */; };
+		49DB00D02ACCF46E0060FF9A /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 49DB00CF2ACCF46E0060FF9A /* GoogleSignIn */; };
+		49DB00D22ACCF46E0060FF9A /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 49DB00D12ACCF46E0060FF9A /* GoogleSignInSwift */; };
 		49F1CF752AB9F87300C02569 /* EnterVerificationCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F1CF742AB9F87300C02569 /* EnterVerificationCodeView.swift */; };
 		49F1CF792ABA2FBF00C02569 /* ProfileCreationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F1CF782ABA2FBF00C02569 /* ProfileCreationView.swift */; };
 		49FE57212ABB9228005B79EF /* UserAccout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49FE57202ABB9228005B79EF /* UserAccout.swift */; };
@@ -51,16 +56,19 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		490A32EF2ACCB464001BA401 /* SignInWithApple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWithApple.swift; sourceTree = "<group>"; };
 		49328AED2AADDE050019210F /* Spilka.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Spilka.entitlements; sourceTree = "<group>"; };
 		49328AF12AADE4AB0019210F /* CountryCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryCode.swift; sourceTree = "<group>"; };
 		495334582AAF6D6700135E6C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		495530B62AC193B200A20FF0 /* RemafoX.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemafoX.swift; sourceTree = SOURCE_ROOT; };
-		495530B92AC1940C00A20FF0 /* Spilka.remafox */ = {isa = PBXFileReference; lastKnownFileType = text; path = Spilka.remafox; sourceTree = SOURCE_ROOT; };
+		498393DB2ACC2B7700DA9407 /* ImportKeyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportKeyView.swift; sourceTree = "<group>"; };
 		499EE09B2AAEFBCB00103033 /* CountryNumbers.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = CountryNumbers.json; sourceTree = "<group>"; };
 		499EE09C2AAEFBCB00103033 /* unusedCountryNumbers.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = unusedCountryNumbers.json; sourceTree = "<group>"; };
 		499EE0A02AAEFC0300103033 /* Bundle+Decoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Bundle+Decoder.swift"; sourceTree = "<group>"; };
 		49A89D222ABCB6AA00E56B15 /* TestingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingView.swift; sourceTree = "<group>"; };
 		49A89D242ABCBF7800E56B15 /* MainViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewViewModel.swift; sourceTree = "<group>"; };
+		49B2ED162ACAD1DB00B04180 /* SaveKeyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveKeyView.swift; sourceTree = "<group>"; };
+		49B2ED182ACAF39A00B04180 /* KeychainSwiftDistrib.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainSwiftDistrib.swift; sourceTree = "<group>"; };
+		49B40E452AC1C062007F6992 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		49B4527C2ABB5FC100AA2A13 /* ProfileCreationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCreationViewModel.swift; sourceTree = "<group>"; };
 		49B4527E2ABB60EC00AA2A13 /* CryptoKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoKeys.swift; sourceTree = "<group>"; };
 		49C37A092AADD32A00C4B769 /* Spilka.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Spilka.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -84,9 +92,11 @@
 			files = (
 				495530BE2AC197F600A20FF0 /* Inject in Frameworks */,
 				49D767032ABA575E00EB5AAE /* FirebaseAuth in Frameworks */,
+				49DB00D22ACCF46E0060FF9A /* GoogleSignInSwift in Frameworks */,
 				49B452822ABB65E200AA2A13 /* SwiftyRSA in Frameworks */,
 				49A89D1F2ABCB5F000E56B15 /* FirebaseFirestore in Frameworks */,
 				49A89D2B2ABCD83600E56B15 /* FirebaseFirestoreSwift in Frameworks */,
+				49DB00D02ACCF46E0060FF9A /* GoogleSignIn in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -107,6 +117,7 @@
 		495530B82AC193C500A20FF0 /* Localization */ = {
 			isa = PBXGroup;
 			children = (
+				49B40E452AC1C062007F6992 /* Localizable.xcstrings */,
 			);
 			path = Localization;
 			sourceTree = "<group>";
@@ -115,6 +126,8 @@
 			isa = PBXGroup;
 			children = (
 				499EE0A02AAEFC0300103033 /* Bundle+Decoder.swift */,
+				49B2ED182ACAF39A00B04180 /* KeychainSwiftDistrib.swift */,
+				490A32EF2ACCB464001BA401 /* SignInWithApple.swift */,
 			);
 			path = Extentions;
 			sourceTree = "<group>";
@@ -138,8 +151,6 @@
 		49C37A002AADD32900C4B769 = {
 			isa = PBXGroup;
 			children = (
-				495530B62AC193B200A20FF0 /* RemafoX.swift */,
-				495530B92AC1940C00A20FF0 /* Spilka.remafox */,
 				49C37A0B2AADD32A00C4B769 /* Spilka */,
 				49C37A0A2AADD32A00C4B769 /* Products */,
 				49A89D1D2ABCB5F000E56B15 /* Frameworks */,
@@ -215,6 +226,8 @@
 				49C37A1C2AADD39D00C4B769 /* SignInScreenView.swift */,
 				49F1CF742AB9F87300C02569 /* EnterVerificationCodeView.swift */,
 				49F1CF782ABA2FBF00C02569 /* ProfileCreationView.swift */,
+				49B2ED162ACAD1DB00B04180 /* SaveKeyView.swift */,
+				498393DB2ACC2B7700DA9407 /* ImportKeyView.swift */,
 			);
 			path = SignIn;
 			sourceTree = "<group>";
@@ -230,7 +243,7 @@
 				49C37A062AADD32900C4B769 /* Frameworks */,
 				49C37A072AADD32900C4B769 /* Resources */,
 				49AFDD372ABB83D200E742BA /* Embed Frameworks */,
-				495530BB2AC1974800A20FF0 /* ShellScript */,
+				495530BB2AC1974800A20FF0 /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -243,6 +256,8 @@
 				49A89D1E2ABCB5F000E56B15 /* FirebaseFirestore */,
 				49A89D2A2ABCD83600E56B15 /* FirebaseFirestoreSwift */,
 				495530BD2AC197F600A20FF0 /* Inject */,
+				49DB00CF2ACCF46E0060FF9A /* GoogleSignIn */,
+				49DB00D12ACCF46E0060FF9A /* GoogleSignInSwift */,
 			);
 			productName = Spilka;
 			productReference = 49C37A092AADD32A00C4B769 /* Spilka.app */;
@@ -270,12 +285,15 @@
 			knownRegions = (
 				en,
 				Base,
+				uk,
+				pl,
 			);
 			mainGroup = 49C37A002AADD32900C4B769;
 			packageReferences = (
 				49D766F52ABA575E00EB5AAE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				49B452802ABB65E100AA2A13 /* XCRemoteSwiftPackageReference "SwiftyRSA" */,
 				495530BC2AC197F500A20FF0 /* XCRemoteSwiftPackageReference "Inject" */,
+				49DB00CE2ACCF46E0060FF9A /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
 			);
 			productRefGroup = 49C37A0A2AADD32A00C4B769 /* Products */;
 			projectDirPath = "";
@@ -295,7 +313,7 @@
 				49C37A112AADD32C00C4B769 /* Assets.xcassets in Resources */,
 				499EE09D2AAEFBCB00103033 /* CountryNumbers.json in Resources */,
 				499EE09E2AAEFBCB00103033 /* unusedCountryNumbers.json in Resources */,
-				495530BA2AC1940C00A20FF0 /* Spilka.remafox in Resources */,
+				49B40E462AC1C062007F6992 /* Localizable.xcstrings in Resources */,
 				495334592AAF6D6700135E6C /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -303,7 +321,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		495530BB2AC1974800A20FF0 /* ShellScript */ = {
+		495530BB2AC1974800A20FF0 /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
 			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
@@ -313,13 +331,14 @@
 			);
 			inputPaths = (
 			);
+			name = SwiftLint;
 			outputFileListPaths = (
 			);
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif [[ \"$(uname -m)\" == arm64 ]]; then\n    export PATH=\"/opt/homebrew/bin:$PATH\"\nfi\n\nif which swiftlint > /dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+			shellScript = "if [[ \"$(uname -m)\" == arm64 ]]; then\n    export PATH=\"/opt/homebrew/bin:$PATH\"\nfi\n\nif which swiftlint > /dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -337,12 +356,15 @@
 				49328AF22AADE4AB0019210F /* CountryCode.swift in Sources */,
 				49B4527D2ABB5FC100AA2A13 /* ProfileCreationViewModel.swift in Sources */,
 				49CD124B2AB8CCF700215EC6 /* SignInViewModel.swift in Sources */,
+				49B2ED192ACAF39A00B04180 /* KeychainSwiftDistrib.swift in Sources */,
 				49C37A212AADD39D00C4B769 /* WelcomeScreenView.swift in Sources */,
 				49FE57212ABB9228005B79EF /* UserAccout.swift in Sources */,
 				499EE0A12AAEFC0300103033 /* Bundle+Decoder.swift in Sources */,
+				490A32F02ACCB464001BA401 /* SignInWithApple.swift in Sources */,
 				49A89D232ABCB6AA00E56B15 /* TestingView.swift in Sources */,
 				49C37A0D2AADD32A00C4B769 /* SpilkaApp.swift in Sources */,
-				495530B72AC193B200A20FF0 /* RemafoX.swift in Sources */,
+				49B2ED172ACAD1DB00B04180 /* SaveKeyView.swift in Sources */,
+				498393DC2ACC2B7700DA9407 /* ImportKeyView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -354,6 +376,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -417,6 +440,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -494,7 +518,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 0.1;
-				PRODUCT_BUNDLE_IDENTIFIER = com.gruzinov.Spilka;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hruzinov.Spilka;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -528,7 +552,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 0.1;
-				PRODUCT_BUNDLE_IDENTIFIER = com.gruzinov.Spilka;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hruzinov.Spilka;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -584,6 +608,14 @@
 				minimumVersion = 10.15.0;
 			};
 		};
+		49DB00CE2ACCF46E0060FF9A /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/google/GoogleSignIn-iOS";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -611,6 +643,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 49D766F52ABA575E00EB5AAE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseAuth;
+		};
+		49DB00CF2ACCF46E0060FF9A /* GoogleSignIn */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 49DB00CE2ACCF46E0060FF9A /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignIn;
+		};
+		49DB00D12ACCF46E0060FF9A /* GoogleSignInSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 49DB00CE2ACCF46E0060FF9A /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignInSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
