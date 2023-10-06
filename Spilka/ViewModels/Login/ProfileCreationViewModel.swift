@@ -15,6 +15,7 @@ extension ProfileCreationView {
         @Published var countryCode: String?
         @Published var phoneNumber: String?
         @Published var uid: String?
+        @Published var uuid: String?
         @Published var profileName: String = ""
         @Published var profileDescription: String?
         @Published var profileUsername: String = ""
@@ -49,7 +50,7 @@ extension ProfileCreationView {
             }
 
             userAccount = UserAccount(
-                uid: uid,
+                uuid: UUID().uuidString,
                 name: profileName,
                 countryCode: countryCode,
                 phoneNumber: phoneNumber,

@@ -9,7 +9,8 @@ import GoogleSignIn
 
 class AppDelegate: NSObject, UIApplicationDelegate {
     func application(_ application: UIApplication,
-                     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil) -> Bool {
+                     didFinishLaunchingWithOptions launchOptions:
+                        [UIApplication.LaunchOptionsKey: Any]? = nil) -> Bool {
         FirebaseApp.configure()
         return true
     }
@@ -49,8 +50,12 @@ struct SpilkaApp: App {
 
     var body: some Scene {
         WindowGroup {
-            MainView()
-            //            TestingView()
+//            MainView()
+//            TestingView()
+            ChatsListScreenView()
+//                .task {
+//                    TestData.testUsers
+//                }
         }
     }
 }

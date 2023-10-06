@@ -39,6 +39,22 @@
         }
       }
     },
+    "1" : {
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "1"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "1"
+          }
+        }
+      }
+    },
     "A fast and secure space to communicate with your colleagues and friends" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -110,6 +126,23 @@
         }
       }
     },
+    "Chats" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Czaty"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Чати"
+          }
+        }
+      }
+    },
     "Confirm country code and enter phone number. Or use one of existing account" : {
       "localizations" : {
         "pl" : {
@@ -161,23 +194,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Продовжити"
-          }
-        }
-      }
-    },
-    "Continue with Apple" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "pl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Zaloguj się, używając konta Apple"
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Вхід з Apple"
           }
         }
       }
@@ -392,6 +408,22 @@
         }
       }
     },
+    "NaN" : {
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "NaN"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "NaN"
+          }
+        }
+      }
+    },
     "NOT WORKING" : {
       "localizations" : {
         "pl" : {
@@ -538,6 +570,23 @@
         }
       }
     },
+    "Updating..." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aktualizacja..."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Оновлюю..."
+          }
+        }
+      }
+    },
     "Username" : {
       "localizations" : {
         "pl" : {
@@ -605,22 +654,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ви втратите всю введену інформацію"
-          }
-        }
-      }
-    },
-    "You're logged in" : {
-      "localizations" : {
-        "pl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "You're logged in"
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "You're logged in"
           }
         }
       }

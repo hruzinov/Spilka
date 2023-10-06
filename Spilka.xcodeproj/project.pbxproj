@@ -11,13 +11,19 @@
 		49328AF22AADE4AB0019210F /* CountryCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49328AF12AADE4AB0019210F /* CountryCode.swift */; };
 		495334592AAF6D6700135E6C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 495334582AAF6D6700135E6C /* GoogleService-Info.plist */; };
 		495530BE2AC197F600A20FF0 /* Inject in Frameworks */ = {isa = PBXBuildFile; productRef = 495530BD2AC197F600A20FF0 /* Inject */; };
+		4959D3DD2ACF68B900C9471B /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 4959D3DC2ACF68B900C9471B /* FirebaseStorage */; };
+		4973306F2ACEBF8200807B93 /* TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4973306E2ACEBF8200807B93 /* TestData.swift */; };
+		497330712ACEDFF900807B93 /* ChatModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497330702ACEDFF900807B93 /* ChatModel.swift */; };
+		497330732ACEE02700807B93 /* MessageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497330722ACEE02700807B93 /* MessageModel.swift */; };
+		497330752ACF08AB00807B93 /* ChatsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497330742ACF08AA00807B93 /* ChatsListViewModel.swift */; };
+		497330772ACF348500807B93 /* Date+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497330762ACF348500807B93 /* Date+String.swift */; };
 		498393DC2ACC2B7700DA9407 /* ImportKeyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498393DB2ACC2B7700DA9407 /* ImportKeyView.swift */; };
 		499EE09D2AAEFBCB00103033 /* CountryNumbers.json in Resources */ = {isa = PBXBuildFile; fileRef = 499EE09B2AAEFBCB00103033 /* CountryNumbers.json */; };
 		499EE09E2AAEFBCB00103033 /* unusedCountryNumbers.json in Resources */ = {isa = PBXBuildFile; fileRef = 499EE09C2AAEFBCB00103033 /* unusedCountryNumbers.json */; };
 		499EE0A12AAEFC0300103033 /* Bundle+Decoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499EE0A02AAEFC0300103033 /* Bundle+Decoder.swift */; };
 		49A89D1F2ABCB5F000E56B15 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 49A89D1E2ABCB5F000E56B15 /* FirebaseFirestore */; };
 		49A89D232ABCB6AA00E56B15 /* TestingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A89D222ABCB6AA00E56B15 /* TestingView.swift */; };
-		49A89D252ABCBF7800E56B15 /* MainViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A89D242ABCBF7800E56B15 /* MainViewViewModel.swift */; };
+		49A89D252ABCBF7800E56B15 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A89D242ABCBF7800E56B15 /* MainViewModel.swift */; };
 		49A89D2B2ABCD83600E56B15 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 49A89D2A2ABCD83600E56B15 /* FirebaseFirestoreSwift */; };
 		49AFDD362ABB83D200E742BA /* SwiftyRSA in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 49B452812ABB65E200AA2A13 /* SwiftyRSA */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		49B2ED172ACAD1DB00B04180 /* SaveKeyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B2ED162ACAD1DB00B04180 /* SaveKeyView.swift */; };
@@ -38,7 +44,8 @@
 		49DB00D22ACCF46E0060FF9A /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 49DB00D12ACCF46E0060FF9A /* GoogleSignInSwift */; };
 		49F1CF752AB9F87300C02569 /* EnterVerificationCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F1CF742AB9F87300C02569 /* EnterVerificationCodeView.swift */; };
 		49F1CF792ABA2FBF00C02569 /* ProfileCreationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F1CF782ABA2FBF00C02569 /* ProfileCreationView.swift */; };
-		49FE57212ABB9228005B79EF /* UserAccout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49FE57202ABB9228005B79EF /* UserAccout.swift */; };
+		49F4F9F62ACEA3F7002ABE33 /* ChatsListScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F4F9F52ACEA3F7002ABE33 /* ChatsListScreenView.swift */; };
+		49FE57212ABB9228005B79EF /* UserAccoutModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49FE57202ABB9228005B79EF /* UserAccoutModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -60,12 +67,17 @@
 		49328AED2AADDE050019210F /* Spilka.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Spilka.entitlements; sourceTree = "<group>"; };
 		49328AF12AADE4AB0019210F /* CountryCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryCode.swift; sourceTree = "<group>"; };
 		495334582AAF6D6700135E6C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		4973306E2ACEBF8200807B93 /* TestData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestData.swift; sourceTree = "<group>"; };
+		497330702ACEDFF900807B93 /* ChatModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatModel.swift; sourceTree = "<group>"; };
+		497330722ACEE02700807B93 /* MessageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageModel.swift; sourceTree = "<group>"; };
+		497330742ACF08AA00807B93 /* ChatsListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsListViewModel.swift; sourceTree = "<group>"; };
+		497330762ACF348500807B93 /* Date+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+String.swift"; sourceTree = "<group>"; };
 		498393DB2ACC2B7700DA9407 /* ImportKeyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportKeyView.swift; sourceTree = "<group>"; };
 		499EE09B2AAEFBCB00103033 /* CountryNumbers.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = CountryNumbers.json; sourceTree = "<group>"; };
 		499EE09C2AAEFBCB00103033 /* unusedCountryNumbers.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = unusedCountryNumbers.json; sourceTree = "<group>"; };
 		499EE0A02AAEFC0300103033 /* Bundle+Decoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Bundle+Decoder.swift"; sourceTree = "<group>"; };
 		49A89D222ABCB6AA00E56B15 /* TestingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingView.swift; sourceTree = "<group>"; };
-		49A89D242ABCBF7800E56B15 /* MainViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewViewModel.swift; sourceTree = "<group>"; };
+		49A89D242ABCBF7800E56B15 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		49B2ED162ACAD1DB00B04180 /* SaveKeyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveKeyView.swift; sourceTree = "<group>"; };
 		49B2ED182ACAF39A00B04180 /* KeychainSwiftDistrib.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainSwiftDistrib.swift; sourceTree = "<group>"; };
 		49B40E452AC1C062007F6992 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
@@ -82,7 +94,8 @@
 		49CD124C2AB8D64400215EC6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		49F1CF742AB9F87300C02569 /* EnterVerificationCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterVerificationCodeView.swift; sourceTree = "<group>"; };
 		49F1CF782ABA2FBF00C02569 /* ProfileCreationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCreationView.swift; sourceTree = "<group>"; };
-		49FE57202ABB9228005B79EF /* UserAccout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAccout.swift; sourceTree = "<group>"; };
+		49F4F9F52ACEA3F7002ABE33 /* ChatsListScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsListScreenView.swift; sourceTree = "<group>"; };
+		49FE57202ABB9228005B79EF /* UserAccoutModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAccoutModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +108,7 @@
 				49DB00D22ACCF46E0060FF9A /* GoogleSignInSwift in Frameworks */,
 				49B452822ABB65E200AA2A13 /* SwiftyRSA in Frameworks */,
 				49A89D1F2ABCB5F000E56B15 /* FirebaseFirestore in Frameworks */,
+				4959D3DD2ACF68B900C9471B /* FirebaseStorage in Frameworks */,
 				49A89D2B2ABCD83600E56B15 /* FirebaseFirestoreSwift in Frameworks */,
 				49DB00D02ACCF46E0060FF9A /* GoogleSignIn in Frameworks */,
 			);
@@ -109,7 +123,9 @@
 				49B4527B2ABB5CA500AA2A13 /* PhoneNumbers */,
 				49328AF12AADE4AB0019210F /* CountryCode.swift */,
 				49B4527E2ABB60EC00AA2A13 /* CryptoKeys.swift */,
-				49FE57202ABB9228005B79EF /* UserAccout.swift */,
+				49FE57202ABB9228005B79EF /* UserAccoutModel.swift */,
+				497330702ACEDFF900807B93 /* ChatModel.swift */,
+				497330722ACEE02700807B93 /* MessageModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -122,12 +138,23 @@
 			path = Localization;
 			sourceTree = "<group>";
 		};
+		4959D3DB2ACF5FDC00C9471B /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				49A89D242ABCBF7800E56B15 /* MainViewModel.swift */,
+				49CD124A2AB8CCF700215EC6 /* SignInViewModel.swift */,
+				49B4527C2ABB5FC100AA2A13 /* ProfileCreationViewModel.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
 		499EE09F2AAEFBF300103033 /* Extentions */ = {
 			isa = PBXGroup;
 			children = (
 				499EE0A02AAEFC0300103033 /* Bundle+Decoder.swift */,
 				49B2ED182ACAF39A00B04180 /* KeychainSwiftDistrib.swift */,
 				490A32EF2ACCB464001BA401 /* SignInWithApple.swift */,
+				497330762ACF348500807B93 /* Date+String.swift */,
 			);
 			path = Extentions;
 			sourceTree = "<group>";
@@ -191,8 +218,9 @@
 		49C37A1A2AADD39D00C4B769 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				49F1CF732AB9F84A00C02569 /* SignIn */,
+				49F1CF732AB9F84A00C02569 /* Login */,
 				49C37A1E2AADD39D00C4B769 /* MainView.swift */,
+				49F4F9F52ACEA3F7002ABE33 /* ChatsListScreenView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -203,6 +231,7 @@
 				495530B82AC193C500A20FF0 /* Localization */,
 				49C37A102AADD32C00C4B769 /* Assets.xcassets */,
 				49328AED2AADDE050019210F /* Spilka.entitlements */,
+				4973306E2ACEBF8200807B93 /* TestData.swift */,
 				49A89D222ABCB6AA00E56B15 /* TestingView.swift */,
 				49C37A122AADD32C00C4B769 /* Preview Content */,
 			);
@@ -212,14 +241,13 @@
 		49CD12492AB8CCDC00215EC6 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				49A89D242ABCBF7800E56B15 /* MainViewViewModel.swift */,
-				49CD124A2AB8CCF700215EC6 /* SignInViewModel.swift */,
-				49B4527C2ABB5FC100AA2A13 /* ProfileCreationViewModel.swift */,
+				4959D3DB2ACF5FDC00C9471B /* Login */,
+				497330742ACF08AA00807B93 /* ChatsListViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
-		49F1CF732AB9F84A00C02569 /* SignIn */ = {
+		49F1CF732AB9F84A00C02569 /* Login */ = {
 			isa = PBXGroup;
 			children = (
 				49C37A1D2AADD39D00C4B769 /* WelcomeScreenView.swift */,
@@ -229,7 +257,7 @@
 				49B2ED162ACAD1DB00B04180 /* SaveKeyView.swift */,
 				498393DB2ACC2B7700DA9407 /* ImportKeyView.swift */,
 			);
-			path = SignIn;
+			path = Login;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,6 +286,7 @@
 				495530BD2AC197F600A20FF0 /* Inject */,
 				49DB00CF2ACCF46E0060FF9A /* GoogleSignIn */,
 				49DB00D12ACCF46E0060FF9A /* GoogleSignInSwift */,
+				4959D3DC2ACF68B900C9471B /* FirebaseStorage */,
 			);
 			productName = Spilka;
 			productReference = 49C37A092AADD32A00C4B769 /* Spilka.app */;
@@ -349,7 +378,9 @@
 			files = (
 				49C37A202AADD39D00C4B769 /* SignInScreenView.swift in Sources */,
 				49F1CF752AB9F87300C02569 /* EnterVerificationCodeView.swift in Sources */,
-				49A89D252ABCBF7800E56B15 /* MainViewViewModel.swift in Sources */,
+				49A89D252ABCBF7800E56B15 /* MainViewModel.swift in Sources */,
+				4973306F2ACEBF8200807B93 /* TestData.swift in Sources */,
+				49F4F9F62ACEA3F7002ABE33 /* ChatsListScreenView.swift in Sources */,
 				49C37A222AADD39D00C4B769 /* MainView.swift in Sources */,
 				49B4527F2ABB60EC00AA2A13 /* CryptoKeys.swift in Sources */,
 				49F1CF792ABA2FBF00C02569 /* ProfileCreationView.swift in Sources */,
@@ -358,11 +389,15 @@
 				49CD124B2AB8CCF700215EC6 /* SignInViewModel.swift in Sources */,
 				49B2ED192ACAF39A00B04180 /* KeychainSwiftDistrib.swift in Sources */,
 				49C37A212AADD39D00C4B769 /* WelcomeScreenView.swift in Sources */,
-				49FE57212ABB9228005B79EF /* UserAccout.swift in Sources */,
+				49FE57212ABB9228005B79EF /* UserAccoutModel.swift in Sources */,
 				499EE0A12AAEFC0300103033 /* Bundle+Decoder.swift in Sources */,
 				490A32F02ACCB464001BA401 /* SignInWithApple.swift in Sources */,
 				49A89D232ABCB6AA00E56B15 /* TestingView.swift in Sources */,
+				497330712ACEDFF900807B93 /* ChatModel.swift in Sources */,
+				497330752ACF08AB00807B93 /* ChatsListViewModel.swift in Sources */,
 				49C37A0D2AADD32A00C4B769 /* SpilkaApp.swift in Sources */,
+				497330772ACF348500807B93 /* Date+String.swift in Sources */,
+				497330732ACEE02700807B93 /* MessageModel.swift in Sources */,
 				49B2ED172ACAD1DB00B04180 /* SaveKeyView.swift in Sources */,
 				498393DC2ACC2B7700DA9407 /* ImportKeyView.swift in Sources */,
 			);
@@ -499,7 +534,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Spilka/Other/Spilka.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"Spilka/Other/Preview Content\"";
 				DEVELOPMENT_TEAM = G4PV26QJD2;
 				ENABLE_PREVIEWS = YES;
@@ -517,7 +552,11 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.1;
+				MARKETING_VERSION = 0.2;
+				"OTHER_LDFLAGS[arch=*]" = (
+					"-Xlinker",
+					"-no_warn_duplicate_libraries",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.hruzinov.Spilka;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -533,7 +572,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Spilka/Other/Spilka.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"Spilka/Other/Preview Content\"";
 				DEVELOPMENT_TEAM = G4PV26QJD2;
 				ENABLE_PREVIEWS = YES;
@@ -551,7 +590,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.1;
+				MARKETING_VERSION = 0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.hruzinov.Spilka;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -623,6 +662,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 495530BC2AC197F500A20FF0 /* XCRemoteSwiftPackageReference "Inject" */;
 			productName = Inject;
+		};
+		4959D3DC2ACF68B900C9471B /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 49D766F52ABA575E00EB5AAE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
 		};
 		49A89D1E2ABCB5F000E56B15 /* FirebaseFirestore */ = {
 			isa = XCSwiftPackageProductDependency;

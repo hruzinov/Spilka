@@ -40,38 +40,6 @@ extension SignInScreenView {
         @Published var smsCodeTimeOut = 0
         let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
 
-        var isShowingPhoneMessagePrompt: Bool {
-            phoneMessagePrompt.count > 0
-        }
-        var isShowingCodeMessagePrompt: Bool {
-            codeMessagePrompt.count > 0
-        }
-
-        var filteredRecords: [CountryCode] {
-            if searchCountry.isEmpty {
-                return CountryCode.allCases
-            } else {
-                return CountryCode.allCases.filter { $0.title.lowercased().contains(searchCountry.lowercased()) }
-            }
-        }
-
-        func phoneNumberChanged() {
-            applyPatternOnNumbers(&phoneNumber, countryCode: countryCode,
-                                  pattern: countryCode.pattern, replacementCharacter: "#")
-            if phoneNumber.count >= countryCode.limit && phoneNumber.count <= 18 {
-                isPhoneContinueButtonDisabled = false
-            } else {
-                isPhoneContinueButtonDisabled = true
-            }
-        }
-        func verificationCodeChanged() {
-            if verificationCode.count == 6 {
-                isCodeContinueButtonDisabled = false
-            } else {
-                isCodeContinueButtonDisabled = true
-            }
-        }
-
         func handlePhoneContinueButton() {
             guard phoneNumber.count >= countryCode.limit else { return }
             isWaitingServer = true
@@ -162,7 +130,7 @@ extension SignInScreenView {
             GIDSignIn.sharedInstance.signIn(withPresenting: rootViewController) { [unowned self] result, error in
                 guard error == nil else {
                     self.showGAuthMessagePrompt(error!)
-                    print(error)
+                    print(error!)
                     isWaitingServer = false
                     return
                 }
@@ -312,25 +280,60 @@ extension SignInScreenView {
                 self.fileImportMessagePrompt = error
             }
         }
+    }
+}
 
-        func applyPatternOnNumbers(_ num: inout String, countryCode: CountryCode,
-                                   pattern: String, replacementCharacter: Character) {
-            var pureNumber = num
-            if pureNumber.hasPrefix(countryCode.dialCode) {
-                pureNumber = String(pureNumber.dropFirst(countryCode.dialCode.count))
-            }
-            pureNumber = pureNumber.replacingOccurrences( of: "[^0-9]", with: "", options: .regularExpression)
-            for index in 0 ..< pattern.count {
-                guard index < pureNumber.count else {
-                    num = pureNumber
-                    return
-                }
-                let stringIndex = String.Index(utf16Offset: index, in: pattern)
-                let patternCharacter = pattern[stringIndex]
-                guard patternCharacter != replacementCharacter else { continue }
-                pureNumber.insert(patternCharacter, at: stringIndex)
-            }
-            num = pureNumber
+// Helpers functions
+extension SignInScreenView.ViewModel {
+    var isShowingPhoneMessagePrompt: Bool {
+        phoneMessagePrompt.count > 0
+    }
+    var isShowingCodeMessagePrompt: Bool {
+        codeMessagePrompt.count > 0
+    }
+
+    var filteredRecords: [CountryCode] {
+        if searchCountry.isEmpty {
+            return CountryCode.allCases
+        } else {
+            return CountryCode.allCases.filter { $0.title.lowercased().contains(searchCountry.lowercased()) }
         }
+    }
+
+    func phoneNumberChanged() {
+        applyPatternOnNumbers(&phoneNumber, countryCode: countryCode,
+                              pattern: countryCode.pattern, replacementCharacter: "#")
+        if phoneNumber.count >= countryCode.limit && phoneNumber.count <= 18 {
+            isPhoneContinueButtonDisabled = false
+        } else {
+            isPhoneContinueButtonDisabled = true
+        }
+    }
+    func verificationCodeChanged() {
+        if verificationCode.count == 6 {
+            isCodeContinueButtonDisabled = false
+        } else {
+            isCodeContinueButtonDisabled = true
+        }
+    }
+
+    func applyPatternOnNumbers(_ num: inout String, countryCode: CountryCode,
+                               pattern: String, replacementCharacter: Character) {
+        var pureNumber = num
+        if pureNumber.hasPrefix(countryCode.dialCode) {
+            pureNumber = String(pureNumber.dropFirst(countryCode.dialCode.count))
+        }
+        pureNumber = pureNumber.replacingOccurrences( of: "[^0-9]", with: "", options: .regularExpression)
+        for index in 0 ..< pattern.count {
+            guard index < pureNumber.count else {
+                num = pureNumber
+                return
+            }
+            let stringIndex = String.Index(utf16Offset: index, in: pattern)
+            let patternCharacter = pattern[stringIndex]
+            guard patternCharacter != replacementCharacter else { continue }
+            pureNumber.insert(patternCharacter, at: stringIndex)
+        }
+        num = pureNumber
     }
 }

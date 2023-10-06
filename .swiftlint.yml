@@ -1,2 +1,7 @@
 excluded:
   - Pods
+
+nesting:
+  type_level:
+    warning: 3
+    error: 6
