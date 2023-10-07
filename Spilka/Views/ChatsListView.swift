@@ -47,7 +47,7 @@ struct ChatsListScreenView: View {
                                     if let dateTime = chat.messagesSorted.last?.dateTime {
                                         Text(dateTime.stringRel())
                                             .foregroundStyle(.gray)
-                                            .font(.footnote)
+                                            .font(.subheadline)
                                     }
                                 }
                                 HStack(spacing: 0) {

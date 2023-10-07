@@ -165,7 +165,7 @@ struct SignInScreenView: View {
                         }
                     }
                     .listStyle(.plain)
-                    .searchable(text: $viewModel.searchCountry, prompt: "Your country")
+                    .searchable(text: $viewModel.searchCountry, isPresented: .constant(true), prompt: "Your country")
                 }
                 .presentationDetents([.medium, .large])
             }

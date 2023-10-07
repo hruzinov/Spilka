@@ -17,22 +17,34 @@ struct SaveKeyView: View {
                 .font(.headline)
             Text("The decryption key is stored only in the device's memory and is never transmitted to the server.")
 
-//            ShareLink
-            ShareLink(
-                item: profileCreationViewModel.privateKeyFile!, preview: SharePreview("Private Key",
-                        image: Image(systemName: "key.radiowaves.forward")
-                                .renderingMode(.original)
-                    )) {
+            if profileCreationViewModel.cryptoKeys == nil {
                 RoundedRectangle(cornerRadius: 10)
                     .fill(.ultraThinMaterial)
                     .overlay {
-                        HStack {
-                            Text("Export key file")
-                            Image(systemName: "square.and.arrow.down.on.square")
+                        HStack(spacing: 15) {
+                            Text("Generating keys...")
+                            ProgressView()
+                                .progressViewStyle(.circular)
                         }
                     }
                     .frame(maxHeight: 50)
                     .padding(.vertical, 24)
+            } else {
+                ShareLink(
+                    item: profileCreationViewModel.privateKeyFile!, preview: SharePreview("Private Key",
+                            image: Image(systemName: "key.radiowaves.forward")
+                                .renderingMode(.original))) {
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .fill(.ultraThinMaterial)
+                                        .overlay {
+                                            HStack {
+                                                Text("Export key file")
+                                                Image(systemName: "square.and.arrow.down.on.square")
+                                            }
+                                        }
+                                        .frame(maxHeight: 50)
+                                        .padding(.vertical, 24)
+                                }
             }
 
             // swiftlint:disable:next line_length
@@ -42,9 +54,10 @@ struct SaveKeyView: View {
                 profileCreationViewModel.handleRegisterButton()
             } label: {
                 RoundedRectangle(cornerRadius: 10)
-                    .fill(colorScheme == .dark ? .white  : .black)
-                    .frame(width: profileCreationViewModel.isWaitingServer
-                           ? 45 : screenSize.width * 0.65, height: 45)
+                    .fill(profileCreationViewModel.cryptoKeys == nil ? .gray :
+                        colorScheme == .dark ? .white  : .black)
+                    .frame(width: profileCreationViewModel.isWaitingServer ? 45 :
+                            screenSize.width * 0.8, height: 45)
                     .overlay {
                         if profileCreationViewModel.isWaitingServer {
                             ProgressView()
@@ -57,9 +70,10 @@ struct SaveKeyView: View {
                     }
                     .padding(.vertical, 24)
             }
+            .disabled(profileCreationViewModel.cryptoKeys == nil)
 
         }
-        .frame(width: screenSize.width * 0.85)
+        .frame(width: screenSize.width * 0.8)
         .multilineTextAlignment(.center)
         .navigationDestination(isPresented: $profileCreationViewModel.isGoToMainView) {
             MainView(skipCheck: true)

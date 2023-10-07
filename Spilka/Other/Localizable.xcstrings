@@ -283,6 +283,9 @@
         }
       }
     },
+    "Generating keys..." : {
+
+    },
     "Go back" : {
       "localizations" : {
         "pl" : {

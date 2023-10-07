@@ -4,29 +4,36 @@
 
 import SwiftUI
 import UniformTypeIdentifiers
-import SwiftyRSA
+import CryptoSwift
 
 struct CryptoKeys {
-    var privateKey: PrivateKey?
-    var publicKey: PublicKey?
+    var privateKey: RSA?
+    var publicKeyRepresentation: Data?
 
     init() {
         do {
-            (privateKey, publicKey) = try SwiftyRSA.generateRSAKeyPair(sizeInBits: 2048)
+            privateKey = try RSA(keySize: 1024)
+            publicKeyRepresentation = try privateKey!.publicKeyExternalRepresentation()
         } catch {
             ErrorLog.save(error)
         }
     }
 
-    static func checkValidity(privateKey: PrivateKey, publicKey: PublicKey) -> Bool {
-        let inputString = "test"
-        guard let clear = try? ClearMessage(string: inputString, using: .utf8),
-              let encrypted = try? clear.encrypted(with: publicKey, padding: .PKCS1),
-              let clear = try? encrypted.decrypted(with: privateKey, padding: .PKCS1),
-              let outputString = try? clear.string(encoding: .utf8) else {
+    static func checkValidity(privateKeyData: Data, publicKeyData: Data) -> Bool {
+        do {
+            let privateKey = try RSA(rawRepresentation: privateKeyData)
+            let publicKey = try RSA(rawRepresentation: publicKeyData)
+            let inputString = "Hi Alice! This is Bob!"
+
+            let encrypted = try publicKey.encrypt(inputString.bytes)
+            let decrypted = try privateKey.decrypt(encrypted)
+            let outputString = String(data: Data(decrypted), encoding: .utf8)
+
+            return inputString == outputString
+        } catch {
+            ErrorLog.save(error)
             return false
         }
-        return inputString == outputString
     }
 }
 

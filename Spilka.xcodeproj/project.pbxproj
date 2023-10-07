@@ -10,9 +10,9 @@
 		490A32F02ACCB464001BA401 /* SignInWithApple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490A32EF2ACCB464001BA401 /* SignInWithApple.swift */; };
 		4910E9792AD159BB00F2CA07 /* ChatLogViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4910E9782AD159BB00F2CA07 /* ChatLogViewModel.swift */; };
 		492214752AD05775005F2462 /* ErrorLogs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492214742AD05774005F2462 /* ErrorLogs.swift */; };
+		492A927A2AD1ED9B00D50A74 /* CryptoSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 492A92792AD1ED9B00D50A74 /* CryptoSwift */; };
 		49328AF22AADE4AB0019210F /* CountryCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49328AF12AADE4AB0019210F /* CountryCode.swift */; };
 		495334592AAF6D6700135E6C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 495334582AAF6D6700135E6C /* GoogleService-Info.plist */; };
-		495530BE2AC197F600A20FF0 /* Inject in Frameworks */ = {isa = PBXBuildFile; productRef = 495530BD2AC197F600A20FF0 /* Inject */; };
 		4959D3DD2ACF68B900C9471B /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 4959D3DC2ACF68B900C9471B /* FirebaseStorage */; };
 		4973306F2ACEBF8200807B93 /* TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4973306E2ACEBF8200807B93 /* TestData.swift */; };
 		497330712ACEDFF900807B93 /* ChatModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497330702ACEDFF900807B93 /* ChatModel.swift */; };
@@ -28,13 +28,11 @@
 		49A89D232ABCB6AA00E56B15 /* TestingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A89D222ABCB6AA00E56B15 /* TestingView.swift */; };
 		49A89D252ABCBF7800E56B15 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A89D242ABCBF7800E56B15 /* MainViewModel.swift */; };
 		49A89D2B2ABCD83600E56B15 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 49A89D2A2ABCD83600E56B15 /* FirebaseFirestoreSwift */; };
-		49AFDD362ABB83D200E742BA /* SwiftyRSA in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 49B452812ABB65E200AA2A13 /* SwiftyRSA */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		49B2ED172ACAD1DB00B04180 /* SaveKeyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B2ED162ACAD1DB00B04180 /* SaveKeyView.swift */; };
 		49B2ED192ACAF39A00B04180 /* KeychainSwiftDistrib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B2ED182ACAF39A00B04180 /* KeychainSwiftDistrib.swift */; };
 		49B40E462AC1C062007F6992 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 49B40E452AC1C062007F6992 /* Localizable.xcstrings */; };
 		49B4527D2ABB5FC100AA2A13 /* ProfileCreationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B4527C2ABB5FC100AA2A13 /* ProfileCreationViewModel.swift */; };
 		49B4527F2ABB60EC00AA2A13 /* CryptoKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B4527E2ABB60EC00AA2A13 /* CryptoKeys.swift */; };
-		49B452822ABB65E200AA2A13 /* SwiftyRSA in Frameworks */ = {isa = PBXBuildFile; productRef = 49B452812ABB65E200AA2A13 /* SwiftyRSA */; };
 		49C37A0D2AADD32A00C4B769 /* SpilkaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C37A0C2AADD32A00C4B769 /* SpilkaApp.swift */; };
 		49C37A112AADD32C00C4B769 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49C37A102AADD32C00C4B769 /* Assets.xcassets */; };
 		49C37A142AADD32C00C4B769 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49C37A132AADD32C00C4B769 /* Preview Assets.xcassets */; };
@@ -58,7 +56,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				49AFDD362ABB83D200E742BA /* SwiftyRSA in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -109,10 +106,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				495530BE2AC197F600A20FF0 /* Inject in Frameworks */,
 				49D767032ABA575E00EB5AAE /* FirebaseAuth in Frameworks */,
+				492A927A2AD1ED9B00D50A74 /* CryptoSwift in Frameworks */,
 				49DB00D22ACCF46E0060FF9A /* GoogleSignInSwift in Frameworks */,
-				49B452822ABB65E200AA2A13 /* SwiftyRSA in Frameworks */,
 				49A89D1F2ABCB5F000E56B15 /* FirebaseFirestore in Frameworks */,
 				4959D3DD2ACF68B900C9471B /* FirebaseStorage in Frameworks */,
 				49A89D2B2ABCD83600E56B15 /* FirebaseFirestoreSwift in Frameworks */,
@@ -281,13 +277,12 @@
 			name = Spilka;
 			packageProductDependencies = (
 				49D767022ABA575E00EB5AAE /* FirebaseAuth */,
-				49B452812ABB65E200AA2A13 /* SwiftyRSA */,
 				49A89D1E2ABCB5F000E56B15 /* FirebaseFirestore */,
 				49A89D2A2ABCD83600E56B15 /* FirebaseFirestoreSwift */,
-				495530BD2AC197F600A20FF0 /* Inject */,
 				49DB00CF2ACCF46E0060FF9A /* GoogleSignIn */,
 				49DB00D12ACCF46E0060FF9A /* GoogleSignInSwift */,
 				4959D3DC2ACF68B900C9471B /* FirebaseStorage */,
+				492A92792AD1ED9B00D50A74 /* CryptoSwift */,
 			);
 			productName = Spilka;
 			productReference = 49C37A092AADD32A00C4B769 /* Spilka.app */;
@@ -321,9 +316,8 @@
 			mainGroup = 49C37A002AADD32900C4B769;
 			packageReferences = (
 				49D766F52ABA575E00EB5AAE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
-				49B452802ABB65E100AA2A13 /* XCRemoteSwiftPackageReference "SwiftyRSA" */,
-				495530BC2AC197F500A20FF0 /* XCRemoteSwiftPackageReference "Inject" */,
 				49DB00CE2ACCF46E0060FF9A /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
+				492A92782AD1ED9B00D50A74 /* XCRemoteSwiftPackageReference "CryptoSwift" */,
 			);
 			productRefGroup = 49C37A0A2AADD32A00C4B769 /* Products */;
 			projectDirPath = "";
@@ -627,17 +621,9 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		495530BC2AC197F500A20FF0 /* XCRemoteSwiftPackageReference "Inject" */ = {
+		492A92782AD1ED9B00D50A74 /* XCRemoteSwiftPackageReference "CryptoSwift" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/krzysztofzablocki/Inject.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.2.4;
-			};
-		};
-		49B452802ABB65E100AA2A13 /* XCRemoteSwiftPackageReference "SwiftyRSA" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/TakeScoop/SwiftyRSA.git";
+			repositoryURL = "https://github.com/krzyzanowskim/CryptoSwift";
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 1.8.0;
@@ -662,10 +648,10 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		495530BD2AC197F600A20FF0 /* Inject */ = {
+		492A92792AD1ED9B00D50A74 /* CryptoSwift */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 495530BC2AC197F500A20FF0 /* XCRemoteSwiftPackageReference "Inject" */;
-			productName = Inject;
+			package = 492A92782AD1ED9B00D50A74 /* XCRemoteSwiftPackageReference "CryptoSwift" */;
+			productName = CryptoSwift;
 		};
 		4959D3DC2ACF68B900C9471B /* FirebaseStorage */ = {
 			isa = XCSwiftPackageProductDependency;
@@ -681,11 +667,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 49D766F52ABA575E00EB5AAE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseFirestoreSwift;
-		};
-		49B452812ABB65E200AA2A13 /* SwiftyRSA */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 49B452802ABB65E100AA2A13 /* XCRemoteSwiftPackageReference "SwiftyRSA" */;
-			productName = SwiftyRSA;
 		};
 		49D767022ABA575E00EB5AAE /* FirebaseAuth */ = {
 			isa = XCSwiftPackageProductDependency;

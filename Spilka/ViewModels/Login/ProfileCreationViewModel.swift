@@ -3,13 +3,12 @@
 //
 
 import SwiftUI
-import SwiftyRSA
 import FirebaseFirestore
 import FirebaseFirestoreSwift
 
 extension ProfileCreationView {
     @MainActor class ViewModel: ObservableObject {
-        @Published var cryptoKeys: CryptoKeys = CryptoKeys()
+        @Published var cryptoKeys: CryptoKeys?
         @Published var userAccount: UserAccount?
 
         @Published var countryCode: String?
@@ -25,26 +24,31 @@ extension ProfileCreationView {
         @Published var isRegisterButtonDisabled: Bool = true
         @Published var isWaitingServer: Bool = false
 
-        func handleGoToSaveKeys() {
-            guard let privateKey = cryptoKeys.privateKey else { return }
+        init() {
+            DispatchQueue.global().async {
+                let cryptoKeys = CryptoKeys()
+                DispatchQueue.main.async {
+                    self.cryptoKeys = cryptoKeys
+                }
+            }
+        }
 
-            guard let privateBase64String = try? privateKey.base64String() else {
+        func handleGoToSaveKeys() {
+            isGoToSaveKeyView.toggle()
+        }
+
+        func handleRegisterButton() {
+            guard let cryptoKeys, let privateKey = cryptoKeys.privateKey else { return }
+            guard let privateKeyData = try? privateKey.externalRepresentation() else {
                 return
             }
 
             let keychain = KeychainSwift()
             keychain.synchronizable = true
-            keychain.set(privateBase64String, forKey: "userPrivateKey")
-
-            isGoToSaveKeyView.toggle()
-        }
-
-        func handleRegisterButton() {
-            let keychain = KeychainSwift()
-            keychain.synchronizable = true
+            keychain.set(privateKeyData, forKey: "userPrivateKey")
             uid = keychain.get("accountUID")
-            guard let uid = uid, let publicKey = cryptoKeys.publicKey,
-                let publicBase64String = try? publicKey.base64String() else { return }
+
+            guard let uid = uid, let publicKeyRepresentation = cryptoKeys.publicKeyRepresentation else { return }
             if let checkPhoneNumber = phoneNumber {
                 phoneNumber = checkPhoneNumber.replacingOccurrences(of: "[^0-9]", with: "", options: .regularExpression)
             }
@@ -57,7 +61,7 @@ extension ProfileCreationView {
                 profileImageID: nil,
                 username: profileUsername,
                 description: profileDescription,
-                publicKey: publicBase64String
+                publicKey: publicKeyRepresentation.toHexString()
             )
 
             let dbase = Firestore.firestore()
@@ -78,7 +82,7 @@ extension ProfileCreationView {
         }
 
         var privateKeyFile: CryptoKeyFile? {
-            guard let data = try? self.cryptoKeys.privateKey!.data() else { return nil }
+            guard let data = try? self.cryptoKeys?.privateKey!.externalRepresentation() else { return nil }
             return CryptoKeyFile(data: data)
         }
     }

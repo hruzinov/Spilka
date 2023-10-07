@@ -8,7 +8,7 @@ import FirebaseAuth
 import GoogleSignIn
 import GoogleSignInSwift
 import FirebaseFirestore
-import SwiftyRSA
+import CryptoSwift
 import CryptoKit
 import AuthenticationServices
 
@@ -174,15 +174,10 @@ extension SignInScreenView {
                     ErrorLog.save(error)
                 } else if let user, user.exists, let userData = try? user.data(as: UserAccount.self) {
                     self.userAccount = userData
-                    if let privateKeyString = keychain.get("userPrivateKey") {
-                        guard let privateKey = try? PrivateKey(base64Encoded: privateKeyString),
-                              let publicKey = try? PublicKey(base64Encoded: userData.publicKey) else {
-                            self.isGoToImportPrivateKey.toggle()
-                            return
-                        }
-
+                    if let privateKeyData = keychain.getData("userPrivateKey") {
                         self.isWaitingServer = true
-                        if CryptoKeys.checkValidity(privateKey: privateKey, publicKey: publicKey) {
+                        if CryptoKeys.checkValidity(privateKeyData: privateKeyData,
+                                                    publicKeyData: Data(hex: userData.publicKey)) {
                             self.isGoToMainView.toggle()
                         } else {
                             self.isGoToImportPrivateKey.toggle()
@@ -211,11 +206,10 @@ extension SignInScreenView {
 
                     let isAccessing = fileURL.startAccessingSecurityScopedResource()
 
-                    let data = try Data(contentsOf: fileURL)
-                    let privateKey = try PrivateKey(data: data)
-                    let publicKey = try PublicKey(base64Encoded: userAccount.publicKey)
+                    let privateKeyData = try Data(contentsOf: fileURL)
+                    let publicKeyData = Data(hex: userAccount.publicKey)
 
-                    if CryptoKeys.checkValidity(privateKey: privateKey, publicKey: publicKey) {
+                    if CryptoKeys.checkValidity(privateKeyData: privateKeyData, publicKeyData: publicKeyData) {
                         self.isWaitingServer = false
                         self.isGoToMainView.toggle()
                     } else {

@@ -19,6 +19,15 @@
       }
     },
     {
+      "identity" : "cryptoswift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/krzyzanowskim/CryptoSwift",
+      "state" : {
+        "revision" : "db51c407d3be4a051484a141bf0bff36c43d3b1e",
+        "version" : "1.8.0"
+      }
+    },
+    {
       "identity" : "firebase-ios-sdk",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/firebase/firebase-ios-sdk.git",
@@ -91,15 +100,6 @@
       }
     },
     {
-      "identity" : "inject",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/krzysztofzablocki/Inject.git",
-      "state" : {
-        "revision" : "2057eb9819813b89fd2107e99608d2d20890d9c5",
-        "version" : "1.2.4"
-      }
-    },
-    {
       "identity" : "interop-ios-for-google-sdks",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/google/interop-ios-for-google-sdks.git",
@@ -142,15 +142,6 @@
       "state" : {
         "revision" : "3c54ab05249f59f2c6641dd2920b8358ea9ed127",
         "version" : "1.24.0"
-      }
-    },
-    {
-      "identity" : "swiftyrsa",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/TakeScoop/SwiftyRSA.git",
-      "state" : {
-        "revision" : "6521919ad0e99dff927685f142d8136479acb452",
-        "version" : "1.8.0"
       }
     }
   ],
