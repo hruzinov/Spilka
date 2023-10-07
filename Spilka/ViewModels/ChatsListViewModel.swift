@@ -9,83 +9,106 @@ import FirebaseStorage
 
 extension ChatsListScreenView {
     class ViewModel: ObservableObject {
-        @Published var chats: [Chat] = []
+        var chatsDictionary: [String: Chat] = [:]
         @Published var accountUID: String
+        @Published var userAccount: UserAccount?
         @Published var navbarStatus: NavbarStatus = .online
+        var chatsSorted: [Chat] {
+            if chatsDictionary.count >= 2 {
+                return chatsDictionary.values.sorted {
+                    var firstChatDate: Date
+                    var secondChatDate: Date
 
-        init(test: Bool = false) {
-            var uid: String?
-            if test {
-                self.accountUID = "testUserAccount"
-                uid = "testUserAccount"
-            } else {
-                let keychain = KeychainSwift()
-                keychain.synchronizable = true
+                    if let firstChatLastMessage = $0.messagesSorted.last {
+                        firstChatDate = firstChatLastMessage.dateTime
+                    } else {
+                        firstChatDate = Date.zero()
+                    }
+                    if let secondChatLastMessage = $1.messagesSorted.last {
+                        secondChatDate = secondChatLastMessage.dateTime
+                    } else {
+                        secondChatDate = Date.zero()
+                    }
 
-                if let uid = keychain.get("accountUID") {
-                    self.accountUID = uid
-                } else {
-                    fatalError("Can't get accountUID from keychain")
+                    return firstChatDate > secondChatDate
                 }
+            } else {
+                return Array(chatsDictionary.values)
+            }
+        }
+
+        init() {
+            let keychain = KeychainSwift()
+            keychain.synchronizable = true
+
+            if let uid = keychain.get("accountUID") {
+                self.accountUID = uid
+            } else {
+                ErrorLog.save("Can't get accountUID from keychain")
+                fatalError("Can't get accountUID from keychain")
             }
 
-            guard let uid else {
-                fatalError("Can't read accountUID")
+            UserAccount.getData(with: self.accountUID) { userAccount in
+                self.userAccount = userAccount
             }
-            getAllChats(uid)
+            getAllChats(self.accountUID)
         }
 
         func getAllChats(_ uid: String) {
             let dbase = Firestore.firestore()
-            let dispatchGroup = DispatchGroup()
+            let dispatchGroupChats = DispatchGroup()
             self.navbarStatus = .updating
 
-            let chatsRef = dbase.collection("accounts/\(uid)/chats/")
-            chatsRef.getDocuments { chatsSnapshot, error in
-                guard let chatsSnapshot else { print(error ?? "Some error in chatsRef.getDocuments"); return }
-                chatsSnapshot.documents.forEach { chatDocument in
+            let privateChatsRef = dbase.collection("accounts/\(uid)/private_chats/")
+            privateChatsRef.getDocuments { privateChatsSnapshot, error in
+                guard let privateChatsSnapshot else { ErrorLog.save(error); return }
+
+                privateChatsSnapshot.documents.forEach { chatDocument in
                     do {
                         var chat = try chatDocument.data(as: Chat.self)
+                        guard let userUID = chat.id else { return }
 
-                        dispatchGroup.enter()
-                        switch chat.type {
-                        case .dialog:
-                            guard let userUUID = chat.id else { return }
-                            UserAccount.getData(withUUID: userUUID) { userAccount in
-                                guard let userAccount else { return }
-                                chat.user = userAccount
+                        dispatchGroupChats.enter()
+                        UserAccount.getData(with: userUID) { userAccount in
+                            guard let userAccount else { return }
+                            chat.user = userAccount
 
-                                chatsRef.document(chatDocument.documentID).collection("messages")
-                                    .getDocuments { messagesSnapshot, error in
-                                        guard let messagesSnapshot else {
-                                            print(error ?? "Some error in messages.getDocuments"); return
-                                        }
-                                        messagesSnapshot.documents.forEach { messageDocument in
-                                            do {
-                                                let message = try messageDocument.data(as: Message.self)
-                                                chat.messages.append(message)
-                                            } catch { print(error) }
-                                        }
-                                        dispatchGroup.leave()
+                            userAccount.getProfileImageSmall { image in
+                                chat.user?.profileImageSmall = image
+                                self.chatsDictionary[userUID] = chat
+                                self.objectWillChange.send()
+
+                                let privateChatMessagesRef =
+                                privateChatsRef.document(chatDocument.documentID).collection("messages")
+
+                                privateChatMessagesRef.getDocuments { messagesSnapshot, error in
+                                    guard let messagesSnapshot else {
+                                        ErrorLog.save(error); dispatchGroupChats.leave(); return
                                     }
-                            }
-                        case .group:
-                            // TODO:
-                            print("")
-                        }
-                        dispatchGroup.notify(queue: .main) {
-                            withAnimation {
-                                if let user = chat.user {
-                                    user.getProfileImageSmall { image in
-                                        chat.user?.profileImageSmall = image
-                                        self.chats.append(chat); self.navbarStatus = .online
+                                    messagesSnapshot.documents.forEach({ messageDocument in
+                                        guard let message = try? messageDocument.data(as: Message.self),
+                                              let messageId = message.id else { return }
+                                        self.chatsDictionary[userUID]?.messagesDictionary[messageId] = message
+                                        self.objectWillChange.send()
+                                    })
+                                    dispatchGroupChats.leave()
+                                }
+//                                dispatchGroupChats.leave()
+                                privateChatMessagesRef.addSnapshotListener { messagesSnapshot, error in
+                                    guard let messagesSnapshot else { ErrorLog.save(error); return }
+                                    messagesSnapshot.documentChanges.forEach { dif in
+                                        if dif.type == .added {
+                                            guard let message = try? dif.document.data(as: Message.self),
+                                                  let messageId = message.id else { return }
+                                            self.chatsDictionary[userUID]?.messagesDictionary[messageId] = message
+                                            self.objectWillChange.send()
+                                        }
                                     }
-                                } else {
-                                    self.chats.append(chat); self.navbarStatus = .online
                                 }
                             }
                         }
-                    } catch { print(error) }
+                        dispatchGroupChats.notify(queue: .main) { self.navbarStatus = .online }
+                    } catch { ErrorLog.save(error) }
                 }
             }
         }

@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		490A32F02ACCB464001BA401 /* SignInWithApple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490A32EF2ACCB464001BA401 /* SignInWithApple.swift */; };
+		4910E9792AD159BB00F2CA07 /* ChatLogViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4910E9782AD159BB00F2CA07 /* ChatLogViewModel.swift */; };
+		492214752AD05775005F2462 /* ErrorLogs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492214742AD05774005F2462 /* ErrorLogs.swift */; };
 		49328AF22AADE4AB0019210F /* CountryCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49328AF12AADE4AB0019210F /* CountryCode.swift */; };
 		495334592AAF6D6700135E6C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 495334582AAF6D6700135E6C /* GoogleService-Info.plist */; };
 		495530BE2AC197F600A20FF0 /* Inject in Frameworks */ = {isa = PBXBuildFile; productRef = 495530BD2AC197F600A20FF0 /* Inject */; };
@@ -21,6 +23,7 @@
 		499EE09D2AAEFBCB00103033 /* CountryNumbers.json in Resources */ = {isa = PBXBuildFile; fileRef = 499EE09B2AAEFBCB00103033 /* CountryNumbers.json */; };
 		499EE09E2AAEFBCB00103033 /* unusedCountryNumbers.json in Resources */ = {isa = PBXBuildFile; fileRef = 499EE09C2AAEFBCB00103033 /* unusedCountryNumbers.json */; };
 		499EE0A12AAEFC0300103033 /* Bundle+Decoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499EE0A02AAEFC0300103033 /* Bundle+Decoder.swift */; };
+		49A051AC2AD065B500870D0E /* ChatLogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A051AB2AD065B500870D0E /* ChatLogView.swift */; };
 		49A89D1F2ABCB5F000E56B15 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 49A89D1E2ABCB5F000E56B15 /* FirebaseFirestore */; };
 		49A89D232ABCB6AA00E56B15 /* TestingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A89D222ABCB6AA00E56B15 /* TestingView.swift */; };
 		49A89D252ABCBF7800E56B15 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A89D242ABCBF7800E56B15 /* MainViewModel.swift */; };
@@ -44,7 +47,7 @@
 		49DB00D22ACCF46E0060FF9A /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 49DB00D12ACCF46E0060FF9A /* GoogleSignInSwift */; };
 		49F1CF752AB9F87300C02569 /* EnterVerificationCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F1CF742AB9F87300C02569 /* EnterVerificationCodeView.swift */; };
 		49F1CF792ABA2FBF00C02569 /* ProfileCreationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F1CF782ABA2FBF00C02569 /* ProfileCreationView.swift */; };
-		49F4F9F62ACEA3F7002ABE33 /* ChatsListScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F4F9F52ACEA3F7002ABE33 /* ChatsListScreenView.swift */; };
+		49F4F9F62ACEA3F7002ABE33 /* ChatsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F4F9F52ACEA3F7002ABE33 /* ChatsListView.swift */; };
 		49FE57212ABB9228005B79EF /* UserAccoutModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49FE57202ABB9228005B79EF /* UserAccoutModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -64,6 +67,8 @@
 
 /* Begin PBXFileReference section */
 		490A32EF2ACCB464001BA401 /* SignInWithApple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWithApple.swift; sourceTree = "<group>"; };
+		4910E9782AD159BB00F2CA07 /* ChatLogViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatLogViewModel.swift; sourceTree = "<group>"; };
+		492214742AD05774005F2462 /* ErrorLogs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorLogs.swift; sourceTree = "<group>"; };
 		49328AED2AADDE050019210F /* Spilka.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Spilka.entitlements; sourceTree = "<group>"; };
 		49328AF12AADE4AB0019210F /* CountryCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryCode.swift; sourceTree = "<group>"; };
 		495334582AAF6D6700135E6C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -76,6 +81,7 @@
 		499EE09B2AAEFBCB00103033 /* CountryNumbers.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = CountryNumbers.json; sourceTree = "<group>"; };
 		499EE09C2AAEFBCB00103033 /* unusedCountryNumbers.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = unusedCountryNumbers.json; sourceTree = "<group>"; };
 		499EE0A02AAEFC0300103033 /* Bundle+Decoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Bundle+Decoder.swift"; sourceTree = "<group>"; };
+		49A051AB2AD065B500870D0E /* ChatLogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatLogView.swift; sourceTree = "<group>"; };
 		49A89D222ABCB6AA00E56B15 /* TestingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingView.swift; sourceTree = "<group>"; };
 		49A89D242ABCBF7800E56B15 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		49B2ED162ACAD1DB00B04180 /* SaveKeyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveKeyView.swift; sourceTree = "<group>"; };
@@ -94,7 +100,7 @@
 		49CD124C2AB8D64400215EC6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		49F1CF742AB9F87300C02569 /* EnterVerificationCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterVerificationCodeView.swift; sourceTree = "<group>"; };
 		49F1CF782ABA2FBF00C02569 /* ProfileCreationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCreationView.swift; sourceTree = "<group>"; };
-		49F4F9F52ACEA3F7002ABE33 /* ChatsListScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsListScreenView.swift; sourceTree = "<group>"; };
+		49F4F9F52ACEA3F7002ABE33 /* ChatsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsListView.swift; sourceTree = "<group>"; };
 		49FE57202ABB9228005B79EF /* UserAccoutModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAccoutModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -120,6 +126,7 @@
 		49328AF02AADE49A0019210F /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				492214742AD05774005F2462 /* ErrorLogs.swift */,
 				49B4527B2ABB5CA500AA2A13 /* PhoneNumbers */,
 				49328AF12AADE4AB0019210F /* CountryCode.swift */,
 				49B4527E2ABB60EC00AA2A13 /* CryptoKeys.swift */,
@@ -130,18 +137,9 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		495530B82AC193C500A20FF0 /* Localization */ = {
-			isa = PBXGroup;
-			children = (
-				49B40E452AC1C062007F6992 /* Localizable.xcstrings */,
-			);
-			path = Localization;
-			sourceTree = "<group>";
-		};
 		4959D3DB2ACF5FDC00C9471B /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				49A89D242ABCBF7800E56B15 /* MainViewModel.swift */,
 				49CD124A2AB8CCF700215EC6 /* SignInViewModel.swift */,
 				49B4527C2ABB5FC100AA2A13 /* ProfileCreationViewModel.swift */,
 			);
@@ -220,7 +218,8 @@
 			children = (
 				49F1CF732AB9F84A00C02569 /* Login */,
 				49C37A1E2AADD39D00C4B769 /* MainView.swift */,
-				49F4F9F52ACEA3F7002ABE33 /* ChatsListScreenView.swift */,
+				49F4F9F52ACEA3F7002ABE33 /* ChatsListView.swift */,
+				49A051AB2AD065B500870D0E /* ChatLogView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -228,7 +227,7 @@
 		49CD12482AB8C91C00215EC6 /* Other */ = {
 			isa = PBXGroup;
 			children = (
-				495530B82AC193C500A20FF0 /* Localization */,
+				49B40E452AC1C062007F6992 /* Localizable.xcstrings */,
 				49C37A102AADD32C00C4B769 /* Assets.xcassets */,
 				49328AED2AADDE050019210F /* Spilka.entitlements */,
 				4973306E2ACEBF8200807B93 /* TestData.swift */,
@@ -242,7 +241,9 @@
 			isa = PBXGroup;
 			children = (
 				4959D3DB2ACF5FDC00C9471B /* Login */,
+				49A89D242ABCBF7800E56B15 /* MainViewModel.swift */,
 				497330742ACF08AA00807B93 /* ChatsListViewModel.swift */,
+				4910E9782AD159BB00F2CA07 /* ChatLogViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -380,7 +381,7 @@
 				49F1CF752AB9F87300C02569 /* EnterVerificationCodeView.swift in Sources */,
 				49A89D252ABCBF7800E56B15 /* MainViewModel.swift in Sources */,
 				4973306F2ACEBF8200807B93 /* TestData.swift in Sources */,
-				49F4F9F62ACEA3F7002ABE33 /* ChatsListScreenView.swift in Sources */,
+				49F4F9F62ACEA3F7002ABE33 /* ChatsListView.swift in Sources */,
 				49C37A222AADD39D00C4B769 /* MainView.swift in Sources */,
 				49B4527F2ABB60EC00AA2A13 /* CryptoKeys.swift in Sources */,
 				49F1CF792ABA2FBF00C02569 /* ProfileCreationView.swift in Sources */,
@@ -389,14 +390,17 @@
 				49CD124B2AB8CCF700215EC6 /* SignInViewModel.swift in Sources */,
 				49B2ED192ACAF39A00B04180 /* KeychainSwiftDistrib.swift in Sources */,
 				49C37A212AADD39D00C4B769 /* WelcomeScreenView.swift in Sources */,
+				49A051AC2AD065B500870D0E /* ChatLogView.swift in Sources */,
 				49FE57212ABB9228005B79EF /* UserAccoutModel.swift in Sources */,
 				499EE0A12AAEFC0300103033 /* Bundle+Decoder.swift in Sources */,
 				490A32F02ACCB464001BA401 /* SignInWithApple.swift in Sources */,
 				49A89D232ABCB6AA00E56B15 /* TestingView.swift in Sources */,
 				497330712ACEDFF900807B93 /* ChatModel.swift in Sources */,
+				492214752AD05775005F2462 /* ErrorLogs.swift in Sources */,
 				497330752ACF08AB00807B93 /* ChatsListViewModel.swift in Sources */,
 				49C37A0D2AADD32A00C4B769 /* SpilkaApp.swift in Sources */,
 				497330772ACF348500807B93 /* Date+String.swift in Sources */,
+				4910E9792AD159BB00F2CA07 /* ChatLogViewModel.swift in Sources */,
 				497330732ACEE02700807B93 /* MessageModel.swift in Sources */,
 				49B2ED172ACAD1DB00B04180 /* SaveKeyView.swift in Sources */,
 				498393DC2ACC2B7700DA9407 /* ImportKeyView.swift in Sources */,

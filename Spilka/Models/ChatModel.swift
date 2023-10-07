@@ -8,15 +8,23 @@ import FirebaseFirestoreSwift
 
 struct Chat: Identifiable, Codable {
     @DocumentID var id: String?
-    let type: ChatType
     var user: UserAccount?
-    var messages: [Message] = []
+    var messagesDictionary: [String: Message] = [:]
+    var messagesSorted: [Message] {
+        if messagesDictionary.count >= 2 {
+            return messagesDictionary.values.sorted {
+                $0.dateTime < $1.dateTime
+            }
+        } else {
+            return Array(messagesDictionary.values)
+        }
+    }
+
+    var unreadedCount: Int {
+        self.messagesSorted.filter { $0.isUnread && $0.fromID == id }.count
+    }
 
     private enum CodingKeys: String, CodingKey {
-        case id, type
+        case id
     }
-}
-
-enum ChatType: String, Codable {
-    case dialog, group
 }

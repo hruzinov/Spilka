@@ -73,7 +73,7 @@ struct ProfileCreationView: View {
 //                            usernameTextFieldFocused.toggle()
 //                        }
 
-                        .disabled(true) // TODO: Remove after implementing checking
+                        .disabled(true)
                 }
                 .frame(width: screenSize.width * 0.65)
                 .padding(.vertical, 15)

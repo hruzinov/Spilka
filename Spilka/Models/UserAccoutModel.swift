@@ -8,7 +8,7 @@ import FirebaseFirestoreSwift
 import FirebaseStorage
 
 struct UserAccount: Codable {
-    let uuid: String
+    @DocumentID var uuid: String?
     var name: String
     var countryCode: String?
     var phoneNumber: String?
@@ -35,7 +35,7 @@ struct UserAccount: Codable {
         let imageRef = Storage.storage().reference(withPath: "avatars/512px/\(imageID).jpg")
         imageRef.getData(maxSize: 1 * 1024 * 1024) { data, error in
             if let error {
-                print(error)
+                ErrorLog.save(error)
                 completion(nil)
             } else if let data {
                 completion(UIImage(data: data))
@@ -43,32 +43,17 @@ struct UserAccount: Codable {
         }
     }
 
-    static func getData(withAccountUID userUID: String, completion: @escaping(_ userAccount: UserAccount?) -> Void) {
+    static func getData(with userUID: String, completion: @escaping(_ userAccount: UserAccount?) -> Void) {
         let dbase = Firestore.firestore()
         let accountRef = dbase.collection("accounts").document(userUID)
 
         accountRef.getDocument { user, error in
             if let error {
-                print(error)
+                ErrorLog.save(error)
             } else if let user, user.exists {
                 completion(try? user.data(as: UserAccount.self))
             } else {
-                print("user not exist")
-            }
-        }
-    }
-
-    static func getData(withUUID userUUID: String, completion: @escaping(_ userAccount: UserAccount?) -> Void) {
-        let dbase = Firestore.firestore()
-        let accountRef = dbase.collection("accounts").whereField("uuid", isEqualTo: userUUID)
-
-        accountRef.getDocuments { querySnapshot, error in
-            if let error {
-                print(error)
-            } else if let querySnapshot, let user = querySnapshot.documents.first, user.exists {
-                completion(try? user.data(as: UserAccount.self))
-            } else {
-                print("User not exist")
+                ErrorLog.save("user not exist")
             }
         }
     }

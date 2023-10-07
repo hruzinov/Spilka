@@ -7,17 +7,17 @@ import FirebaseFirestoreSwift
 
 struct Message: Identifiable, Codable {
     @DocumentID var id: String?
-    let from: String
-    // swiftlint:disable:next identifier_name
-    let to: String
+    let fromID: String
+    let toID: String
     var text: String
     var isUnread: Bool
     let dateTime: Date
 //        let attachments
 
     enum CodingKeys: String, CodingKey {
-        // swiftlint:disable:next identifier_name
-        case id, from, to, text
+        case id, text
+        case fromID = "from_id"
+        case toID = "to_id"
         case isUnread = "is_unread"
         case dateTime = "timestamp"
     }

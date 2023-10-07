@@ -24,12 +24,10 @@ extension MainView {
 
                 accountRef.getDocument { user, error in
                     if let error {
-                        print(error)
+                        ErrorLog.save(error)
                     } else if let user, user.exists {
-                        print("User exist")
                         self.isLoggedIn = true
                     } else {
-                        print("User not exist")
                         self.isLoggedIn = false
                     }
                 }

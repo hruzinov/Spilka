@@ -14,7 +14,7 @@ struct CryptoKeys {
         do {
             (privateKey, publicKey) = try SwiftyRSA.generateRSAKeyPair(sizeInBits: 2048)
         } catch {
-            print(error)
+            ErrorLog.save(error)
         }
     }
 

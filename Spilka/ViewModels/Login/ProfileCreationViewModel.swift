@@ -50,11 +50,11 @@ extension ProfileCreationView {
             }
 
             userAccount = UserAccount(
-                uuid: UUID().uuidString,
+                uuid: uid,
                 name: profileName,
                 countryCode: countryCode,
                 phoneNumber: phoneNumber,
-                profileImageID: nil, // TODO: Change when implement avatars
+                profileImageID: nil,
                 username: profileUsername,
                 description: profileDescription,
                 publicKey: publicBase64String
@@ -67,13 +67,13 @@ extension ProfileCreationView {
 
                 accountRef.getDocument { user, error in
                     if let error {
-                        print(error)
+                        ErrorLog.save(error)
                     } else if let user, user.exists {
                         self.isGoToMainView.toggle()
                     }
                 }
             } catch let error {
-                print("ERROR with creating: \(error)")
+                ErrorLog.save("ERROR with creating: \(error)")
             }
         }
 

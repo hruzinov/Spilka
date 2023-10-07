@@ -39,7 +39,11 @@
         }
       }
     },
+    "%lld" : {
+
+    },
     "1" : {
+      "extractionState" : "stale",
       "localizations" : {
         "pl" : {
           "stringUnit" : {
@@ -423,6 +427,9 @@
           }
         }
       }
+    },
+    "New message" : {
+
     },
     "NOT WORKING" : {
       "localizations" : {

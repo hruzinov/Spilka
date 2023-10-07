@@ -67,7 +67,7 @@ extension SignInScreenView {
                 .verifyPhoneNumber(phone, uiDelegate: nil) { [self] id, error in
                     if let error {
                         self.showPhoneMessagePrompt(error)
-                        print(error)
+                        ErrorLog.save(error)
                         isWaitingServer = false
                         competition(false, nil)
                     } else if let id {
@@ -92,7 +92,7 @@ extension SignInScreenView {
             Auth.auth().signIn(with: credential) { authResult, error in
                 if let error {
                     self.showCodeMessagePrompt(error)
-                    print(error)
+                    ErrorLog.save(error)
                     self.isWaitingServer = false
                     return
                 }
@@ -108,12 +108,14 @@ extension SignInScreenView {
                 let keychain = KeychainSwift()
                 keychain.synchronizable = true
                 guard let userUID = keychain.get("accountUID") else {
-                    print("Some problems with geting userUID from keychain")
+                    ErrorLog.save("Some problems with geting userUID from keychain")
                     return
                 }
+                self.userAccount?.phoneNumber = nil
+                self.userAccount?.countryCode = nil
                 signInUser(userUID)
             } else if response == .error {
-                print("error. Maybe the user cancelled or there's no internet")
+                ErrorLog.save("Maybe the user cancelled or there's no internet")
             }
         }
 
@@ -130,7 +132,7 @@ extension SignInScreenView {
             GIDSignIn.sharedInstance.signIn(withPresenting: rootViewController) { [unowned self] result, error in
                 guard error == nil else {
                     self.showGAuthMessagePrompt(error!)
-                    print(error!)
+                    ErrorLog.save(error!)
                     isWaitingServer = false
                     return
                 }
@@ -145,11 +147,13 @@ extension SignInScreenView {
                 Auth.auth().signIn(with: credential) { authResult, error in
                     if let error {
                         self.showCodeMessagePrompt(error)
-                        print(error)
+                        ErrorLog.save(error)
                         self.isWaitingServer = false
                         return
                     }
                     if let user = authResult?.user {
+                        self.userAccount?.phoneNumber = nil
+                        self.userAccount?.countryCode = nil
                         self.signInUser(user.uid)
                     }
                     self.isWaitingServer = false
@@ -167,7 +171,7 @@ extension SignInScreenView {
             accountRef.getDocument { user, error in
                 if let error {
                     self.showCodeMessagePrompt(error)
-                    print(error)
+                    ErrorLog.save(error)
                 } else if let user, user.exists, let userData = try? user.data(as: UserAccount.self) {
                     self.userAccount = userData
                     if let privateKeyString = keychain.get("userPrivateKey") {
@@ -217,7 +221,7 @@ extension SignInScreenView {
                     } else {
                         self.isWaitingServer = false
                         self.showFileImportMessagePrompt("File contains an outdated or invalid key")
-                        print("Key not handled security check")
+                        ErrorLog.save("Key not handled security check")
                     }
                     if isAccessing {
                         fileURL.stopAccessingSecurityScopedResource()
@@ -225,7 +229,7 @@ extension SignInScreenView {
                 } catch {
                     self.showFileImportMessagePrompt("This is not a private key file. Choose another one")
                     self.isWaitingServer = false
-                    print(error)
+                    ErrorLog.save(error)
                 }
 
             case .failure(let error):

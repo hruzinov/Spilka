@@ -7,6 +7,7 @@ import Foundation
 extension Date {
     func stringRel() -> String {
         let dateFormatter = DateFormatter()
+        dateFormatter.locale = .autoupdatingCurrent
         let calendar = Calendar.current
         let sevenDaysAgo = calendar.date(byAdding: .day, value: -7, to: .now)
 
@@ -25,5 +26,8 @@ extension Date {
             dateFormatter.dateFormat = "DD/MM/YY"
             return dateFormatter.string(from: self)
         }
+    }
+    static func zero() -> Date {
+        return Date(timeIntervalSince1970: 0)
     }
 }

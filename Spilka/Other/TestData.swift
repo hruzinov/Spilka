@@ -23,4 +23,20 @@ struct TestData {
         "C8655C34-3D06-427B-843D-42A53E1D8974",
         "16A5BE41-D7B7-4A2F-9804-37A45B3EC2FD"
     ]
+
+    // swiftlint:disable line_length
+    static let testChat: Chat = Chat(id: "", user: testAccount, messagesDictionary: generateMessagesDictionary())
+
+    static private func generateMessagesDictionary() -> [String: Message] {
+        let UUID1 = UUID().uuidString
+        let UUID2 = UUID().uuidString
+        let messagesDictionary = [
+            UUID1: Message(id: UUID1, fromID: "73AD3AE2-AAB9-4B5E-AF1D-C95B74F0366F",
+                    toID: "testUserAccount", text: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.", isUnread: false, dateTime: Date.now),
+            UUID2: Message(id: UUID2, fromID: "testUserAccount",
+                    toID: "73AD3AE2-AAB9-4B5E-AF1D-C95B74F0366F", text: "Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur?", isUnread: false, dateTime: Date.now)
+        ]
+        return messagesDictionary
+    }
+    // swiftlint:enable line_length
 }
