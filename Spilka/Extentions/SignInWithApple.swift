@@ -166,10 +166,7 @@ extension SignInWithAppleDelegates: ASAuthorizationControllerDelegate {
             }
             if let user = authResult?.user {
                 let userUID = user.uid
-
-                let keychain = KeychainSwift()
-                keychain.synchronizable = true
-                keychain.set(userUID, forKey: "accountUID")
+                UserDefaults.standard.set(userUID, forKey: "accountUID")
 
                 self.onLoginEvent?(.success)
             }

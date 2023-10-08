@@ -52,16 +52,6 @@ struct WelcomeScreenView: View {
                         }
                 }
                 Spacer()
-//                NavigationLink {
-//                    SignInScreen()
-//                } label: {
-//                    HStack {
-//                        Text("I already have account")
-//                        Image(systemName: "chevron.right")
-//                            .font(.footnote)
-//                    }
-//                    .foregroundStyle(.black)
-//                }
             }
         }
     }

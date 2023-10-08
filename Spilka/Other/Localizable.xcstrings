@@ -40,21 +40,17 @@
       }
     },
     "%lld" : {
-
-    },
-    "1" : {
-      "extractionState" : "stale",
       "localizations" : {
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "1"
+            "value" : "%lld"
           }
         },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "1"
+            "value" : "%lld"
           }
         }
       }
@@ -82,18 +78,18 @@
         }
       }
     },
-    "All messages sent to Spilka are encrypted to ensure the security of your communications." : {
+    "All messages sent through Spilka are encrypted." : {
       "localizations" : {
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Wszystkie wiadomości wysyłane za pośrednictwem Spilka są szyfrowane w celu zapewnienia bezpieczeństwa komunikacji."
+            "value" : "Wszystkie wiadomości wysyłane przez Spilka są szyfrowane."
           }
         },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Всі повідомлення, що надсилаються через Spilka, шифруються, щоб гарантувати безпеку ваших комунікацій."
+            "value" : "Всі повідомлення, що надсилаються через Спілку, зашифровані."
           }
         }
       }
@@ -147,6 +143,38 @@
         }
       }
     },
+    "Check passwords as they do not match" : {
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sprawdź hasła, ponieważ się nie zgadzają"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Перевірте паролі, бо вони не збігаються"
+          }
+        }
+      }
+    },
+    "Click the %@ above to start a new chat," : {
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kliknij %@ powyżej, aby rozpocząć nowy czat,"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Натисніть %@ вище, щоб почати новий чат,"
+          }
+        }
+      }
+    },
     "Confirm country code and enter phone number. Or use one of existing account" : {
       "localizations" : {
         "pl" : {
@@ -163,18 +191,18 @@
         }
       }
     },
-    "Confirm the key transfer request on another device or import the key file." : {
+    "Confirm the key transfer request on another device, enter your password or import the key file." : {
       "localizations" : {
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Potwierdź żądanie przesłania klucza na inne urządzenie lub zaimportuj plik z kluczem."
+            "value" : "Potwierdź żądanie transferu klucza na innym urządzeniu, wprowadź hasło lub zaimportuj plik klucza."
           }
         },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Підтвердтье запит на копіювання ключа на іньшому девайсі або імпортуйте файл з ним."
+            "value" : "Підтвердіть запит на передачу ключа на іншому пристрої, введіть пароль або імпортуйте файл ключа."
           }
         }
       }
@@ -198,6 +226,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Продовжити"
+          }
+        }
+      }
+    },
+    "Enter password" : {
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wprowadź hasło"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Введіть пароль"
           }
         }
       }
@@ -234,18 +278,18 @@
         }
       }
     },
-    "Export key file" : {
+    "Export backup key file" : {
       "localizations" : {
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Eksport pliku klucza"
+            "value" : "Eksport pliku klucza kopii zapasowej"
           }
         },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Експорт файлу ключа"
+            "value" : "Експорт резервного файлу ключа"
           }
         }
       }
@@ -283,8 +327,21 @@
         }
       }
     },
-    "Generating keys..." : {
-
+    "Generating keys, wait..." : {
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Generowanie kluczy, zaczekaj..."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Генерую ключі, зачекайте..."
+          }
+        }
+      }
     },
     "Go back" : {
       "localizations" : {
@@ -334,22 +391,6 @@
         }
       }
     },
-    "If you have lost or don't have your key, or want to start over, click the button below" : {
-      "localizations" : {
-        "pl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Jeśli zgubiłeś klucz, nie masz go lub chcesz zacząć od nowa, kliknij poniższy przycisk"
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Якщо ви загубили чи не маєте ключ, або хочете почати все спочатку — натисніть кнопку нижче"
-          }
-        }
-      }
-    },
     "Import key file" : {
       "localizations" : {
         "pl" : {
@@ -362,6 +403,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Імпорт файлу ключа"
+          }
+        }
+      }
+    },
+    "In this case, the key will be encrypted with a password and stored on the server." : {
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "W takim przypadku klucz zostanie zaszyfrowany hasłem i zapisany na serwerze."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "У цьому випадку ключ буде зашифрований паролем і зберігатиметься на сервері."
           }
         }
       }
@@ -383,18 +440,18 @@
         }
       }
     },
-    "It's **recommended** to save a backup file of this key in a safe place so you can restore access to your messages." : {
+    "It's a bit empty here..." : {
       "localizations" : {
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "**Zaleca się** zapisanie pliku kopii zapasowej tego klucza w bezpiecznym miejscu, aby można było przywrócić dostęp do wiadomości."
+            "value" : "Jest tu trochę pusto..."
           }
         },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "**Рекомендується** зберігати резервну копію цього ключа в безпечному місці, щоб ви могли відновити доступ до своїх повідомлень."
+            "value" : "Тут якось порожньо..."
           }
         }
       }
@@ -432,20 +489,33 @@
       }
     },
     "New message" : {
-
-    },
-    "NOT WORKING" : {
       "localizations" : {
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "NIE DZIAŁA"
+            "value" : "Nowa wiadomość"
           }
         },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "НЕ ПРАЦЮЄ"
+            "value" : "Нове повідомлення"
+          }
+        }
+      }
+    },
+    "Optionally, you can save a backup key in case you forget your password" : {
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Opcjonalnie można zapisać klucz zapasowy na wypadek zapomnienia hasła"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "За бажанням ви можете зберегти резервний ключ на випадок, якщо забудете пароль"
           }
         }
       }
@@ -466,6 +536,22 @@
         }
       }
     },
+    "or try the search to find channels of interest" : {
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "lub spróbuj wyszukać interesujące Cię kanały"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "або скористайтеся пошуком, щоб знайти канали, які вас цікавлять"
+          }
+        }
+      }
+    },
     "Private Key" : {
       "localizations" : {
         "pl" : {
@@ -478,6 +564,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Приватний ключ"
+          }
+        }
+      }
+    },
+    "Re-enter password" : {
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ponownie wprowadź hasło"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Повторно введіть пароль"
           }
         }
       }
@@ -514,18 +616,18 @@
         }
       }
     },
-    "The decryption key is stored only in the device's memory and is never transmitted to the server." : {
+    "Synchronize the decryption key" : {
       "localizations" : {
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Klucz deszyfrujący jest przechowywany wyłącznie w pamięci urządzenia i nigdy nie jest przesyłany na serwer."
+            "value" : "Synchronizacja klucza deszyfrowania"
           }
         },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Ключ шифрування зберігається тільки в пам'яті пристрою і ніколи не передається на сервер."
+            "value" : "Синхронізувати ключ дешифрування"
           }
         }
       }
@@ -536,13 +638,36 @@
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Код підтвердження невірний або застарів. Будь ласка, перевірте та спробуйте ще раз"
+            "value" : "Kod weryfikacyjny jest nieprawidłowy lub wygasł. Sprawdź i spróbuj ponownie"
           }
         },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Код підтвердження невірний або прострочений. Будь ласка, перевірте та спробуйте ще раз"
+          }
+        }
+      }
+    },
+    "This is a test project with a limited number of SMS logins per day." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This is a test project with a limited number of SMS logins per day. Try other methods or check back tomorrow."
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Jest to projekt testowy z ograniczoną liczbą logowań SMS dziennie. Wypróbuj inne metody lub sprawdź jutro."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Це тестовий проєкт з обмеженою кількістю входів через SMS на день. Спробуйте інші варіанти або завтра."
           }
         }
       }
@@ -636,6 +761,22 @@
         }
       }
     },
+    "You can also import a key file using the button below." : {
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Możesz również zaimportować plik klucza za pomocą poniższego przycisku."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ви також можете імпортувати файл ключа за допомогою кнопки нижче."
+          }
+        }
+      }
+    },
     "You can request new verification code after %lld seconds" : {
       "localizations" : {
         "pl" : {
@@ -648,6 +789,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ви можете запросити новий код підтвердження через %lld секунд"
+          }
+        }
+      }
+    },
+    "You can synchronize encryption key between devices for easier login." : {
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Klucz szyfrowania można synchronizować między urządzeniami w celu łatwiejszego logowania."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ви можете синхронізувати ключ шифрування між пристроями для спрощення входу."
           }
         }
       }
@@ -696,6 +853,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ваша інформація"
+          }
+        }
+      }
+    },
+    "Your password" : {
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Twoje hasło"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ваш пароль"
           }
         }
       }

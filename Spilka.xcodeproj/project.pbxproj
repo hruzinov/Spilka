@@ -12,6 +12,7 @@
 		492214752AD05775005F2462 /* ErrorLogs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492214742AD05774005F2462 /* ErrorLogs.swift */; };
 		492A927A2AD1ED9B00D50A74 /* CryptoSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 492A92792AD1ED9B00D50A74 /* CryptoSwift */; };
 		49328AF22AADE4AB0019210F /* CountryCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49328AF12AADE4AB0019210F /* CountryCode.swift */; };
+		4941B0B02AD356A3009C0613 /* PrivateKeysImportViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4941B0AF2AD356A3009C0613 /* PrivateKeysImportViewModel.swift */; };
 		495334592AAF6D6700135E6C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 495334582AAF6D6700135E6C /* GoogleService-Info.plist */; };
 		4959D3DD2ACF68B900C9471B /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 4959D3DC2ACF68B900C9471B /* FirebaseStorage */; };
 		4973306F2ACEBF8200807B93 /* TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4973306E2ACEBF8200807B93 /* TestData.swift */; };
@@ -68,6 +69,7 @@
 		492214742AD05774005F2462 /* ErrorLogs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorLogs.swift; sourceTree = "<group>"; };
 		49328AED2AADDE050019210F /* Spilka.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Spilka.entitlements; sourceTree = "<group>"; };
 		49328AF12AADE4AB0019210F /* CountryCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryCode.swift; sourceTree = "<group>"; };
+		4941B0AF2AD356A3009C0613 /* PrivateKeysImportViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivateKeysImportViewModel.swift; sourceTree = "<group>"; };
 		495334582AAF6D6700135E6C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4973306E2ACEBF8200807B93 /* TestData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestData.swift; sourceTree = "<group>"; };
 		497330702ACEDFF900807B93 /* ChatModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatModel.swift; sourceTree = "<group>"; };
@@ -138,6 +140,7 @@
 			children = (
 				49CD124A2AB8CCF700215EC6 /* SignInViewModel.swift */,
 				49B4527C2ABB5FC100AA2A13 /* ProfileCreationViewModel.swift */,
+				4941B0AF2AD356A3009C0613 /* PrivateKeysImportViewModel.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -379,6 +382,7 @@
 				49C37A222AADD39D00C4B769 /* MainView.swift in Sources */,
 				49B4527F2ABB60EC00AA2A13 /* CryptoKeys.swift in Sources */,
 				49F1CF792ABA2FBF00C02569 /* ProfileCreationView.swift in Sources */,
+				4941B0B02AD356A3009C0613 /* PrivateKeysImportViewModel.swift in Sources */,
 				49328AF22AADE4AB0019210F /* CountryCode.swift in Sources */,
 				49B4527D2ABB5FC100AA2A13 /* ProfileCreationViewModel.swift in Sources */,
 				49CD124B2AB8CCF700215EC6 /* SignInViewModel.swift in Sources */,

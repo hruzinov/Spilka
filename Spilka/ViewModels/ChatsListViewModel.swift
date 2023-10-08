@@ -12,7 +12,7 @@ extension ChatsListScreenView {
         var chatsDictionary: [String: Chat] = [:]
         @Published var accountUID: String
         @Published var userAccount: UserAccount?
-        @Published var navbarStatus: NavbarStatus = .online
+        @Published var loadingStatus: LoadingStatus = .online
         var chatsSorted: [Chat] {
             if chatsDictionary.count >= 2 {
                 return chatsDictionary.values.sorted {
@@ -38,10 +38,7 @@ extension ChatsListScreenView {
         }
 
         init() {
-            let keychain = KeychainSwift()
-            keychain.synchronizable = true
-
-            if let uid = keychain.get("accountUID") {
+            if let uid = UserDefaults.standard.string(forKey: "accountUID") {
                 self.accountUID = uid
             } else {
                 ErrorLog.save("Can't get accountUID from keychain")
@@ -57,11 +54,12 @@ extension ChatsListScreenView {
         func getAllChats(_ uid: String) {
             let dbase = Firestore.firestore()
             let dispatchGroupChats = DispatchGroup()
-            self.navbarStatus = .updating
+            self.loadingStatus = .updating
 
             let privateChatsRef = dbase.collection("accounts/\(uid)/private_chats/")
             privateChatsRef.getDocuments { privateChatsSnapshot, error in
                 guard let privateChatsSnapshot else { ErrorLog.save(error); return }
+                guard privateChatsSnapshot.documents.count > 0 else { self.loadingStatus = .online; return }
 
                 privateChatsSnapshot.documents.forEach { chatDocument in
                     do {
@@ -93,7 +91,6 @@ extension ChatsListScreenView {
                                     })
                                     dispatchGroupChats.leave()
                                 }
-//                                dispatchGroupChats.leave()
                                 privateChatMessagesRef.addSnapshotListener { messagesSnapshot, error in
                                     guard let messagesSnapshot else { ErrorLog.save(error); return }
                                     messagesSnapshot.documentChanges.forEach { dif in
@@ -107,13 +104,13 @@ extension ChatsListScreenView {
                                 }
                             }
                         }
-                        dispatchGroupChats.notify(queue: .main) { self.navbarStatus = .online }
+                        dispatchGroupChats.notify(queue: .main) { self.loadingStatus = .online }
                     } catch { ErrorLog.save(error) }
                 }
             }
         }
 
-        enum NavbarStatus: String {
+        enum LoadingStatus: String {
             case online = "Chats"
             case updating = "Updating..."
         }

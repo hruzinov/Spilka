@@ -5,6 +5,7 @@
 import SwiftUI
 import UniformTypeIdentifiers
 import CryptoSwift
+import FirebaseFirestoreSwift
 
 struct CryptoKeys {
     var privateKey: RSA?
@@ -34,6 +35,17 @@ struct CryptoKeys {
             ErrorLog.save(error)
             return false
         }
+    }
+}
+
+struct ServerKeyData: Codable {
+    @DocumentID var uid: String?
+    var keyHex: String
+    var initVector: String
+
+    enum CodingKeys: String, CodingKey {
+        case uid, keyHex
+        case initVector = "iv"
     }
 }
 

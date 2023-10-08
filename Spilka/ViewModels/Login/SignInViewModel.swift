@@ -23,10 +23,8 @@ extension SignInScreenView {
         @Published var searchCountry: String = ""
         @Published var phoneMessagePrompt: String = ""
         @Published var codeMessagePrompt: String = ""
-        @Published var fileImportMessagePrompt: String = ""
         @Published var isPhoneContinueButtonDisabled = true
         @Published var isCodeContinueButtonDisabled = true
-        @Published var isShowingFileImportMessagePrompt = false
 
         @Published var isGoToVerification = false
         @Published var isGoToCreateProfile = false
@@ -63,18 +61,16 @@ extension SignInScreenView {
 
             let phone = countryCode.dialCode + phoneNumber
 
-            PhoneAuthProvider.provider()
-                .verifyPhoneNumber(phone, uiDelegate: nil) { [self] id, error in
+            PhoneAuthProvider.provider().verifyPhoneNumber(phone, uiDelegate: nil) { [self] id, error in
+                isWaitingServer = false
                     if let error {
                         self.showPhoneMessagePrompt(error)
                         ErrorLog.save(error)
-                        isWaitingServer = false
                         competition(false, nil)
                     } else if let id {
                         smsCodeTimeOut = 60
                         competition(true, id)
                     }
-                    isWaitingServer = false
                 }
         }
 
@@ -84,39 +80,26 @@ extension SignInScreenView {
             phoneMessagePrompt = ""
             codeMessagePrompt = ""
 
-            let credential = PhoneAuthProvider.provider().credential(
-                withVerificationID: verificationID,
-                verificationCode: verificationCode
-            )
+            let credential = PhoneAuthProvider.provider().credential( withVerificationID: verificationID,
+                                                                      verificationCode: verificationCode)
 
             Auth.auth().signIn(with: credential) { authResult, error in
-                if let error {
-                    self.showCodeMessagePrompt(error)
-                    ErrorLog.save(error)
-                    self.isWaitingServer = false
-                    return
-                }
-                if let user = authResult?.user {
-                    self.signInUser(user.uid)
-                }
+                if let error { self.showCodeMessagePrompt(error); ErrorLog.save(error) } else
+                if let user = authResult?.user { self.signInUser(user.uid) }
                 self.isWaitingServer = false
             }
         }
 
         func handleSignInWithApple(_ response: SignInWithAppleToFirebaseResponse) {
             if response == .success {
-                let keychain = KeychainSwift()
-                keychain.synchronizable = true
-                guard let userUID = keychain.get("accountUID") else {
+                guard let userUID = UserDefaults.standard.string(forKey: "accountUID") else {
                     ErrorLog.save("Some problems with geting userUID from keychain")
                     return
                 }
                 self.userAccount?.phoneNumber = nil
                 self.userAccount?.countryCode = nil
                 signInUser(userUID)
-            } else if response == .error {
-                ErrorLog.save("Maybe the user cancelled or there's no internet")
-            }
+            } else if response == .error { ErrorLog.save("Maybe the user cancelled or there's no internet") }
         }
 
         func handleSignInWithGoogle() {
@@ -137,8 +120,7 @@ extension SignInScreenView {
                     return
                 }
                 guard let user = result?.user, let idToken = user.idToken?.tokenString else {
-                    isWaitingServer = false
-                    return
+                    isWaitingServer = false; return
                 }
 
                 let credential = GoogleAuthProvider.credential(withIDToken: idToken,
@@ -148,10 +130,7 @@ extension SignInScreenView {
                     if let error {
                         self.showCodeMessagePrompt(error)
                         ErrorLog.save(error)
-                        self.isWaitingServer = false
-                        return
-                    }
-                    if let user = authResult?.user {
+                    } else if let user = authResult?.user {
                         self.userAccount?.phoneNumber = nil
                         self.userAccount?.countryCode = nil
                         self.signInUser(user.uid)
@@ -174,8 +153,9 @@ extension SignInScreenView {
                     ErrorLog.save(error)
                 } else if let user, user.exists, let userData = try? user.data(as: UserAccount.self) {
                     self.userAccount = userData
-                    if let privateKeyData = keychain.getData("userPrivateKey") {
-                        self.isWaitingServer = true
+                    UserDefaults.standard.set(userUID, forKey: "accountUID")
+                    if let privateKeyData = keychain.getData("userPrivateKey_\(userUID)") {
+                        self.isWaitingServer = false
                         if CryptoKeys.checkValidity(privateKeyData: privateKeyData,
                                                     publicKeyData: Data(hex: userData.publicKey)) {
                             self.isGoToMainView.toggle()
@@ -186,49 +166,9 @@ extension SignInScreenView {
                         self.isGoToImportPrivateKey.toggle()
                     }
                 } else {
-                    keychain.set(userUID, forKey: "accountUID")
+                    UserDefaults.standard.set(userUID, forKey: "accountUID")
                     self.isGoToCreateProfile.toggle()
                 }
-            }
-        }
-
-        func privateKeyFileSelected(_ result: Result<URL, Error>) {
-            self.isWaitingServer = true
-            self.isShowingFileImportMessagePrompt = false
-
-            switch result {
-            case .success(let fileURL):
-                do {
-                    guard let userAccount else {
-                        self.isWaitingServer = false
-                        return
-                    }
-
-                    let isAccessing = fileURL.startAccessingSecurityScopedResource()
-
-                    let privateKeyData = try Data(contentsOf: fileURL)
-                    let publicKeyData = Data(hex: userAccount.publicKey)
-
-                    if CryptoKeys.checkValidity(privateKeyData: privateKeyData, publicKeyData: publicKeyData) {
-                        self.isWaitingServer = false
-                        self.isGoToMainView.toggle()
-                    } else {
-                        self.isWaitingServer = false
-                        self.showFileImportMessagePrompt("File contains an outdated or invalid key")
-                        ErrorLog.save("Key not handled security check")
-                    }
-                    if isAccessing {
-                        fileURL.stopAccessingSecurityScopedResource()
-                    }
-                } catch {
-                    self.showFileImportMessagePrompt("This is not a private key file. Choose another one")
-                    self.isWaitingServer = false
-                    ErrorLog.save(error)
-                }
-
-            case .failure(let error):
-                self.isWaitingServer = false
-                self.showFileImportMessagePrompt(error.localizedDescription)
             }
         }
 
@@ -251,7 +191,8 @@ extension SignInScreenView {
                 switch errorKey {
                 case "ERROR_INVALID_PHONE_NUMBER":
                     self.phoneMessagePrompt = "Invalid phone number, check and try again"
-
+                case "ERROR_QUOTA_EXCEEDED":
+                    self.phoneMessagePrompt = "This is a test project with a limited number of SMS logins per day."
                 default:
                     self.phoneMessagePrompt = error.localizedDescription
                 }
@@ -269,13 +210,6 @@ extension SignInScreenView {
                 default:
                     self.codeMessagePrompt = error.localizedDescription
                 }
-            }
-        }
-
-        func showFileImportMessagePrompt(_ error: String) {
-            withAnimation {
-                self.isShowingFileImportMessagePrompt = true
-                self.fileImportMessagePrompt = error
             }
         }
     }

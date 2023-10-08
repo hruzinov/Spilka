@@ -50,7 +50,6 @@ struct SpilkaApp: App {
 
     var body: some Scene {
         WindowGroup {
-//            ChatLogView()
             MainView()
 //            TestingView()
         }

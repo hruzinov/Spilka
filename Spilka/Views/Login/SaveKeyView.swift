@@ -9,52 +9,162 @@ struct SaveKeyView: View {
     @Environment(\.colorScheme) var colorScheme
 
     @ObservedObject var profileCreationViewModel: ProfileCreationView.ViewModel
-//    @State private var isShowingExporter = false
+
+    @FocusState private var isFieldFocus: FieldToFocus?
+
+    var isRegisterButtonActive: Bool {
+        guard profileCreationViewModel.cryptoKeys != nil,
+                !profileCreationViewModel.isWaitingServer else { return false }
+        if profileCreationViewModel.isSaveKeyToServer {
+            if profileCreationViewModel.keyCryptoPassword != "",
+               profileCreationViewModel.keyCryptoRePassword != "",
+               profileCreationViewModel.keyCryptoPassword ==
+                profileCreationViewModel.keyCryptoRePassword {
+                return true
+            } else { return false }
+        } else {
+            return true
+        }
+    }
 
     var body: some View {
-        VStack(spacing: 20) {
-            Text("All messages sent to Spilka are encrypted to ensure the security of your communications.")
+        ScrollView {
+            Text("All messages sent through Spilka are encrypted.")
                 .font(.headline)
-            Text("The decryption key is stored only in the device's memory and is never transmitted to the server.")
+                .padding(.bottom, 24)
 
-            if profileCreationViewModel.cryptoKeys == nil {
-                RoundedRectangle(cornerRadius: 10)
-                    .fill(.ultraThinMaterial)
-                    .overlay {
-                        HStack(spacing: 15) {
-                            Text("Generating keys...")
-                            ProgressView()
-                                .progressViewStyle(.circular)
+            Text("You can synchronize encryption key between devices for easier login.")
+                .padding(.bottom, 16)
+            Text("In this case, the key will be encrypted with a password and stored on the server.")
+                .padding(.bottom, 24)
+
+            Toggle(isOn: $profileCreationViewModel.isSaveKeyToServer, label: {
+                Text("Synchronize the decryption key")
+                    .bold()
+            })
+            .frame(width: screenSize.width * 0.8)
+
+            if profileCreationViewModel.isSaveKeyToServer {
+//                VStack {
+                VStack {
+                    Group {
+                        if profileCreationViewModel.keyCryptoPasswordShow {
+                            TextField("Enter password", text:
+                                        $profileCreationViewModel.keyCryptoPassword)
+                                .focused($isFieldFocus, equals: .passwordTextField)
+                        } else {
+                            SecureField("Enter password", text:
+                                            $profileCreationViewModel.keyCryptoPassword)
+                                .focused($isFieldFocus, equals: .passwordSecureField)
                         }
                     }
-                    .frame(maxHeight: 50)
-                    .padding(.vertical, 24)
-            } else {
-                ShareLink(
-                    item: profileCreationViewModel.privateKeyFile!, preview: SharePreview("Private Key",
-                            image: Image(systemName: "key.radiowaves.forward")
-                                .renderingMode(.original))) {
-                                    RoundedRectangle(cornerRadius: 10)
-                                        .fill(.ultraThinMaterial)
-                                        .overlay {
-                                            HStack {
-                                                Text("Export key file")
-                                                Image(systemName: "square.and.arrow.down.on.square")
-                                            }
-                                        }
-                                        .frame(maxHeight: 50)
-                                        .padding(.vertical, 24)
-                                }
+                    .frame(height: 22)
+                    .padding(10)
+                    .submitLabel(.next)
+                    .autocorrectionDisabled()
+                    .textInputAutocapitalization(.never)
+                    .textContentType(.newPassword)
+                    .onSubmit {
+                        isFieldFocus = .rePasswordSecureField
+                    }
+                    .background(.thinMaterial,
+                                in: RoundedRectangle(cornerRadius: 10))
+                    .overlay(alignment: .trailing) {
+                        Button {
+                            profileCreationViewModel.keyCryptoPasswordShow.toggle()
+                        } label: {
+                            Image(systemName: profileCreationViewModel.keyCryptoPasswordShow ?
+                                  "eye.slash" : "eye.fill")
+                            .foregroundStyle(Color.primary)
+                            .padding()
+                        }
+                    }
+                    .onChange(of: profileCreationViewModel.keyCryptoPasswordShow, { _, _ in
+                        isFieldFocus = profileCreationViewModel.keyCryptoPasswordShow ?
+                            .passwordTextField : .passwordSecureField
+                    })
+
+                    Group {
+                        if profileCreationViewModel.keyCryptoRePasswordShow {
+                            TextField("Re-enter password", text: $profileCreationViewModel.keyCryptoRePassword)
+                                .focused($isFieldFocus, equals: .rePasswordTextField)
+                        } else {
+                            SecureField("Re-enter password", text: $profileCreationViewModel.keyCryptoRePassword)
+                                .focused($isFieldFocus, equals: .rePasswordSecureField)
+                        }
+                    }
+                    .frame(height: 22)
+                    .padding(10)
+                    .submitLabel(.next)
+                    .autocorrectionDisabled()
+                    .textInputAutocapitalization(.never)
+                    .textContentType(.newPassword)
+                    .onSubmit {
+                        isFieldFocus = nil
+                    }
+                    .background(.thinMaterial,
+                                in: RoundedRectangle(cornerRadius: 10))
+                    .overlay(alignment: .trailing) {
+                        Button {
+                            profileCreationViewModel.keyCryptoRePasswordShow.toggle()
+                        } label: {
+                            Image(systemName: profileCreationViewModel.keyCryptoRePasswordShow ?
+                                  "eye.slash" : "eye.fill")
+                            .foregroundStyle(Color.primary)
+                            .padding()
+                        }
+                    }
+                    .onChange(of: profileCreationViewModel.keyCryptoRePasswordShow, { _, _ in
+                        isFieldFocus = profileCreationViewModel.keyCryptoRePasswordShow ?
+                            .rePasswordTextField : .rePasswordSecureField
+                    })
+
+                    if !profileCreationViewModel.isPasswordsMatch {
+                        Text("Check passwords as they do not match")
+                            .foregroundStyle(.red)
+                    }
+                }
+                .padding()
+                .padding(.bottom, 16)
             }
 
-            // swiftlint:disable:next line_length
-            Text("It's **recommended** to save a backup file of this key in a safe place so you can restore access to your messages.")
+            Text("Optionally, you can save a backup key in case you forget your password")
+            Group {
+                if profileCreationViewModel.cryptoKeys == nil {
+                    RoundedRectangle(cornerRadius: 10)
+                        .fill(.ultraThinMaterial)
+                        .overlay {
+                            HStack(spacing: 15) {
+                                Text("Generating keys, wait...")
+                                ProgressView()
+                                    .progressViewStyle(.circular)
+                            }
+                        }
+                } else {
+                    ShareLink(
+                        item: profileCreationViewModel.privateKeyFile!, preview: SharePreview("Private Key",
+                                  image: Image(systemName: "key.radiowaves.forward")
+                            .renderingMode(.template))) {
+                                RoundedRectangle(cornerRadius: 10)
+                                    .fill(.ultraThinMaterial)
+                                    .overlay {
+                                        HStack {
+                                            Text("Export backup key file")
+                                            Image(systemName: "square.and.arrow.down.on.square")
+                                        }
+                                    }
+                            }
+                }
+            }
+            .frame(width: screenSize.width * 0.8, height: 50)
+            .padding(.bottom, 22)
 
             Button {
+                profileCreationViewModel.isWaitingServer = true
                 profileCreationViewModel.handleRegisterButton()
             } label: {
                 RoundedRectangle(cornerRadius: 10)
-                    .fill(profileCreationViewModel.cryptoKeys == nil ? .gray :
+                    .fill(!isRegisterButtonActive ? .gray :
                         colorScheme == .dark ? .white  : .black)
                     .frame(width: profileCreationViewModel.isWaitingServer ? 45 :
                             screenSize.width * 0.8, height: 45)
@@ -70,14 +180,19 @@ struct SaveKeyView: View {
                     }
                     .padding(.vertical, 24)
             }
-            .disabled(profileCreationViewModel.cryptoKeys == nil)
+            .disabled(!isRegisterButtonActive)
 
         }
-        .frame(width: screenSize.width * 0.8)
+        .frame(width: screenSize.width * 0.9)
         .multilineTextAlignment(.center)
         .navigationDestination(isPresented: $profileCreationViewModel.isGoToMainView) {
             MainView(skipCheck: true)
         }
+    }
+
+    enum FieldToFocus {
+        case passwordSecureField, passwordTextField
+        case rePasswordSecureField, rePasswordTextField
     }
 }
 

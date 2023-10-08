@@ -3,6 +3,7 @@
 //
 //  Created by Evhen Gruzinov on 21.09.2023.
 //
+// swiftlint:disable all
 
 import SwiftUI
 
@@ -15,3 +16,5 @@ struct TestingView: View {
 #Preview {
     TestingView()
 }
+
+// swiftlint:enable all
