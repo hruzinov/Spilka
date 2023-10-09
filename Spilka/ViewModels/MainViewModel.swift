@@ -11,12 +11,7 @@ extension MainView {
         @Published var isLoggedIn: Bool?
 
         func startingUp(skipCheck: Bool) {
-//            let keychain = KeychainSwift()
-//            keychain.synchronizable = true
-//            let accountUID = keychain.get("accountUID")
-
-            let accountUID:String? = nil
-            #warning("Changed on time of testing")
+            let accountUID = UserDefaults.standard.string(forKey: "accountUID")
 
             if skipCheck {
                 print("Check skipped")
@@ -27,12 +22,10 @@ extension MainView {
 
                 accountRef.getDocument { user, error in
                     if let error {
-                        print(error)
+                        ErrorLog.save(error)
                     } else if let user, user.exists {
-                        print("User exist")
                         self.isLoggedIn = true
                     } else {
-                        print("User not exist")
                         self.isLoggedIn = false
                     }
                 }

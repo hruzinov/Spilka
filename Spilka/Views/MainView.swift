@@ -12,7 +12,7 @@ struct MainView: View {
         NavigationStack {
             if viewModel.isLoaded, let isLoggedIn = viewModel.isLoggedIn {
                 if isLoggedIn {
-                    Text("You're logged in")
+                    ChatsListScreenView()
                 } else {
                     WelcomeScreenView()
                 }

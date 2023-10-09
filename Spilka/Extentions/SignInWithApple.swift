@@ -144,11 +144,11 @@ extension SignInWithAppleDelegates: ASAuthorizationControllerDelegate {
           fatalError("Invalid state: A login callback was received, but no login request was sent.")
         }
         guard let appleIDToken = credential.identityToken else {
-          print("Unable to fetch identity token")
+            ErrorLog.save("Unable to fetch identity token")
           return
         }
         guard let idTokenString = String(data: appleIDToken, encoding: .utf8) else {
-          print("Unable to serialize token string from data: \(appleIDToken.debugDescription)")
+            ErrorLog.save("Unable to serialize token string from data: \(appleIDToken.debugDescription)")
           return
         }
 
@@ -160,16 +160,13 @@ extension SignInWithAppleDelegates: ASAuthorizationControllerDelegate {
         self.isWaitingServer = true
         Auth.auth().signIn(with: credential) { (authResult, error) in
             if let error {
-                print(error.localizedDescription)
+                ErrorLog.save(error)
                 self.onLoginEvent?(.error)
                 return
             }
             if let user = authResult?.user {
                 let userUID = user.uid
-
-                let keychain = KeychainSwift()
-                keychain.synchronizable = true
-                keychain.set(userUID, forKey: "accountUID")
+                UserDefaults.standard.set(userUID, forKey: "accountUID")
 
                 self.onLoginEvent?(.success)
             }
