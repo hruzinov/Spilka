@@ -2,14 +2,15 @@
 //  Created by Evhen Gruzinov on 05.10.2023.
 //
 
-import Foundation
 import FirebaseFirestoreSwift
+import Foundation
 
 struct Message: Identifiable, Codable {
     @DocumentID var id: String?
     let fromID: String
     let toID: String
     var text: String
+    var uncryptedText: String?
     var isUnread: Bool
     let dateTime: Date
 //        let attachments

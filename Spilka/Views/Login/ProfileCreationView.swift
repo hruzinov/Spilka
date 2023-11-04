@@ -86,23 +86,23 @@ struct ProfileCreationView: View {
                 } label: {
                     RoundedRectangle(cornerRadius: 10)
                         .fill(viewModel.profileName.count == 0 ? .gray :
-                                (colorScheme == .dark ? .white  : .black))
+                            (colorScheme == .dark ? .white : .black))
                         .frame(width: viewModel.isWaitingServer
-                               ? 45 : screenSize.width * 0.65, height: 45)
+                            ? 45 : screenSize.width * 0.65, height: 45)
                         .overlay {
                             if viewModel.isWaitingServer {
                                 ProgressView()
-                                    .tint(colorScheme == .light ? .white  : .black)
+                                    .tint(colorScheme == .light ? .white : .black)
                             } else {
                                 Text("Continue")
-                                    .foregroundStyle(colorScheme == .light ? .white  : .black)
+                                    .foregroundStyle(colorScheme == .light ? .white : .black)
                                     .font(.title3)
                             }
                         }
                 }
                 .disabled(
                     viewModel.profileName.count == 0 ||
-                    viewModel.isWaitingServer
+                        viewModel.isWaitingServer
                 )
             }
             .onAppear {
@@ -132,12 +132,12 @@ struct ProfileCreationView: View {
         }
         .confirmationDialog("Are you sure?",
                             isPresented: $isPresentedBackConfirmation, actions: {
-            Button("Go back", role: .destructive) {
-                viewModel.isGoToSigninSelector.toggle()
-            }
-        }, message: {
-            Text("You will lose all filled information")
-        })
+                                Button("Go back", role: .destructive) {
+                                    viewModel.isGoToSigninSelector.toggle()
+                                }
+                            }, message: {
+                                Text("You will lose all filled information")
+                            })
     }
 }
 

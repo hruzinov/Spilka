@@ -2,10 +2,10 @@
 //  Created by Evhen Gruzinov on 20.09.2023.
 //
 
-import Foundation
 import FirebaseFirestore
 import FirebaseFirestoreSwift
 import FirebaseStorage
+import Foundation
 
 struct UserAccount: Codable {
     @DocumentID var uuid: String?
@@ -30,8 +30,8 @@ struct UserAccount: Codable {
         case publicKey
     }
 
-    func getProfileImageSmall(completion: @escaping(_ image: UIImage?) -> Void) {
-        guard let imageID = self.profileImageID else { completion(nil); return }
+    func getProfileImageSmall(completion: @escaping (_ image: UIImage?) -> Void) {
+        guard let imageID = profileImageID else { completion(nil); return }
         let imageRef = Storage.storage().reference(withPath: "avatars/512px/\(imageID).jpg")
         imageRef.getData(maxSize: 1 * 1024 * 1024) { data, error in
             if let error {
@@ -43,7 +43,7 @@ struct UserAccount: Codable {
         }
     }
 
-    static func getData(with userUID: String, completion: @escaping(_ userAccount: UserAccount?) -> Void) {
+    static func getData(with userUID: String, completion: @escaping (_ userAccount: UserAccount?) -> Void) {
         let dbase = Firestore.firestore()
         let accountRef = dbase.collection("accounts").document(userUID)
 

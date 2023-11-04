@@ -2,19 +2,19 @@
 //  Created by Evhen Gruzinov on 18.09.2023.
 //
 
-import SwiftUI
-import FirebaseCore
+import AuthenticationServices
+import CryptoKit
+import CryptoSwift
 import FirebaseAuth
+import FirebaseCore
+import FirebaseFirestore
 import GoogleSignIn
 import GoogleSignInSwift
-import FirebaseFirestore
-import CryptoSwift
-import CryptoKit
-import AuthenticationServices
+import SwiftUI
 
 extension SignInScreenView {
     @MainActor class ViewModel: ObservableObject {
-        @Published var countryCode: CountryCode = CountryCode.get("UA")
+        @Published var countryCode: CountryCode = .get("UA")
         @Published var phoneNumber: String = ""
         @Published var verificationCode: String = ""
         @Published var verificationID: String = ""
@@ -56,22 +56,22 @@ extension SignInScreenView {
             }
         }
 
-        func sendSMSCode(_ competition: @escaping(Bool, String?) -> Void ) {
+        func sendSMSCode(_ competition: @escaping (Bool, String?) -> Void) {
             Auth.auth().languageCode = Locale.current.language.languageCode?.identifier ?? "en"
 
             let phone = countryCode.dialCode + phoneNumber
 
             PhoneAuthProvider.provider().verifyPhoneNumber(phone, uiDelegate: nil) { [self] id, error in
                 isWaitingServer = false
-                    if let error {
-                        self.showPhoneMessagePrompt(error)
-                        ErrorLog.save(error)
-                        competition(false, nil)
-                    } else if let id {
-                        smsCodeTimeOut = 60
-                        competition(true, id)
-                    }
+                if let error {
+                    self.showPhoneMessagePrompt(error)
+                    ErrorLog.save(error)
+                    competition(false, nil)
+                } else if let id {
+                    smsCodeTimeOut = 60
+                    competition(true, id)
                 }
+            }
         }
 
         func handleCodeContinueButton() {
@@ -80,8 +80,8 @@ extension SignInScreenView {
             phoneMessagePrompt = ""
             codeMessagePrompt = ""
 
-            let credential = PhoneAuthProvider.provider().credential( withVerificationID: verificationID,
-                                                                      verificationCode: verificationCode)
+            let credential = PhoneAuthProvider.provider().credential(withVerificationID: verificationID,
+                                                                     verificationCode: verificationCode)
 
             Auth.auth().signIn(with: credential) { authResult, error in
                 if let error { self.showCodeMessagePrompt(error); ErrorLog.save(error) } else
@@ -96,14 +96,14 @@ extension SignInScreenView {
                     ErrorLog.save("Some problems with geting userUID from keychain")
                     return
                 }
-                self.userAccount?.phoneNumber = nil
-                self.userAccount?.countryCode = nil
+                userAccount?.phoneNumber = nil
+                userAccount?.countryCode = nil
                 signInUser(userUID)
             } else if response == .error { ErrorLog.save("Maybe the user cancelled or there's no internet") }
         }
 
         func handleSignInWithGoogle() {
-            self.isWaitingServer = true
+            isWaitingServer = true
 
             guard let clientID = FirebaseApp.app()?.options.clientID else { return }
             let config = GIDConfiguration(clientID: clientID)
@@ -154,17 +154,20 @@ extension SignInScreenView {
                 } else if let user, user.exists, let userData = try? user.data(as: UserAccount.self) {
                     self.userAccount = userData
                     UserDefaults.standard.set(userUID, forKey: "accountUID")
-                    if let privateKeyData = keychain.getData("userPrivateKey_\(userUID)") {
-                        self.isWaitingServer = false
-                        if CryptoKeys.checkValidity(privateKeyData: privateKeyData,
-                                                    publicKeyData: Data(hex: userData.publicKey)) {
-                            self.isGoToMainView.toggle()
-                        } else {
-                            self.isGoToImportPrivateKey.toggle()
-                        }
-                    } else {
-                        self.isGoToImportPrivateKey.toggle()
-                    }
+                    self.isGoToImportPrivateKey.toggle()
+
+                    #warning("TTT")
+//                    if let privateKeyData = keychain.getData("userPrivateKey_\(userUID)") {
+//                        self.isWaitingServer = false
+//                        if CryptoKeys.checkValidity(privateKeyData: privateKeyData,
+//                                                    publicKeyData: Data(hex: userData.publicKey)) {
+//                            self.isGoToMainView.toggle()
+//                        } else {
+//                            self.isGoToImportPrivateKey.toggle()
+//                        }
+//                    } else {
+//                        self.isGoToImportPrivateKey.toggle()
+//                    }
                 } else {
                     UserDefaults.standard.set(userUID, forKey: "accountUID")
                     self.isGoToCreateProfile.toggle()
@@ -205,7 +208,7 @@ extension SignInScreenView {
                 switch errorKey {
                 case "ERROR_INVALID_VERIFICATION_CODE":
                     self.codeMessagePrompt =
-                    "The verification code is incorrect or expired. Please check and try again"
+                        "The verification code is incorrect or expired. Please check and try again"
 
                 default:
                     self.codeMessagePrompt = error.localizedDescription
@@ -220,6 +223,7 @@ extension SignInScreenView.ViewModel {
     var isShowingPhoneMessagePrompt: Bool {
         phoneMessagePrompt.count > 0
     }
+
     var isShowingCodeMessagePrompt: Bool {
         codeMessagePrompt.count > 0
     }
@@ -241,6 +245,7 @@ extension SignInScreenView.ViewModel {
             isPhoneContinueButtonDisabled = true
         }
     }
+
     func verificationCodeChanged() {
         if verificationCode.count == 6 {
             isCodeContinueButtonDisabled = false
@@ -255,7 +260,7 @@ extension SignInScreenView.ViewModel {
         if pureNumber.hasPrefix(countryCode.dialCode) {
             pureNumber = String(pureNumber.dropFirst(countryCode.dialCode.count))
         }
-        pureNumber = pureNumber.replacingOccurrences( of: "[^0-9]", with: "", options: .regularExpression)
+        pureNumber = pureNumber.replacingOccurrences(of: "[^0-9]", with: "", options: .regularExpression)
         for index in 0 ..< pattern.count {
             guard index < pureNumber.count else {
                 num = pureNumber

@@ -2,10 +2,10 @@
 //  Created by Evhen Gruzinov on 20.09.2023.
 //
 
-import SwiftUI
+import CryptoSwift
 import FirebaseFirestore
 import FirebaseFirestoreSwift
-import CryptoSwift
+import SwiftUI
 
 extension ProfileCreationView {
     @MainActor class ViewModel: ObservableObject {
@@ -51,9 +51,10 @@ extension ProfileCreationView {
 
         func handleRegisterButton() {
             guard let cryptoKeys, let privateKey = cryptoKeys.privateKey,
-            let privateKeyData = try? privateKey.externalRepresentation(),
-            let publicKeyRepresentation = cryptoKeys.publicKeyRepresentation,
-                    let uid = UserDefaults.standard.string(forKey: "accountUID") else {
+                  let privateKeyData = try? privateKey.externalRepresentation(),
+                  let publicKeyRepresentation = cryptoKeys.publicKeyRepresentation,
+                  let uid = UserDefaults.standard.string(forKey: "accountUID")
+            else {
                 isWaitingServer = false
                 return
             }
@@ -80,7 +81,7 @@ extension ProfileCreationView {
                 profileImageID: nil,
                 username: profileUsername,
                 description: profileDescription,
-                publicKey: publicKeyRepresentation.toHexString()
+                publicKey: publicKeyRepresentation.base64EncodedString()
             )
 
             let dbase = Firestore.firestore()
@@ -96,7 +97,7 @@ extension ProfileCreationView {
                         self.isGoToMainView.toggle()
                     }
                 }
-            } catch let error {
+            } catch {
                 isWaitingServer = false
                 ErrorLog.save("ERROR with creating: \(error)")
             }
@@ -104,9 +105,9 @@ extension ProfileCreationView {
 
         func saveCryptoKeyToDatabase(uid: String) {
             guard let privateKey = cryptoKeys?.privateKey
-                else { fatalError("Error with geting uid in saveKeyToDatabase()") }
+            else { fatalError("Error with geting uid in saveKeyToDatabase()") }
 
-            let password = self.keyCryptoPassword
+            let password = keyCryptoPassword
             DispatchQueue.global(qos: .background).async {
                 do {
                     let password = String(password.utf8).bytes
@@ -135,7 +136,7 @@ extension ProfileCreationView {
         }
 
         var privateKeyFile: CryptoKeyFile? {
-            guard let data = try? self.cryptoKeys?.privateKey!.externalRepresentation() else { return nil }
+            guard let data = try? cryptoKeys?.privateKey!.externalRepresentation() else { return nil }
             return CryptoKeyFile(data: data)
         }
     }

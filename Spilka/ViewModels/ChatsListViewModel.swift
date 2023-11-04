@@ -2,10 +2,11 @@
 //  Created by Evhen Gruzinov on 05.10.2023.
 //
 
-import SwiftUI
 import FirebaseFirestore
 import FirebaseFirestoreSwift
 import FirebaseStorage
+import CryptoSwift
+import SwiftUI
 
 extension ChatsListScreenView {
     class ViewModel: ObservableObject {
@@ -39,22 +40,29 @@ extension ChatsListScreenView {
 
         init() {
             if let uid = UserDefaults.standard.string(forKey: "accountUID") {
-                self.accountUID = uid
+                accountUID = uid
             } else {
                 ErrorLog.save("Can't get accountUID from keychain")
                 fatalError("Can't get accountUID from keychain")
             }
 
-            UserAccount.getData(with: self.accountUID) { userAccount in
+            UserAccount.getData(with: accountUID) { userAccount in
                 self.userAccount = userAccount
             }
-            getAllChats(self.accountUID)
+            getAllChats(accountUID)
         }
 
         func getAllChats(_ uid: String) {
             let dbase = Firestore.firestore()
             let dispatchGroupChats = DispatchGroup()
-            self.loadingStatus = .updating
+            loadingStatus = .updating
+
+            let keychain = KeychainSwift()
+            keychain.synchronizable = true
+            guard let privateKeyData = keychain.getData("userPrivateKey_\(accountUID)"),
+                  let privateKey = try? RSA(rawRepresentation: privateKeyData) else {
+                return
+            }
 
             let privateChatsRef = dbase.collection("accounts/\(uid)/private_chats/")
             privateChatsRef.getDocuments { privateChatsSnapshot, error in
@@ -77,26 +85,30 @@ extension ChatsListScreenView {
                                 self.objectWillChange.send()
 
                                 let privateChatMessagesRef =
-                                privateChatsRef.document(chatDocument.documentID).collection("messages")
+                                    privateChatsRef.document(chatDocument.documentID).collection("messages")
 
                                 privateChatMessagesRef.getDocuments { messagesSnapshot, error in
                                     guard let messagesSnapshot else {
                                         ErrorLog.save(error); dispatchGroupChats.leave(); return
                                     }
-                                    messagesSnapshot.documents.forEach({ messageDocument in
-                                        guard let message = try? messageDocument.data(as: Message.self),
+                                    messagesSnapshot.documents.forEach { messageDocument in
+                                        guard var message = try? messageDocument.data(as: Message.self),
+                                              let decryptedData = try? privateKey.decrypt(Data(hex: message.text).bytes),
                                               let messageId = message.id else { return }
+                                        message.uncryptedText = String(data: Data(decryptedData), encoding: .utf8)
                                         self.chatsDictionary[userUID]?.messagesDictionary[messageId] = message
                                         self.objectWillChange.send()
-                                    })
+                                    }
                                     dispatchGroupChats.leave()
                                 }
                                 privateChatMessagesRef.addSnapshotListener { messagesSnapshot, error in
                                     guard let messagesSnapshot else { ErrorLog.save(error); return }
                                     messagesSnapshot.documentChanges.forEach { dif in
                                         if dif.type == .added {
-                                            guard let message = try? dif.document.data(as: Message.self),
+                                            guard var message = try? dif.document.data(as: Message.self),
+                                                  let decryptedData = try? privateKey.decrypt(Data(hex: message.text).bytes),
                                                   let messageId = message.id else { return }
+                                            message.uncryptedText = String(data: Data(decryptedData), encoding: .utf8)
                                             self.chatsDictionary[userUID]?.messagesDictionary[messageId] = message
                                             self.objectWillChange.send()
                                         }

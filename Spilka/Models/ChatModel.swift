@@ -2,9 +2,9 @@
 //  Created by Evhen Gruzinov on 05.10.2023.
 //
 
-import Foundation
 import FirebaseFirestore
 import FirebaseFirestoreSwift
+import Foundation
 
 struct Chat: Identifiable, Codable {
     @DocumentID var id: String?
@@ -21,7 +21,7 @@ struct Chat: Identifiable, Codable {
     }
 
     var unreadedCount: Int {
-        self.messagesSorted.filter { $0.isUnread && $0.fromID == id }.count
+        messagesSorted.filter { $0.isUnread && $0.fromID == id }.count
     }
 
     private enum CodingKeys: String, CodingKey {

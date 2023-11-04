@@ -15,39 +15,50 @@ struct ChatLogView: View {
 
     var body: some View {
         VStack {
-            ScrollView {
-                if let chat = chatsListViewModel.chatsDictionary[chatId] {
-                    ForEach(chat.messagesSorted) { message in
-                        if message.fromID == viewModel.accountUID {
-                            HStack {
-                                Spacer()
-                                Text(message.text)
-                                    .padding()
-                                    .foregroundStyle(.white)
-                                    .background(Color.accentColor)
-                                    .clipShape(RoundedRectangle(cornerRadius: 10))
+            ScrollViewReader { reader in
+                ScrollView {
+                    if let chat = chatsListViewModel.chatsDictionary[chatId] {
+                        ForEach(chat.messagesSorted) { message in
+                            if message.fromID == viewModel.accountUID {
+                                HStack {
+                                    Spacer()
+                                    Text(message.uncryptedText ?? "<Encrypted>")
+                                        .padding()
+                                        .foregroundStyle(.white)
+                                        .background(Color.accentColor)
+                                        .clipShape(RoundedRectangle(cornerRadius: 10))
+                                }
+                                .frame(width: screenSize.width * 0.95, alignment: .trailing)
+                                .padding(.horizontal)
+                                .id(message.id)
+                            } else {
+                                HStack {
+                                    Text(message.uncryptedText ?? "<Encrypted>")
+                                        .padding()
+                                        .foregroundStyle(colorScheme == .light ? .black : .white)
+                                        .background(.ultraThinMaterial)
+                                        .clipShape(RoundedRectangle(cornerRadius: 10))
+                                    Spacer()
+                                }
+                                .frame(width: screenSize.width * 0.95, alignment: .trailing)
+                                .padding(.horizontal)
+                                .id(message.id)
                             }
-                            .frame(width: screenSize.width * 0.95, alignment: .trailing)
-                            .padding(.horizontal)
-                        } else {
-                            HStack {
-                                Text(message.text)
-                                    .padding()
-                                    .foregroundStyle(colorScheme == .light ? .black : .white)
-                                    .background(.ultraThinMaterial)
-                                    .clipShape(RoundedRectangle(cornerRadius: 10))
-                                Spacer()
-                            }
-                            .frame(width: screenSize.width * 0.95, alignment: .trailing)
-                            .padding(.horizontal)
                         }
                     }
                 }
+                .background(colorScheme == .light ? .white : .black)
+                .padding(.bottom, 8)
+                .onAppear {
+                    reader.scrollTo(chatsListViewModel.chatsDictionary[chatId]?.messagesSorted.last?.id ?? "",
+                                    anchor: .bottom)
+                }
+                .onChange(of: viewModel.goToId) { _, _ in
+                    withAnimation {
+                        reader.scrollTo(viewModel.goToId, anchor: .bottom)
+                    }
+                }
             }
-            .background(colorScheme == .light ? .white : .black)
-            .padding(.bottom, 8)
-        }
-        .overlay(alignment: .bottom) {
             VStack {
                 HStack {
                     HStack {
@@ -69,7 +80,7 @@ struct ChatLogView: View {
                         } label: {
                             Circle()
                                 .fill(viewModel.newMessageText.count > 0 ?
-                                      Color.accentColor : Color.gray)
+                                    Color.accentColor : Color.gray)
                                 .frame(width: 24, height: 24)
                                 .overlay {
                                     Image(systemName: "arrow.up")
@@ -93,8 +104,12 @@ struct ChatLogView: View {
             .ignoresSafeArea()
             .background(.ultraThickMaterial)
         }
+//        .overlay(alignment: .bottom) {
+//
+//        }
 
         .onAppear {
+            viewModel.chat = chatsListViewModel.chatsDictionary[chatId]
             viewModel.chatId = chatId
             viewModel.accountUID = chatsListViewModel.accountUID
         }

@@ -2,10 +2,10 @@
 //  Created by Evhen Gruzinov on 20.09.2023.
 //
 
-import SwiftUI
-import UniformTypeIdentifiers
 import CryptoSwift
 import FirebaseFirestoreSwift
+import SwiftUI
+import UniformTypeIdentifiers
 
 struct CryptoKeys {
     var privateKey: RSA?
@@ -56,7 +56,7 @@ struct CryptoKeyFile: FileDocument, Transferable {
     }
 
     static var readableContentTypes: [UTType] = [UTType.data]
-    var data: Data = Data()
+    var data: Data = .init()
 
     init(data: Data) {
         self.data = data
@@ -68,8 +68,7 @@ struct CryptoKeyFile: FileDocument, Transferable {
         }
     }
 
-    func fileWrapper(configuration: WriteConfiguration) throws -> FileWrapper {
+    func fileWrapper(configuration _: WriteConfiguration) throws -> FileWrapper {
         return FileWrapper(regularFileWithContents: data)
     }
-
 }

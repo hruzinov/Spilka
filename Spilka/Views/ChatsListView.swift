@@ -2,6 +2,7 @@
 //  Created by Evhen Gruzinov on 05.10.2023.
 //
 
+import CryptoSwift
 import SwiftUI
 
 struct ChatsListScreenView: View {
@@ -53,7 +54,7 @@ struct ChatsListScreenView: View {
                                             }
                                         }
                                         HStack(spacing: 0) {
-                                            Text(chat.messagesSorted.last?.text ?? "")
+                                            Text(chat.messagesSorted.last?.uncryptedText ?? "")
                                                 .lineLimit(2, reservesSpace: true)
                                                 .foregroundStyle(.gray)
                                             Spacer()
@@ -70,14 +71,15 @@ struct ChatsListScreenView: View {
 
                                             if let lastMessage = chat.messagesSorted.last,
                                                lastMessage.isUnread && lastMessage.fromID == viewModel.accountUID {
+                                                // TODO: Mark sended messages as unread/read
                                             }
                                         }
                                     }
                                 }
                                 .background {
                                     NavigationLink("", destination:
-                                                    ChatLogView(chatsListViewModel: viewModel, chatId: chatId))
-                                    .opacity(0)
+                                        ChatLogView(chatsListViewModel: viewModel, chatId: chatId))
+                                        .opacity(0)
                                 }
                             }
                         }

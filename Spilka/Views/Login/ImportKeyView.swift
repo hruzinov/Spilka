@@ -35,16 +35,16 @@ struct ImportKeyView: View {
                     .handlePrivateKeyPassword(userAccount: signInViewModel.userAccount)
             } label: {
                 RoundedRectangle(cornerRadius: 10)
-                    .fill(colorScheme == .dark ? .white  : .black)
+                    .fill(colorScheme == .dark ? .white : .black)
                     .frame(width: signInViewModel.isWaitingServer ? 45 :
-                            screenSize.width * 0.85, height: 45)
+                        screenSize.width * 0.85, height: 45)
                     .overlay {
                         if privateKeysImportViewModel.isWaitingServer {
                             ProgressView()
-                                .tint(colorScheme == .light ? .white  : .black)
+                                .tint(colorScheme == .light ? .white : .black)
                         } else {
                             Text("Continue")
-                                .foregroundStyle(colorScheme == .light ? .white  : .black)
+                                .foregroundStyle(colorScheme == .light ? .white : .black)
                                 .font(.title3)
                         }
                     }
@@ -59,7 +59,7 @@ struct ImportKeyView: View {
                 .frame(maxWidth: screenSize.width * 0.9)
                 .background {
                     RoundedRectangle(cornerRadius: 5)
-                        .fill(Color(red: 217/255, green: 4/255, blue: 41/255))
+                        .fill(Color(red: 217 / 255, green: 4 / 255, blue: 41 / 255))
                 }
                 .opacity(privateKeysImportViewModel
                     .isShowingKeyImportMessagePrompt ? 1 : 0)
@@ -101,14 +101,13 @@ struct ImportKeyView: View {
 //                RoundedRectangle(cornerRadius: 10)
 //                    .fill(.ultraThinMaterial)
 //                    .overlay {
-////                        Text("Reset private key")
+            ////                        Text("Reset private key")
 //                        Text("NOT WORKING")
 //                            .foregroundStyle(.red)
 //                    }
 //                    .frame(maxHeight: 50)
 //            }
 //            .disabled(true)
-
         }
         .frame(width: screenSize.width * 0.85)
         .toolbar {

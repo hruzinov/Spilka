@@ -1,14 +1,14 @@
 //
-//  PrivateKeysViewModel.swift
+//  PrivateKeysImportViewModel.swift
 //  Spilka
 //
 //  Created by Evhen Gruzinov on 08.10.2023.
 //
 
-import SwiftUI
 import CryptoSwift
 import FirebaseFirestore
 import FirebaseFirestoreSwift
+import SwiftUI
 
 class PrivateKeysImportViewModel: ObservableObject {
     @Published var keyPassword: String = ""
@@ -20,17 +20,18 @@ class PrivateKeysImportViewModel: ObservableObject {
     func handlePrivateKeyPassword(userAccount: UserAccount?) {
         guard let userAccount, let uid = userAccount.uuid else { return }
 
-        self.isWaitingServer = true
-        let password = self.keyPassword
+        isWaitingServer = true
+        let password = keyPassword
         DispatchQueue.global(qos: .background).async {
             Firestore.firestore().collection("keyholder").document(uid).getDocument { documentSnapstot, error in
                 guard let documentSnapstot, documentSnapstot.exists,
-                      let serverKeyData = try? documentSnapstot.data(as: ServerKeyData.self) else {
+                      let serverKeyData = try? documentSnapstot.data(as: ServerKeyData.self)
+                else {
                     DispatchQueue.main.async {
                         ErrorLog.save(error)
                         self.isWaitingServer = false
                         self.showPrivateKeyImportMessagePrompt(error?.localizedDescription ??
-                                                         "Error with getting key information")
+                            "Error with getting key information")
                     }
                     return
                 }
@@ -43,14 +44,20 @@ class PrivateKeysImportViewModel: ObservableObject {
                                                   keyLength: 32, variant: .sha3(.sha256)).calculate()
                     let initVector = Array(hex: serverKeyData.initVector)
                     let aes = try AES(key: aesKey, blockMode: CBC(iv: initVector), padding: .pkcs7)
-                    let encryptedKeyData = Data(hex: serverKeyData.keyHex)
-                    let decryptedKeyBytes = try aes.decrypt(encryptedKeyData.bytes)
 
+                    let encryptedKeyData = Data(hex: serverKeyData.keyHex)
+
+                    let decryptedKeyBytes = try aes.decrypt(encryptedKeyData.bytes)
                     let privateKeyData = Data(decryptedKeyBytes)
-                    let publicKeyData = Data(hex: userAccount.publicKey)
+
+                    let publicKeyData = Data(base64Encoded: userAccount.publicKey)!
 
                     if CryptoKeys.checkValidity(privateKeyData: privateKeyData, publicKeyData: publicKeyData) {
                         DispatchQueue.main.async {
+                            let keychain = KeychainSwift()
+                            keychain.synchronizable = true
+                            keychain.set(privateKeyData, forKey: "userPrivateKey_\(uid)")
+
                             self.isWaitingServer = false
                             self.isGoToMainView.toggle()
                         }
@@ -74,39 +81,43 @@ class PrivateKeysImportViewModel: ObservableObject {
     }
 
     func privateKeyFileSelected(_ result: Result<URL, Error>, userAccount: UserAccount?) {
-        self.isWaitingServer = true
-        self.isShowingKeyImportMessagePrompt = false
+        isWaitingServer = true
+        isShowingKeyImportMessagePrompt = false
 
         switch result {
-        case .success(let fileURL):
+        case let .success(fileURL):
             do {
-                guard let userAccount else { self.isWaitingServer = false; return }
+                guard let userAccount else { isWaitingServer = false; return }
 
                 let isAccessing = fileURL.startAccessingSecurityScopedResource()
 
                 let privateKeyData = try Data(contentsOf: fileURL)
-                let publicKeyData = Data(hex: userAccount.publicKey)
+                let publicKeyData = Data(base64Encoded: userAccount.publicKey)!
 
                 if CryptoKeys.checkValidity(privateKeyData: privateKeyData, publicKeyData: publicKeyData) {
-                    self.isWaitingServer = false
-                    self.isGoToMainView.toggle()
+                    let keychain = KeychainSwift()
+                    keychain.synchronizable = true
+                    keychain.set(privateKeyData, forKey: "userPrivateKey_\(userAccount.uuid!)")
+
+                    isWaitingServer = false
+                    isGoToMainView.toggle()
                 } else {
-                    self.isWaitingServer = false
-                    self.showPrivateKeyImportMessagePrompt("File contains an outdated or invalid key")
+                    isWaitingServer = false
+                    showPrivateKeyImportMessagePrompt("File contains an outdated or invalid key")
                     ErrorLog.save("Key not handled security check")
                 }
                 if isAccessing {
                     fileURL.stopAccessingSecurityScopedResource()
                 }
             } catch {
-                self.showPrivateKeyImportMessagePrompt("This is not a private key file. Choose another one")
-                self.isWaitingServer = false
+                showPrivateKeyImportMessagePrompt("This is not a private key file. Choose another one")
+                isWaitingServer = false
                 ErrorLog.save(error)
             }
 
-        case .failure(let error):
-            self.isWaitingServer = false
-            self.showPrivateKeyImportMessagePrompt(error.localizedDescription)
+        case let .failure(error):
+            isWaitingServer = false
+            showPrivateKeyImportMessagePrompt(error.localizedDescription)
         }
     }
 

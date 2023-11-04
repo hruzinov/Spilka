@@ -28,14 +28,13 @@ struct EnterVerificationCodeView: View {
                     .padding(10)
                     .frame(width: screenSize.width * 0.5, height: 50)
                     .background(.thinMaterial,
-                                in: RoundedRectangle(cornerRadius: 10)
-                    )
+                                in: RoundedRectangle(cornerRadius: 10))
                     .onChange(of: signInViewModel.verificationCode) {
                         signInViewModel.verificationCodeChanged()
                     }
                     .onSubmit {
                         guard !signInViewModel.isCodeContinueButtonDisabled &&
-                                !signInViewModel.isWaitingServer else { return }
+                            !signInViewModel.isWaitingServer else { return }
                         textFieldFocused = false
                         signInViewModel.handleCodeContinueButton()
                     }
@@ -50,16 +49,16 @@ struct EnterVerificationCodeView: View {
                 } label: {
                     RoundedRectangle(cornerRadius: 10)
                         .fill(signInViewModel.isCodeContinueButtonDisabled ? .gray :
-                                (colorScheme == .dark ? .white  : .black))
+                            (colorScheme == .dark ? .white : .black))
                         .frame(width: signInViewModel.isWaitingServer
-                               ? 45 : screenSize.width * 0.5, height: 45)
+                            ? 45 : screenSize.width * 0.5, height: 45)
                         .overlay {
                             if signInViewModel.isWaitingServer {
                                 ProgressView()
-                                    .tint(colorScheme == .light ? .white  : .black)
+                                    .tint(colorScheme == .light ? .white : .black)
                             } else {
                                 Text("Continue")
-                                    .foregroundStyle(colorScheme == .light ? .white  : .black)
+                                    .foregroundStyle(colorScheme == .light ? .white : .black)
                                     .font(.title3)
                             }
                         }
@@ -67,7 +66,7 @@ struct EnterVerificationCodeView: View {
                 }
                 .disabled(
                     signInViewModel.isCodeContinueButtonDisabled ||
-                    signInViewModel.isWaitingServer
+                        signInViewModel.isWaitingServer
                 )
 
                 Button {
@@ -75,10 +74,10 @@ struct EnterVerificationCodeView: View {
                     }
                 } label: {
                     Text(signInViewModel.smsCodeTimeOut > 0 ?
-                         "You can request new verification code after \(signInViewModel.smsCodeTimeOut) seconds" :
-                            "Resend verification code")
-                    .foregroundStyle(signInViewModel.smsCodeTimeOut > 0 ? .gray : .accentColor)
-                    .padding(.vertical, 10)
+                        "You can request new verification code after \(signInViewModel.smsCodeTimeOut) seconds" :
+                        "Resend verification code")
+                        .foregroundStyle(signInViewModel.smsCodeTimeOut > 0 ? .gray : .accentColor)
+                        .padding(.vertical, 10)
                 }
                 .disabled(signInViewModel.smsCodeTimeOut > 0)
                 .onReceive(signInViewModel.timer) { _ in
@@ -94,7 +93,7 @@ struct EnterVerificationCodeView: View {
                     .frame(maxWidth: screenSize.width * 0.9)
                     .background {
                         RoundedRectangle(cornerRadius: 5)
-                            .fill(Color(red: 217/255, green: 4/255, blue: 41/255))
+                            .fill(Color(red: 217 / 255, green: 4 / 255, blue: 41 / 255))
                             .padding(-5)
                     }
                     .opacity(signInViewModel.isShowingCodeMessagePrompt ? 1 : 0)
@@ -113,8 +112,8 @@ struct EnterVerificationCodeView: View {
                 }
             }
             .navigationTitle(signInViewModel.countryCode.flag + " " +
-                             signInViewModel.countryCode.dialCode + " " +
-                             signInViewModel.phoneNumber)
+                signInViewModel.countryCode.dialCode + " " +
+                signInViewModel.phoneNumber)
             .navigationBarTitleDisplayMode(.inline)
             .navigationDestination(isPresented: $signInViewModel.isGoToCreateProfile) {
                 ProfileCreationView(signInViewModel: signInViewModel)

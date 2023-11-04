@@ -2,8 +2,8 @@
 //  Created by Evhen Gruzinov on 21.09.2023.
 //
 
-import SwiftUI
 import FirebaseFirestore
+import SwiftUI
 
 extension MainView {
     class ViewModel: ObservableObject {

@@ -15,7 +15,7 @@ extension Date {
             dateFormatter.dateFormat = "HH:mm"
             return dateFormatter.string(from: self)
         } else if calendar.isDateInYesterday(self) {
-            return("Yesterday")
+            return"Yesterday"
         } else if self >= (sevenDaysAgo ?? Date.now) {
             dateFormatter.dateFormat = "EEE"
             return dateFormatter.string(from: self)
@@ -27,6 +27,7 @@ extension Date {
             return dateFormatter.string(from: self)
         }
     }
+
     static func zero() -> Date {
         return Date(timeIntervalSince1970: 0)
     }

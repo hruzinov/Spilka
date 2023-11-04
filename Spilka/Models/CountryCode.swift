@@ -18,6 +18,6 @@ struct CountryCode: Identifiable, Hashable, Codable {
 
     static var allCases: [CountryCode] = Bundle.main.decode("CountryNumbers.json")
     static func get(_ code: String) -> CountryCode {
-        CountryCode.allCases.filter {$0.code == code}.first!
+        CountryCode.allCases.filter { $0.code == code }.first!
     }
 }

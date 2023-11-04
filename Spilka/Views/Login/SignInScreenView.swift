@@ -2,10 +2,10 @@
 //  Created by Evhen Gruzinov on 10.09.2023.
 //
 
-import SwiftUI
 import AuthenticationServices
 import GoogleSignIn
 import GoogleSignInSwift
+import SwiftUI
 
 struct SignInScreenView: View {
     var screenSize = UIScreen.main.bounds.size
@@ -58,7 +58,7 @@ struct SignInScreenView: View {
                         .submitLabel(.next)
                         .onSubmit {
                             guard !viewModel.isPhoneContinueButtonDisabled &&
-                                    !viewModel.isWaitingServer else { return }
+                                !viewModel.isWaitingServer else { return }
 
                             textFieldFocused = false
                             viewModel.handlePhoneContinueButton()
@@ -73,16 +73,16 @@ struct SignInScreenView: View {
                 } label: {
                     RoundedRectangle(cornerRadius: 10)
                         .fill(viewModel.isPhoneContinueButtonDisabled ? .gray :
-                                (colorScheme == .dark ? .white  : .black))
+                            (colorScheme == .dark ? .white : .black))
                         .frame(width: viewModel.isWaitingServer
-                               ? 45 : screenSize.width * 0.90, height: 45)
+                            ? 45 : screenSize.width * 0.90, height: 45)
                         .overlay {
                             if viewModel.isWaitingServer {
                                 ProgressView()
-                                    .tint(colorScheme == .light ? .white  : .black)
+                                    .tint(colorScheme == .light ? .white : .black)
                             } else {
                                 Text("Continue")
-                                    .foregroundStyle(colorScheme == .light ? .white  : .black)
+                                    .foregroundStyle(colorScheme == .light ? .white : .black)
                                     .font(.title3)
                             }
                         }
@@ -98,7 +98,7 @@ struct SignInScreenView: View {
                     .frame(maxWidth: screenSize.width * 0.9)
                     .background {
                         RoundedRectangle(cornerRadius: 5)
-                            .fill(Color(red: 217/255, green: 4/255, blue: 41/255))
+                            .fill(Color(red: 217 / 255, green: 4 / 255, blue: 41 / 255))
                     }
                     .opacity(viewModel.isShowingPhoneMessagePrompt ? 1 : 0)
 
@@ -110,14 +110,14 @@ struct SignInScreenView: View {
                         Text("OR")
                             .foregroundStyle(.gray)
                             .padding(.horizontal, 15)
-                            .background( Rectangle().fill(
-                                colorScheme == .light ? .white  : .black)
+                            .background(Rectangle().fill(
+                                colorScheme == .light ? .white : .black)
                             )
                     }
 
-                SignInWithAppleToFirebase(isWaitingServer: $viewModel.isWaitingServer, { response in
+                SignInWithAppleToFirebase(isWaitingServer: $viewModel.isWaitingServer) { response in
                     viewModel.handleSignInWithApple(response)
-                })
+                }
                 .frame(width: screenSize.width * 0.90, height: 45)
                 .overlay {
                     if viewModel.isWaitingServer {

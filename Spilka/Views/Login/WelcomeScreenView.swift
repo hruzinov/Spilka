@@ -25,10 +25,10 @@ struct WelcomeScreenView: View {
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(width: screenSize.width)
-                    .mask({
+                    .mask {
                         Circle()
                             .padding(5)
-                    })
+                    }
 
                 Spacer()
 

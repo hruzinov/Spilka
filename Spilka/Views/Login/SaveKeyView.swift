@@ -14,12 +14,12 @@ struct SaveKeyView: View {
 
     var isRegisterButtonActive: Bool {
         guard profileCreationViewModel.cryptoKeys != nil,
-                !profileCreationViewModel.isWaitingServer else { return false }
+              !profileCreationViewModel.isWaitingServer else { return false }
         if profileCreationViewModel.isSaveKeyToServer {
             if profileCreationViewModel.keyCryptoPassword != "",
                profileCreationViewModel.keyCryptoRePassword != "",
                profileCreationViewModel.keyCryptoPassword ==
-                profileCreationViewModel.keyCryptoRePassword {
+               profileCreationViewModel.keyCryptoRePassword {
                 return true
             } else { return false }
         } else {
@@ -50,11 +50,11 @@ struct SaveKeyView: View {
                     Group {
                         if profileCreationViewModel.keyCryptoPasswordShow {
                             TextField("Enter password", text:
-                                        $profileCreationViewModel.keyCryptoPassword)
+                                $profileCreationViewModel.keyCryptoPassword)
                                 .focused($isFieldFocus, equals: .passwordTextField)
                         } else {
                             SecureField("Enter password", text:
-                                            $profileCreationViewModel.keyCryptoPassword)
+                                $profileCreationViewModel.keyCryptoPassword)
                                 .focused($isFieldFocus, equals: .passwordSecureField)
                         }
                     }
@@ -74,15 +74,15 @@ struct SaveKeyView: View {
                             profileCreationViewModel.keyCryptoPasswordShow.toggle()
                         } label: {
                             Image(systemName: profileCreationViewModel.keyCryptoPasswordShow ?
-                                  "eye.slash" : "eye.fill")
-                            .foregroundStyle(Color.primary)
-                            .padding()
+                                "eye.slash" : "eye.fill")
+                                .foregroundStyle(Color.primary)
+                                .padding()
                         }
                     }
-                    .onChange(of: profileCreationViewModel.keyCryptoPasswordShow, { _, _ in
+                    .onChange(of: profileCreationViewModel.keyCryptoPasswordShow) { _, _ in
                         isFieldFocus = profileCreationViewModel.keyCryptoPasswordShow ?
                             .passwordTextField : .passwordSecureField
-                    })
+                    }
 
                     Group {
                         if profileCreationViewModel.keyCryptoRePasswordShow {
@@ -109,15 +109,15 @@ struct SaveKeyView: View {
                             profileCreationViewModel.keyCryptoRePasswordShow.toggle()
                         } label: {
                             Image(systemName: profileCreationViewModel.keyCryptoRePasswordShow ?
-                                  "eye.slash" : "eye.fill")
-                            .foregroundStyle(Color.primary)
-                            .padding()
+                                "eye.slash" : "eye.fill")
+                                .foregroundStyle(Color.primary)
+                                .padding()
                         }
                     }
-                    .onChange(of: profileCreationViewModel.keyCryptoRePasswordShow, { _, _ in
+                    .onChange(of: profileCreationViewModel.keyCryptoRePasswordShow) { _, _ in
                         isFieldFocus = profileCreationViewModel.keyCryptoRePasswordShow ?
                             .rePasswordTextField : .rePasswordSecureField
-                    })
+                    }
 
                     if !profileCreationViewModel.isPasswordsMatch {
                         Text("Check passwords as they do not match")
@@ -143,17 +143,18 @@ struct SaveKeyView: View {
                 } else {
                     ShareLink(
                         item: profileCreationViewModel.privateKeyFile!, preview: SharePreview("Private Key",
-                                  image: Image(systemName: "key.radiowaves.forward")
-                            .renderingMode(.template))) {
-                                RoundedRectangle(cornerRadius: 10)
-                                    .fill(.ultraThinMaterial)
-                                    .overlay {
-                                        HStack {
-                                            Text("Export backup key file")
-                                            Image(systemName: "square.and.arrow.down.on.square")
-                                        }
-                                    }
+                                image: Image(systemName: "key.radiowaves.forward")
+                                    .renderingMode(.template))
+                    ) {
+                        RoundedRectangle(cornerRadius: 10)
+                            .fill(.ultraThinMaterial)
+                            .overlay {
+                                HStack {
+                                    Text("Export backup key file")
+                                    Image(systemName: "square.and.arrow.down.on.square")
+                                }
                             }
+                    }
                 }
             }
             .frame(width: screenSize.width * 0.8, height: 50)
@@ -165,23 +166,22 @@ struct SaveKeyView: View {
             } label: {
                 RoundedRectangle(cornerRadius: 10)
                     .fill(!isRegisterButtonActive ? .gray :
-                        colorScheme == .dark ? .white  : .black)
+                        colorScheme == .dark ? .white : .black)
                     .frame(width: profileCreationViewModel.isWaitingServer ? 45 :
-                            screenSize.width * 0.8, height: 45)
+                        screenSize.width * 0.8, height: 45)
                     .overlay {
                         if profileCreationViewModel.isWaitingServer {
                             ProgressView()
-                                .tint(colorScheme == .light ? .white  : .black)
+                                .tint(colorScheme == .light ? .white : .black)
                         } else {
                             Text("Register")
-                                .foregroundStyle(colorScheme == .light ? .white  : .black)
+                                .foregroundStyle(colorScheme == .light ? .white : .black)
                                 .font(.title3)
                         }
                     }
                     .padding(.vertical, 24)
             }
             .disabled(!isRegisterButtonActive)
-
         }
         .frame(width: screenSize.width * 0.9)
         .multilineTextAlignment(.center)
@@ -197,5 +197,5 @@ struct SaveKeyView: View {
 }
 
 #Preview {
-    SaveKeyView(profileCreationViewModel: ProfileCreationView.ViewModel.init())
+    SaveKeyView(profileCreationViewModel: ProfileCreationView.ViewModel())
 }

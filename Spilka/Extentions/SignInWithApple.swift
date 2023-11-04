@@ -7,28 +7,27 @@
 //  Copyright © 2019 Joseph Hinkle. All rights reserved.
 //
 
-import UIKit
-import SwiftUI
 import AuthenticationServices
 import CryptoKit
 import FirebaseAuth
 import FirebaseFirestore
+import SwiftUI
+import UIKit
 
 struct SignInWithApple: UIViewRepresentable {
     @Environment(\.colorScheme) var colorScheme
-  func makeUIView(context: Context) -> ASAuthorizationAppleIDButton {
-      switch colorScheme {
-      case .light:
-          return ASAuthorizationAppleIDButton(type: .default, style: .black)
-      case .dark:
-          return ASAuthorizationAppleIDButton(type: .default, style: .whiteOutline)
-      @unknown default:
-          return ASAuthorizationAppleIDButton(type: .default, style: .black)
-      }
-  }
+    func makeUIView(context _: Context) -> ASAuthorizationAppleIDButton {
+        switch colorScheme {
+        case .light:
+            return ASAuthorizationAppleIDButton(type: .default, style: .black)
+        case .dark:
+            return ASAuthorizationAppleIDButton(type: .default, style: .whiteOutline)
+        @unknown default:
+            return ASAuthorizationAppleIDButton(type: .default, style: .black)
+        }
+    }
 
-  func updateUIView(_ uiView: ASAuthorizationAppleIDButton, context: Context) {
-  }
+    func updateUIView(_: ASAuthorizationAppleIDButton, context _: Context) {}
 }
 
 enum SignInWithAppleToFirebaseResponse {
@@ -39,21 +38,20 @@ enum SignInWithAppleToFirebaseResponse {
 struct SignInWithAppleToFirebase: UIViewControllerRepresentable {
     @Binding var isWaitingServer: Bool
     @State var appleSignInDelegates: SignInWithAppleDelegates! = nil
-    let onLoginEvent: ((SignInWithAppleToFirebaseResponse) -> ())?
+    let onLoginEvent: ((SignInWithAppleToFirebaseResponse) -> Void)?
     @State var currentNonce: String?
 
-    init(isWaitingServer: Binding<Bool>, _ onLoginEvent: ((SignInWithAppleToFirebaseResponse) -> ())? = nil) {
+    init(isWaitingServer: Binding<Bool>, _ onLoginEvent: ((SignInWithAppleToFirebaseResponse) -> Void)? = nil) {
         self.onLoginEvent = onLoginEvent
-        self._isWaitingServer = isWaitingServer
+        _isWaitingServer = isWaitingServer
     }
 
-    func makeUIViewController(context: Context) -> UIViewController {
+    func makeUIViewController(context _: Context) -> UIViewController {
         let vc = UIHostingController(rootView: SignInWithApple().onTapGesture(perform: showAppleLogin))
         return vc as UIViewController
     }
 
-    func updateUIViewController(_ uiView: UIViewController, context: Context) {
-    }
+    func updateUIViewController(_: UIViewController, context _: Context) {}
 
     func showAppleLogin() {
         let nonce = randomNonceString()
@@ -67,11 +65,11 @@ struct SignInWithAppleToFirebase: UIViewControllerRepresentable {
     }
 
     private func performSignIn(using requests: [ASAuthorizationRequest]) {
-        guard let currentNonce = self.currentNonce else {
+        guard let currentNonce = currentNonce else {
             return
         }
-        appleSignInDelegates = SignInWithAppleDelegates(window: nil, currentNonce: currentNonce, 
-                                                        onLoginEvent: self.onLoginEvent, isWaitingServer: $isWaitingServer)
+        appleSignInDelegates = SignInWithAppleDelegates(window: nil, currentNonce: currentNonce,
+                                                        onLoginEvent: onLoginEvent, isWaitingServer: $isWaitingServer)
 
         let authorizationController = ASAuthorizationController(authorizationRequests: requests)
         authorizationController.delegate = appleSignInDelegates
@@ -82,8 +80,8 @@ struct SignInWithAppleToFirebase: UIViewControllerRepresentable {
     // Adapted from https://auth0.com/docs/api-auth/tutorials/nonce#generate-a-cryptographically-random-nonce
     private func randomNonceString(length: Int = 32) -> String {
         precondition(length > 0)
-        let charset: Array<Character> =
-        Array("0123456789ABCDEFGHIJKLMNOPQRSTUVXYZabcdefghijklmnopqrstuvwxyz-._")
+        let charset: [Character] =
+            Array("0123456789ABCDEFGHIJKLMNOPQRSTUVXYZabcdefghijklmnopqrstuvwxyz-._")
         var result = ""
         var remainingLength = length
 
@@ -116,7 +114,7 @@ struct SignInWithAppleToFirebase: UIViewControllerRepresentable {
         let inputData = Data(input.utf8)
         let hashedData = SHA256.hash(data: inputData)
         let hashString = hashedData.compactMap {
-        return String(format: "%02x", $0)
+            String(format: "%02x", $0)
         }.joined()
 
         return hashString
@@ -124,32 +122,33 @@ struct SignInWithAppleToFirebase: UIViewControllerRepresentable {
 }
 
 class SignInWithAppleDelegates: NSObject {
-    private let onLoginEvent: ((SignInWithAppleToFirebaseResponse) -> ())?
+    private let onLoginEvent: ((SignInWithAppleToFirebaseResponse) -> Void)?
     private weak var window: UIWindow!
     private var currentNonce: String? // Unhashed nonce.
     @Binding var isWaitingServer: Bool
 
-    init(window: UIWindow?, currentNonce: String, 
-         onLoginEvent: ((SignInWithAppleToFirebaseResponse) -> ())? = nil, isWaitingServer: Binding<Bool>) {
+    init(window: UIWindow?, currentNonce: String,
+         onLoginEvent: ((SignInWithAppleToFirebaseResponse) -> Void)? = nil, isWaitingServer: Binding<Bool>)
+    {
         self.window = window
         self.currentNonce = currentNonce
         self.onLoginEvent = onLoginEvent
-        self._isWaitingServer = isWaitingServer
+        _isWaitingServer = isWaitingServer
     }
 }
 
 extension SignInWithAppleDelegates: ASAuthorizationControllerDelegate {
     func firebaseLogin(credential: ASAuthorizationAppleIDCredential) {
         guard let nonce = currentNonce else {
-          fatalError("Invalid state: A login callback was received, but no login request was sent.")
+            fatalError("Invalid state: A login callback was received, but no login request was sent.")
         }
         guard let appleIDToken = credential.identityToken else {
             ErrorLog.save("Unable to fetch identity token")
-          return
+            return
         }
         guard let idTokenString = String(data: appleIDToken, encoding: .utf8) else {
             ErrorLog.save("Unable to serialize token string from data: \(appleIDToken.debugDescription)")
-          return
+            return
         }
 
         // Initialize a Firebase credential.
@@ -157,8 +156,8 @@ extension SignInWithAppleDelegates: ASAuthorizationControllerDelegate {
                                                   idToken: idTokenString,
                                                   rawNonce: nonce)
         // Sign in with Firebase.
-        self.isWaitingServer = true
-        Auth.auth().signIn(with: credential) { (authResult, error) in
+        isWaitingServer = true
+        Auth.auth().signIn(with: credential) { authResult, error in
             if let error {
                 ErrorLog.save(error)
                 self.onLoginEvent?(.error)
@@ -173,24 +172,24 @@ extension SignInWithAppleDelegates: ASAuthorizationControllerDelegate {
         }
     }
 
-    func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
+    func authorizationController(controller _: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
         switch authorization.credential {
         case let appleIdCredential as ASAuthorizationAppleIDCredential:
-            self.firebaseLogin(credential: appleIdCredential)
-            break
+            firebaseLogin(credential: appleIdCredential)
         default:
             break
         }
     }
 
-    func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
-        self.onLoginEvent?(.error)
+    func authorizationController(controller _: ASAuthorizationController, didCompleteWithError _: Error) {
+        onLoginEvent?(.error)
     }
 }
 
 extension SignInWithAppleDelegates: ASAuthorizationControllerPresentationContextProviding {
-    func presentationAnchor(for controller: ASAuthorizationController) -> ASPresentationAnchor {
-        return self.window
+    func presentationAnchor(for _: ASAuthorizationController) -> ASPresentationAnchor {
+        return window
     }
 }
+
 // swiftlint:enable all
