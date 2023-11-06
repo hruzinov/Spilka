@@ -20,7 +20,7 @@ extension MainView {
                 let dbase = Firestore.firestore()
                 let accountRef = dbase.collection("accounts").document(accountUID)
 
-                accountRef.getDocument { user, error in
+                accountRef.addSnapshotListener { user, error in
                     if let error {
                         ErrorLog.save(error)
                     } else if let user, user.exists {

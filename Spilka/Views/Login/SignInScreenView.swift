@@ -52,9 +52,6 @@ struct SignInScreenView: View {
                             viewModel.phoneNumberChanged()
                         }
                         .focused($textFieldFocused)
-//                        .onAppear {
-//                            textFieldFocused = true
-//                        }
                         .submitLabel(.next)
                         .onSubmit {
                             guard !viewModel.isPhoneContinueButtonDisabled &&

@@ -50,9 +50,8 @@ extension ProfileCreationView {
         }
 
         func handleRegisterButton() {
-            guard let cryptoKeys, let privateKey = cryptoKeys.privateKey,
-                  let privateKeyData = try? privateKey.externalRepresentation(),
-                  let publicKeyRepresentation = cryptoKeys.publicKeyRepresentation,
+            guard let cryptoKeys, let privateKey = cryptoKeys.privateKey, let publicKey = cryptoKeys.publicKey,
+                  let privateKeyData = try? privateKey.data(), let publicKeyBase64 = try? publicKey.base64String(),
                   let uid = UserDefaults.standard.string(forKey: "accountUID")
             else {
                 isWaitingServer = false
@@ -62,6 +61,7 @@ extension ProfileCreationView {
             let keychain = KeychainSwift()
             keychain.synchronizable = true
             keychain.set(privateKeyData, forKey: "userPrivateKey_\(uid)")
+            UserDefaults.standard.set(publicKeyBase64, forKey: "userPublicKey_\(uid)")
 
             if isSaveKeyToServer {
                 guard keyCryptoPassword == keyCryptoRePassword, keyCryptoPassword != "" else {
@@ -81,7 +81,7 @@ extension ProfileCreationView {
                 profileImageID: nil,
                 username: profileUsername,
                 description: profileDescription,
-                publicKey: publicKeyRepresentation.base64EncodedString()
+                publicKey: publicKeyBase64
             )
 
             let dbase = Firestore.firestore()
@@ -122,7 +122,8 @@ extension ProfileCreationView {
                     let initVector = AES.randomIV(AES.blockSize)
 
                     let aes = try AES(key: aesKey, blockMode: CBC(iv: initVector), padding: .pkcs7)
-                    let encryptedKey = try aes.encrypt(privateKey.externalRepresentation().bytes)
+
+                    let encryptedKey = try aes.encrypt(privateKey.data().bytes)
                     let encryptedKeyHex = encryptedKey.toHexString()
 
                     let serverKeyData = ServerKeyData(keyHex: encryptedKeyHex, initVector: initVector.toHexString())
@@ -136,7 +137,7 @@ extension ProfileCreationView {
         }
 
         var privateKeyFile: CryptoKeyFile? {
-            guard let data = try? cryptoKeys?.privateKey!.externalRepresentation() else { return nil }
+            guard let data = try? cryptoKeys?.privateKey!.data() else { return nil }
             return CryptoKeyFile(data: data)
         }
     }

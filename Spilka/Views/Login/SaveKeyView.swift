@@ -45,7 +45,6 @@ struct SaveKeyView: View {
             .frame(width: screenSize.width * 0.8)
 
             if profileCreationViewModel.isSaveKeyToServer {
-//                VStack {
                 VStack {
                     Group {
                         if profileCreationViewModel.keyCryptoPasswordShow {

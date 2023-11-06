@@ -43,11 +43,12 @@ struct UserAccount: Codable {
         }
     }
 
-    static func getData(with userUID: String, completion: @escaping (_ userAccount: UserAccount?) -> Void) {
+    static func getData(with userUID: String, from: FirestoreSource = .default,
+                        completion: @escaping (_ userAccount: UserAccount?) -> Void) {
         let dbase = Firestore.firestore()
         let accountRef = dbase.collection("accounts").document(userUID)
 
-        accountRef.getDocument { user, error in
+        accountRef.getDocument(source: from) { user, error in
             if let error {
                 ErrorLog.save(error)
             } else if let user, user.exists {

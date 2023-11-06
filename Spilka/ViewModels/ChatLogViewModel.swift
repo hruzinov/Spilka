@@ -4,7 +4,7 @@
 
 import FirebaseFirestore
 import FirebaseFirestoreSwift
-import CryptoSwift
+import SwiftyRSA
 import SwiftUI
 
 extension ChatLogView {
@@ -24,27 +24,27 @@ extension ChatLogView {
             guard let pubKeyBase64 = chat?.user?.publicKey,
                 let pubKey = Data(base64Encoded: pubKeyBase64) else { return }
             do {
-                let bytedText = messageText.bytes
-                let pubKey = try RSA(rawRepresentation: pubKey)
-                let encryptedText = try pubKey.encrypt(bytedText)
+                let pubKey = try PublicKey(data: pubKey)
+                let clearText = try ClearMessage(string: messageText, using: .utf8)
+                let encryptedText = try clearText.encrypted(with: pubKey, padding: .PKCS1)
 
                 let messageOut = Message(fromID: accountUID, toID: chatId,
-                                      text: encryptedText.toHexString(), isUnread: true, dateTime: Date.now)
+                                         text: encryptedText.base64String, isUnread: true, dateTime: Date.now)
                 sendMessage(fromID: accountUID, toID: chatId, message: messageOut) { success, _  in
                     if success {
                         do {
-                            let keychain = KeychainSwift()
-                            keychain.synchronizable = true
-                            guard let privateKeyData = keychain.getData("userPrivateKey_\(self.accountUID)"),
-                                  let privateKey = try? RSA(rawRepresentation: privateKeyData) else {
+                            guard let accountPublicKeyString =
+                                    UserDefaults.standard.string(forKey: "userPublicKey_\(self.accountUID)") else {
                                 return
                             }
+                            let accountPublicKey = try PublicKey(base64Encoded: accountPublicKeyString)
 
                             var messageIn = messageOut
-                            messageIn.text = try privateKey.encrypt(bytedText).toHexString()
-                            self.sendMessage(fromID: chatId, toID: self.accountUID, message: messageIn) { _, messageId in
-                                if let messageId {
-                                    self.goToId = messageId
+                            messageIn.text =
+                                try clearText.encrypted(with: accountPublicKey, padding: .PKCS1).base64String
+                            self.sendMessage(fromID: chatId, toID: self.accountUID, message: messageIn) { _, mid in
+                                if let mid {
+                                    self.goToId = mid
                                 }
                             }
                         } catch {

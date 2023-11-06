@@ -2,19 +2,20 @@
 //  Created by Evhen Gruzinov on 20.09.2023.
 //
 
-import CryptoSwift
+import SwiftyRSA
 import FirebaseFirestoreSwift
 import SwiftUI
 import UniformTypeIdentifiers
 
 struct CryptoKeys {
-    var privateKey: RSA?
-    var publicKeyRepresentation: Data?
+    var privateKey: PrivateKey?
+    var publicKey: PublicKey?
 
     init() {
         do {
-            privateKey = try RSA(keySize: 1024)
-            publicKeyRepresentation = try privateKey!.publicKeyExternalRepresentation()
+            let keyPair = try SwiftyRSA.generateRSAKeyPair(sizeInBits: 2048)
+            privateKey = keyPair.privateKey
+            publicKey = keyPair.publicKey
         } catch {
             ErrorLog.save(error)
         }
@@ -22,13 +23,16 @@ struct CryptoKeys {
 
     static func checkValidity(privateKeyData: Data, publicKeyData: Data) -> Bool {
         do {
-            let privateKey = try RSA(rawRepresentation: privateKeyData)
-            let publicKey = try RSA(rawRepresentation: publicKeyData)
+            let privateKey = try PrivateKey(data: privateKeyData)
+            let publicKey = try PublicKey(data: publicKeyData)
             let inputString = "Hi Alice! This is Bob!"
 
-            let encrypted = try publicKey.encrypt(inputString.bytes)
-            let decrypted = try privateKey.decrypt(encrypted)
-            let outputString = String(data: Data(decrypted), encoding: .utf8)
+            let clear = try ClearMessage(string: inputString, using: .utf8)
+            let encryptedBase64 = try clear.encrypted(with: publicKey, padding: .PKCS1).base64String
+
+            let encrypted = try EncryptedMessage(base64Encoded: encryptedBase64)
+            let clearDecrypt = try encrypted.decrypted(with: privateKey, padding: .PKCS1)
+            let outputString = try clearDecrypt.string(encoding: .utf8)
 
             return inputString == outputString
         } catch {

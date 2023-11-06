@@ -85,12 +85,13 @@ struct ChatsListScreenView: View {
                         }
                     }
                     .listStyle(InsetListStyle())
+                } else if viewModel.loadingStatus == .loading {
+                    ProgressView("Loading...")
                 } else {
                     VStack(spacing: 0) {
                         Text("It's a bit empty here...")
                             .font(.title2)
                             .padding(16)
-//                            .fontWeight(900)
                         Text("Click the \(Image(systemName: "square.and.pencil")) above to start a new chat,")
                         Text("or try the search to find channels of interest")
                     }
@@ -98,11 +99,13 @@ struct ChatsListScreenView: View {
                 }
             }
             .toolbar {
-                ToolbarItem(placement: .topBarTrailing) {
-                    Button {
-                        // Writing message to new user
-                    } label: {
-                        Image(systemName: "square.and.pencil")
+                if viewModel.loadingStatus != .loading {
+                    ToolbarItem(placement: .topBarTrailing) {
+                        Button {
+                            // Writing message to new user
+                        } label: {
+                            Image(systemName: "square.and.pencil")
+                        }
                     }
                 }
             }

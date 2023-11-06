@@ -1,11 +1,9 @@
 //
-//  PrivateKeysImportViewModel.swift
-//  Spilka
-//
 //  Created by Evhen Gruzinov on 08.10.2023.
 //
 
 import CryptoSwift
+import SwiftyRSA
 import FirebaseFirestore
 import FirebaseFirestoreSwift
 import SwiftUI
@@ -28,10 +26,9 @@ class PrivateKeysImportViewModel: ObservableObject {
                       let serverKeyData = try? documentSnapstot.data(as: ServerKeyData.self)
                 else {
                     DispatchQueue.main.async {
-                        ErrorLog.save(error)
-                        self.isWaitingServer = false
+                        ErrorLog.save(error); self.isWaitingServer = false
                         self.showPrivateKeyImportMessagePrompt(error?.localizedDescription ??
-                            "Error with getting key information")
+                                                            "Error with getting key information")
                     }
                     return
                 }
@@ -54,12 +51,12 @@ class PrivateKeysImportViewModel: ObservableObject {
 
                     if CryptoKeys.checkValidity(privateKeyData: privateKeyData, publicKeyData: publicKeyData) {
                         DispatchQueue.main.async {
-                            let keychain = KeychainSwift()
-                            keychain.synchronizable = true
+                            guard let publicKeyBase64 = try? PublicKey(data: publicKeyData).base64String() else {return}
+                            let keychain = KeychainSwift(); keychain.synchronizable = true
                             keychain.set(privateKeyData, forKey: "userPrivateKey_\(uid)")
+                            UserDefaults.standard.set(publicKeyBase64, forKey: "userPublicKey_\(uid)")
 
-                            self.isWaitingServer = false
-                            self.isGoToMainView.toggle()
+                            self.isWaitingServer = false; self.isGoToMainView.toggle()
                         }
                     } else {
                         DispatchQueue.main.async {
@@ -70,9 +67,8 @@ class PrivateKeysImportViewModel: ObservableObject {
                     }
                 } catch {
                     DispatchQueue.main.async {
-                        ErrorLog.save(error)
                         self.showPrivateKeyImportMessagePrompt(error.localizedDescription)
-                        self.isWaitingServer = false
+                        ErrorLog.save(error); self.isWaitingServer = false
                     }
                     return
                 }
@@ -95,6 +91,9 @@ class PrivateKeysImportViewModel: ObservableObject {
                 let publicKeyData = Data(base64Encoded: userAccount.publicKey)!
 
                 if CryptoKeys.checkValidity(privateKeyData: privateKeyData, publicKeyData: publicKeyData) {
+                    guard let publicKeyBase64 = try? PublicKey(data: publicKeyData).base64String() else {return}
+                    UserDefaults.standard.set(publicKeyBase64, forKey: "userPublicKey_\(userAccount.uuid!)")
+
                     let keychain = KeychainSwift()
                     keychain.synchronizable = true
                     keychain.set(privateKeyData, forKey: "userPrivateKey_\(userAccount.uuid!)")

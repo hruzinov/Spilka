@@ -154,20 +154,18 @@ extension SignInScreenView {
                 } else if let user, user.exists, let userData = try? user.data(as: UserAccount.self) {
                     self.userAccount = userData
                     UserDefaults.standard.set(userUID, forKey: "accountUID")
-                    self.isGoToImportPrivateKey.toggle()
 
-                    #warning("TTT")
-//                    if let privateKeyData = keychain.getData("userPrivateKey_\(userUID)") {
-//                        self.isWaitingServer = false
-//                        if CryptoKeys.checkValidity(privateKeyData: privateKeyData,
-//                                                    publicKeyData: Data(hex: userData.publicKey)) {
-//                            self.isGoToMainView.toggle()
-//                        } else {
-//                            self.isGoToImportPrivateKey.toggle()
-//                        }
-//                    } else {
-//                        self.isGoToImportPrivateKey.toggle()
-//                    }
+                    if let privateKeyData = keychain.getData("userPrivateKey_\(userUID)") {
+                        self.isWaitingServer = false
+                        if CryptoKeys.checkValidity(privateKeyData: privateKeyData,
+                                                    publicKeyData: Data(hex: userData.publicKey)) {
+                            self.isGoToMainView.toggle()
+                        } else {
+                            self.isGoToImportPrivateKey.toggle()
+                        }
+                    } else {
+                        self.isGoToImportPrivateKey.toggle()
+                    }
                 } else {
                     UserDefaults.standard.set(userUID, forKey: "accountUID")
                     self.isGoToCreateProfile.toggle()

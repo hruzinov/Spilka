@@ -42,7 +42,6 @@ struct ProfileCreationView: View {
 
                 TextField("Full Name", text: $viewModel.profileName)
                     .keyboardType(.alphabet)
-//                    .padding(.horizontal, 5)
                     .padding(10)
                     .background(.thinMaterial,
                                 in: RoundedRectangle(cornerRadius: 10))
@@ -81,7 +80,6 @@ struct ProfileCreationView: View {
                 Button {
                     fullNameTextFieldFocused = false
                     usernameTextFieldFocused = false
-//                    viewModel.handleRegisterButton()
                     viewModel.handleGoToSaveKeys()
                 } label: {
                     RoundedRectangle(cornerRadius: 10)
